@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>MyFit | Reigster</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="../CSS/register2.css">
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+</head>
+<body>
+    <header><h1 id="mainHeading">MyFit | Register <br><a href="login.html" id="link">Login if you already have you're 24H Account setup</a></h1>
+          </header>
+    <div id="cover2" class="cover2"></div>
+
+<div id="basicDetails">
+        <h1 class="ml3">Hi<br></h1>
+        <h1 class="ml6" id="ml2">
+                <span class="text-wrapper">
+                  <span class="letters">Tell us more about yourself</span>
+                </span>
+        </h1>
+        <div id="d1">
+           <div id="fnD"> <h2 id="questions">What's Your name ?</h2>
+            <form>
+                    <input type="text" name="fname" id="input" placeholder ="First name">
+                    <input type="text" name="lname" id="input2" placeholder="Last name"><br>
+            </form>
+        </div>
+            <br>
+             <div id="dateBox">
+
+             <h2 id="questions">I Love Birthdays, Whens yours ?</h2>
+            <form>
+                   
+                        <input type="date" name="date" id="datepicker">
+                   
+                   
+            </form> </div>
+            <br>
+            <div id="gender">
+            <h2 id="questions">What's your Gender?</h2>
+            <form>
+                   
+                    
+                    <label class="container"><span id="genderText">Male</span>
+                            <input type="radio" checked="checked" name="radio">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container">><span id="genderText">Female</span>
+                            <input type="radio" name="radio">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container">><span id="genderText">Other</span>
+                            <input type="radio" name="radio">
+                            <span class="checkmark"></span>
+                        </label>   
+                    
+                   
+            </form></div>
+           
+        </div>
+        <br>
+        <br>
+         <div id="nextBox"><a><h2 id="nextText">Next</h2><h1 id="nextArrow"><i class="fa fa-arrow-down"></i></h1></div>
+        
+</div>
+<div id="physicalDetails"></div>
+<div id="registerDetails"></div>
+<div id="legalDetails"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+<script src="../JS/register2.js"></script>
+</body>
+</html>

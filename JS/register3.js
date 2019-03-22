@@ -33,15 +33,6 @@ function genRandUsername()
 
 
 }
-var config = {
-    apiKey: "AIzaSyDYQitO0eG3eFaWo2MVUQwOLT3PYwd0M0g",
-    authDomain: "hours-db878.firebaseapp.com",
-    databaseURL: "https://hours-db878.firebaseio.com",
-    projectId: "hours-db878",
-    storageBucket: "hours-db878.appspot.com",
-    messagingSenderId: "265161097807"
-  };
-  firebase.initializeApp(config);
 (function ($) {
     "use strict";
 
@@ -311,6 +302,7 @@ var config = {
     var weight="50";
     
 
+  function sendEmail(email){
 var actionCodeSettings = {
     // URL you want to redirect back to. The domain (www.example.com) for this
     // URL must be whitelisted in the Firebase Console.
@@ -327,7 +319,6 @@ var actionCodeSettings = {
     },
     dynamicLinkDomain: 'example.page.link'
   };
-  function sendEmail(email){
  // Confirm the link is a sign-in with email link.
 if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
     // Additional state parameters can also be passed via URL.

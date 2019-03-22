@@ -3,6 +3,13 @@ var cards, nCards, cover, openContent, openContentText,openContentText2, pageIsO
     openContentImage,openContentImage2,openContentHeading, closeContent, windowWidth, windowHeight, currentCard;
 var openContentH,openContentH2,openContentP,openContentP2;
 var userData={mainGoal:"",dietType:""};
+var UserInformation={
+  loginDetails:{email:"",username:"",phone:"",profileImg:"",terms:false},
+  basicDetails:{firstName:"",lastName:"",dob:"",gender:""},
+  physicalDetails:{bodyType:"",height:0.0,width:0.0},
+  goals:[{fitnessGoal:{physical:"",diet:""}}]
+}
+
 // initiate the process
 init();
 

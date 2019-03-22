@@ -41,7 +41,17 @@ function getCardElement2(el) {
     // set the current card
     userData.dietType=card.children[1].textContent;
     console.log(userData.mainGoal+"\n"+userData.dietType);
+    if (typeof(Storage) !== "undefined") {
+      // Store
+      localStorage.setItem("fitnessGoalphysical", userData.mainGoal);
+      localStorage.setItem("fitnessGoaldiet", userData.dietType);
     
+      // Retrieve
+     
+    }
+    else{
+     //use cookie
+    }
     currentCard = card;
     // add the 'clicked' class to the card, so it animates out
     currentCard.className += ' clicked';

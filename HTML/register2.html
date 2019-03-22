@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="../CSS/register2.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="../CSS/slider.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="../CSS/footer.css">
   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     
@@ -15,8 +17,9 @@
     <header><h1 id="mainHeading">MyFit | Register <br><a href="login.html" id="link">Login if you already have you're 24H Account setup</a></h1>
           </header>
     <div id="cover2" class="cover2"></div>
-
-<div id="basicDetails">
+<br>
+<br>
+<div id="basicDetails" class="info1">
         <h1 class="ml3">Hi<br></h1>
         <h1 class="ml6" id="ml2">
                 <span class="text-wrapper">
@@ -43,19 +46,19 @@
             <br>
             <div id="gender">
             <h2 id="questions">What's your Gender?</h2>
-            <form>
+            <form id="genderform">
                    
                     
                     <label class="container"><span id="genderText">Male</span>
-                            <input type="radio" checked="checked" name="radio">
+                            <input type="radio" id="genderPicked" checked="checked" name="radio" value="Male">
                             <span class="checkmark"></span>
                         </label>
-                        <label class="container">><span id="genderText">Female</span>
-                            <input type="radio" name="radio">
+                        <label class="container"><span id="genderText">Female</span>
+                            <input type="radio" name="radio" id="genderPicked" value="Female">
                             <span class="checkmark"></span>
                         </label>
-                        <label class="container">><span id="genderText">Other</span>
-                            <input type="radio" name="radio">
+                        <label class="container"><span id="genderText">Other</span>
+                            <input type="radio" id="genderPicked"name="radio" value="Other">
                             <span class="checkmark"></span>
                         </label>   
                     
@@ -63,16 +66,141 @@
             </form></div>
            
         </div>
+        <br><br>
+        <a href="#physicalDetails">
+         <div id="nextBox"><h2 id="nextText">Next</h2><h1 id="nextArrow"><i class="fa fa-arrow-down"></i></h1></div>
+        </a> 
         <br>
-        <br>
-         <div id="nextBox"><a><h2 id="nextText">Next</h2><h1 id="nextArrow"><i class="fa fa-arrow-down"></i></h1></div>
         
 </div>
-<div id="physicalDetails"></div>
-<div id="registerDetails"></div>
+<div id="physicalDetails" class="wrapper">
+    <h1 class="ml7" id="ml2">
+           
+        <span class="text-wrapper">
+          <span class="letters", id="fn">Alright, </span>
+          <br>
+          <span class="letters">Just a few more details</span>
+
+        </span>
+</h1> <a href="#basicDetails">
+                    <div id="prevBox"><h2 id="nextText">Previous</h2><h1 id="nextArrow"><i class="fa fa-arrow-up"></i></h1></div>
+                   </a> 
+<div id="bodyType">
+    <h2>Choose Your Body Type</h2>
+    <form id="btForm">
+                   
+         <div id="ectoM"> 
+             <img src="https://raw.githubusercontent.com/Rookieplays/24Hours/master/app/src/main/res/drawable/skinny_man.png" alt="" height="200" width="150" sizes="max-width:100px;max-height:100px" srcset="">
+           <label class="container2"><span  id="mybodytype">Ectomorph</span>
+                <input type="radio" checked="checked" id="mbodytype" name="bodyType" value="Ectomorph">
+                <span class="checkmark2"></span>
+            </label>
+              <h5> Lean and long, with difficulty building muscle</h5>
+            <p>Ectomorphs are good at processing carbohydrates into energy and your fast metabolism means that you burn off fat easily. The downside is that you struggle to bulk up because your fast-twitch fibres are underdeveloped. To become more muscular, you need to keep cardio sessions to a minimum and focus on intense workouts using compound exercises to maximise growth hormone release. You’ll also need to take on about 3,000 calories a day including plenty of starchy carbs and whey protein, possibly from a supplement.</p>
+        </div>   
+        <div  id="endoM">
+            <img src="https://raw.githubusercontent.com/Rookieplays/24Hours/master/app/src/main/res/drawable/fat_man.png" alt="" height="200" width="200" sizes="max-width:100px;max-height:100px" srcset="">
+           <label class="container2"><span id="mybodytype">Endomorph</span>
+                <input type="radio" id="mbodytype" name="bodyType" value="Endomorph">
+                <span class="checkmark2"></span>
+            </label>
+             <h5>Big, high body fat, often pear-shaped, with a high tendency to store body fat</h5>
+            <p>
+                Endomorphs are adept at storing fuel, with muscle and fat concentrated in the lower body. The endomorph is the hardest body type to have in terms of managing your weight and overall fitness, but to get a more balanced physique, you should focus on developing your shoulders and stripping away excess fat from your lower body. A low- to medium-intensity cardio plan will help you shift fat, as will a 1,750-calorie-a-day diet that’s high in fibre.
+            </p>
+        </div>
+        <div  id="mesoM">
+            
+                <img src="https://raw.githubusercontent.com/Rookieplays/24Hours/master/app/src/main/res/drawable/strong_man.png" alt="" height="200" width="200" sizes="max-width:100px;max-height:100px" srcset="">
+            <label class="container2"><span  id="mybodytype">Mesomorph</span>
+                <input type="radio"  id="mbodytype" name="bodyType" value="Mesomorph">
+                <span class="checkmark2"></span>
+            </label>  
+            <h5>
+                Muscular and well-built, with a high metabolism and responsive muscle cells
+            </h5>
+            <p>
+                You have the body type that finds it easiest to add new muscle and you don’t tend to store much body fat. Mesomorphs tend to take their naturally athletic builds for granted, which can result in diluted workouts and poor diets. Keeping in peak physical condition is often tempered by a scattered approach to eating and training.
+
+The key here is to make the most of your body shape. That means following a progressive plan that will make you stronger and more athletic by increasing your power without getting too bulky. To fuel your workouts, you’ll need around 2,500 calories a day, getting plenty of wholegrains but limiting your total fat intake.
+            </p>
+        </div>
+       
+</form>
+</div>
+<br>
+<br>
+<div id="heightBox">
+        <h2 style="text-align:center">What's Your Height?</h2>
+        <br>
+        <div class="value">0</div>
+        <input type="range" id="heightScale"  min="3.5" max="8" step="0.1" value="3.5" initial=3.5>
+</div>
+<br>
+<br>
+<div id="weight">  <div class="containerx">
+        <h2 style="text-align:center">What's Your Weight?</h2>
+        <br>
+                <div class="range-slider">
+                  <span id="rs-bullet" class="rs-label">0</span>
+                  <input id="rs-range-line" class="rs-range" type="range" value="0" min="0" max="200">
+                  
+                </div>
+                
+                <div class="box-minmax">
+                  <span>0</span><span>200</span>
+                </div>
+                
+              </div>
+     
+</div>
+<br>
+<br>
+<br>
+<a href="#confirmation">
+    <div id="nextBox2"><h2 id="nextText2">Next</h2><h1 id="nextArrow2"><i class="fa fa-arrow-down"></i></h1></div>
+   </a> 
+</div>
+
+<hr>
+
+<div>
+<div id="confirmation">
+<h1 id="correctMe">Alright, Correct me if i'm wrong</h1>
+    <h2 id="userDetails">
+        Your name is: <span id="fullname">?</span><br>
+        You are <span id="sex">a man</span> Born on <span id="dob">?</span>,
+        <span id="tall">0</span>ft tall and currently weigh <span id="weigh">0</span>kg<br>
+        oh and your body type is <span id="bt">Ectomorph</span>
+
+    </h2>
+    <p id="note">Note if you see ? it means you haven't provided the details</p>
+    <div style="display:inline-block">
+        <a href="#basicDetails"><button id="btn1">Not Quite</button></a>
+        <a href="register3.html"><button id="btn2">Looks Good</button></a>
+    </div>
+</div></div>
 <div id="legalDetails"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 
 <script src="../JS/register2.js"></script>
+<footer class="footer">
+    <div class="footer-right">
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-github"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="#"><i class="fa fa-instagram"></i></a>
+        
+    </div>
+    <div class="footer-left">
+        <p class="footer-links">
+            <a href="login.html" >Login |</a>
+            
+            <a href="register.html"style="color:greenyellow">Register</a>
+        </p>
+        <p>RookiePlays © 2019</p>
+        <p>24Hours™</p>
+    </div>
+</footer>
 </body>
 </html>

@@ -1,0 +1,1 @@
+var names=JSON.parse(allnames);

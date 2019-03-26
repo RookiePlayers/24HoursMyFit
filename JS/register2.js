@@ -81,7 +81,7 @@ $('.ml3').each(function(){
       var rangeSlider = document.getElementById("rs-range-line");
       var rangeBullet = document.getElementById("rs-bullet");
       
-      rangeSlider.addEventListener("input", showSliderValue, false);
+     // rangeSlider.addEventListener("input", showSliderValue, false);
       
       function showSliderValue() {
         rangeBullet.innerHTML = rangeSlider.value;
@@ -98,7 +98,7 @@ var rangeValue = function(){
   target.innerHTML = newValue+" \"";
 }
 
-elem.addEventListener("input", rangeValue);
+//elem.addEventListener("input", rangeValue);
 
 /*** animate onm scroll */
 var $window = $(window);
@@ -235,7 +235,8 @@ function runThread(){
      document.getElementById("nextBox").classList.add("next1");
     }
   }, 1000);
-document.getElementById("btn2").addEventListener("click",function (){
+}
+/*document.getElementById("btn2").addEventListener("click",function (){
   if (typeof(Storage) !== "undefined") {
     // Store
     localStorage.setItem("fn",f);
@@ -253,4 +254,21 @@ document.getElementById("btn2").addEventListener("click",function (){
   }
 });
 
-}
+}*/
+
+
+  /*==================================================================
+  [ Focus input ]*/
+  $('.inputr').each(function(){
+      $(this).on('blur', function(){
+          if($(this).val().trim() != "") {
+              $(this).addClass('has-val');
+          console.log("not empty");
+          
+          }
+          else {
+              $(this).removeClass('has-val');
+          }
+      })    
+  });
+

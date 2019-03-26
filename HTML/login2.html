@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>MyFit | Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="../CSS/login2.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="../CSS/footer.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="../CSS/header.css">
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+  
+</head>
+<body>
+  
+    
+ <div id="mainBg">
+       <img src="../Resources/Backgrounds/15002.jpg" class="bgImg" srcset="">
+       <div id="foreground">
+            <h1 id="heading">MyFit | Login</h1>
+            <div id="card">
+                    <h5 id="welcome">Welcome back!<br> I missed You</h5>
+                    <div  id="loginform">
+                       <div id="unD"class="wrap-input validate-input" data-validate="This field cannot be empty"><input type="text" name="uname" id="input" placeholder ="Enter Username"><span class="underline"></span></div> <br>
+                        <div id="pwD"class="wrap-input validate-input" data-validate="This field cannot be empty"><input type="password" name="pword" id="input2" placeholder="Enter Password"><span class="underline2"></span></div><br>
+                        <div id="linkA"><a href="forgotPassword.html" id="linkA">I Can't Remember My Password</a></div>
+                        <div id="lD"><button id="loginbtn">Login</button></div>
+                    </div>
+                    <div style="display:inline-block;margin-top: 20px">
+                        <button id="orG" style="background-color:transparent;height:30px;width:120px;border: 0px">
+                           <img src="../Resources/logos/google.png" alt="" style="height:20px;width:20px"> <p style="color:rgb(53, 53, 53);font-size:12px;text-align:center">Login with Google</p> 
+                        </button>
+                        <button id="orF" style="background-color:transparent;height:30px;width:120px; border:0px">
+                        <img src="../Resources/logos/facebook.png" alt="" style="height:30px;width:30px"> <p style="color:rgb(53, 53, 53);font-size:12px;text-align:center">Login with Google</p> 
+                            </button>
+                    </div>
+                   
+                    <div id="link"><a href="register.html" id="link">Not A member? Register here</a></div> 
+             
+       </div>
+ </div>
+
+   <footer class="footer">
+        <div class="footer-right">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-github"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            
+        </div>
+        <div class="footer-left">
+            <p class="footer-links">
+               
+                
+                <a href="login2.html"style="color:greenyellow">Login</a>
+                <a href="register.html"style="color:white">| Register</a>
+            </p>
+            <p>RookiePlays © 2019</p>
+            <br>
+            <p>24Hours™</p>
+        </div>
+
+    </footer>
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+    <!-- Firebase App is always required and must be first -->
+     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
+
+     <!-- Add additional services that you want to use -->
+     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
+    
+        <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDYQitO0eG3eFaWo2MVUQwOLT3PYwd0M0g",
+            authDomain: "hours-db878.firebaseapp.com",
+            databaseURL: "https://hours-db878.firebaseio.com",
+            projectId: "hours-db878",
+            storageBucket: "hours-db878.appspot.com",
+            messagingSenderId: "265161097807"
+        };
+        firebase.initializeApp(config);
+        </script>
+         <script src="../JS/login.js"></script>
+</body>
+</html>

@@ -934,6 +934,9 @@ input, textarea, select, button, meter, progress {
   visibility: visible;
   opacity: 1;
 }
+.validate-input {
+  position: relative;
+}
 
 @media (max-width: 1024px ) {
 .vl{

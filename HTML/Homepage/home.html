@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="../../CSS/Homepage/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <h1>Welcome to MyFit</h1>
+    <p id="email"></p>
+    <p id="emailverified"></p>
+    
+        <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+        <!-- Firebase App is always required and must be first -->
+         <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
+    
+         <!-- Add additional services that you want to use -->
+         <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
+        
+            <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyDYQitO0eG3eFaWo2MVUQwOLT3PYwd0M0g",
+                authDomain: "hours-db878.firebaseapp.com",
+                databaseURL: "https://hours-db878.firebaseio.com",
+                projectId: "hours-db878",
+                storageBucket: "hours-db878.appspot.com",
+                messagingSenderId: "265161097807"
+            };
+            firebase.initializeApp(config);
+            </script>
+           <script src="../../JS/Home/main.js"></script>
+</body>
+</html>

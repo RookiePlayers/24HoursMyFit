@@ -6,6 +6,7 @@
     <title>MyFit | Reigster</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
     <link rel="stylesheet" type="text/css" media="screen" href="../CSS/register2.css">
     <link rel="stylesheet" type="text/css" media="screen" href="../CSS/slider.css">
     <link rel="stylesheet" type="text/css" media="screen" href="../CSS/footer.css">
@@ -14,10 +15,121 @@
     
 </head>
 <body>
-    <header><h1 id="mainHeading">MyFit | Register <br><a href="login.html" id="link">Login if you already have you're 24H Account setup</a></h1>
-          </header>
-    <div id="cover2" class="cover2"></div>
-<br>
+   <h1 id="mainHeading">MyFit | Register <br><a href="login.html" id="link">Login if you already have you're 24H Account setup</a></h1>
+         
+        <div id="regcont">
+            <div id="basicDetails " class="info1 card">
+           
+                    <div id="d1">
+                       <div id="fnD"> <h2 id="questions">What's Your name ?</h2>
+                        <form>
+                                <div class="wrap-input validate-input" data-validate="This field cannot be empty" >
+                                       
+                                        <input type="text" class="inputr" id="fname">
+                                      <span class="focus-input" data-placeholder="First name" id="fnameValid">
+                                         </span></div>
+                               
+                                <div class="wrap-input validate-input" data-validate="This field cannot be empty" >
+                                              
+                                                <input type="text" class="inputr" id="lname">
+                                              <span class="focus-input" data-placeholder="Last name" id="lnameValid">
+                                                 </span></div>
+                                </div>
+                                <div style="width:330px;text-align: center">
+                                    <i class="fa fa-birthday-cake"style="text-align:center"></i>
+                                </div>
+                                    <h2 id="questions">When were you born?</h2>
+                               
+                                <div class="wrap-input validate-input" data-validate="This field cannot be empty" >
+                                              
+                                        <input type="date"  class="inputr birthday-val"  name="date" id="datepicker">
+                               
+                                      <span class="focus-input" data-placeholder="Birthday" id="lnameValid">
+                                         </span></div>
+                        </div> 
+                        <div style="width:330px;text-align: center">
+                                <i class="fas fa-restroom"style="text-align:center"></i>
+                            </div>
+                        <h2 id="questions">What's your Gender?</h2>
+                        <div id="gender">
+                              <label class="container"><span id="genderText">Male</span>
+                                                <input type="radio" id="genderPicked" checked="checked" name="radio" value="Male">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="container"><span id="genderText">Female</span>
+                                                <input type="radio" name="radio" id="genderPicked" value="Female">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="container"><span id="genderText">Other</span>
+                                                <input type="radio" id="genderPicked"name="radio" value="Other">
+                                                <span class="checkmark"></span>
+                                            </label>   
+                                        
+                                   
+                            </div>
+                        </form>
+                    </div>
+                   </div>   
+                    
+            
+            <div id="physicaldtails " class=" card">
+           
+                    <div id="d2">
+                       <div id="fnD"> <h2 id="questions">What's Your name ?</h2>
+                        <form>
+                                <div class="wrap-input validate-input" data-validate="This field cannot be empty" >
+                                       
+                                        <input type="text" class="inputr" id="fname">
+                                      <span class="focus-input" data-placeholder="First name" id="fnameValid">
+                                         </span></div>
+                               
+                                <div class="wrap-input validate-input" data-validate="This field cannot be empty" >
+                                              
+                                                <input type="text" class="inputr" id="lname">
+                                              <span class="focus-input" data-placeholder="Last name" id="lnameValid">
+                                                 </span></div>
+                                </div>
+                                <div style="width:330px;text-align: center">
+                                    <i class="fa fa-birthday-cake"style="text-align:center"></i>
+                                </div>
+                                    <h2 id="questions">When were you born?</h2>
+                               
+                                <div class="wrap-input validate-input" data-validate="This field cannot be empty" >
+                                              
+                                        <input type="date"  class="inputr birthday-val"  name="date" id="datepicker">
+                               
+                                      <span class="focus-input" data-placeholder="Birthday" id="lnameValid">
+                                         </span></div>
+                        </div> 
+                        <div style="width:330px;text-align: center">
+                                <i class="fas fa-restroom"style="text-align:center"></i>
+                            </div>
+                        <h2 id="questions">What's your Gender?</h2>
+                        <div id="gender">
+                              <label class="container"><span id="genderText">Male</span>
+                                                <input type="radio" id="genderPicked" checked="checked" name="radio" value="Male">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="container"><span id="genderText">Female</span>
+                                                <input type="radio" name="radio" id="genderPicked" value="Female">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="container"><span id="genderText">Other</span>
+                                                <input type="radio" id="genderPicked"name="radio" value="Other">
+                                                <span class="checkmark"></span>
+                                            </label>   
+                                        
+                                   
+                            </div>
+                        </form>
+                    </div>
+                      
+                    
+            </div>
+    </div>
+    
+   
+<!--br>
 <br>
 <div id="basicDetails" class="info1">
         <h1 class="ml3">Hi<br></h1>
@@ -180,7 +292,7 @@ The key here is to make the most of your body shape. That means following a prog
         <a href="register3.html"><button id="btn2">Looks Good</button></a>
     </div>
 </div></div>
-<div id="legalDetails"></div>
+<div id="legalDetails"></div-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 
 <script src="../JS/register2.js"></script>

@@ -168,7 +168,7 @@ margin-bottom: 180px;
          
 }
 .card2{
-  width: 340px;
+  width: 500px;
   height: 600px;
   background: #fff;
   border-radius: 10px;
@@ -176,6 +176,7 @@ margin-bottom: 180px;
   padding: 50px 55px 30px 55px;
   margin: 20px;
   margin-bottom: 60px;
+ 
   box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
@@ -828,14 +829,15 @@ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubun
   position: relative;
 }
 
-@media (max-width: 1024px ) {
+@media (max-width: 997px ) {
 .vl{
     border-left: 0px solid rgba(0, 128, 0, 0);
   
 }
-.legalBox{
-  margin-top: 50px;
-  margin-left:00px;
+.select-items {
+  
+  left: 50%;
+ 
 }
 }
 .validate-input {
@@ -901,7 +903,7 @@ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubun
 #heightcont{
   padding: 12px;
   text-align: right;
-   width: 50%;
+   width: 65%;
   height:100%;
   background: #fff;
   border-radius: 10px;
@@ -934,7 +936,7 @@ input[type='range'] {
   font-size: 1em;
   
   cursor: pointer;
-  transform: rotate(90deg) translate(45%,160%);
+  transform: rotate(90deg) translate(42%,340%);
  
 }
 
@@ -1095,7 +1097,7 @@ _:-ms-input-placeholder, :root input[type='range'] {
   background-color: rgba(50, 135, 168, 0.24);
   width: 50px;
   text-align: left;
-  transform: translate(0px,40px)
+  transform: translate(0px,20px)
 }
 
 /*style the arrow inside the select element:*/
@@ -1145,4 +1147,188 @@ _:-ms-input-placeholder, :root input[type='range'] {
 
 .select-items div:hover, .same-as-selected {
   background-color: rgba(0, 0, 0, 0.1);
+}
+
+/*ABOUT*/
+#about{
+  text-align: left;
+  width:220px;
+ height:260px;
+ background: #fff;
+ border-radius: 10px;
+ overflow: hidden;
+ padding: 20px;
+ position: absolute;
+ z-index: 3;
+transform: translate(-50px,-620px);
+ box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+ -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+ -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+ -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+ -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+ flex-wrap: wrap;
+ display: flex;
+ 
+
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ font-size: 8px;
+}
+
+.Acontainer {
+  
+  height:230px;
+}
+
+ul.ks-cboxtags {
+  list-style: none;
+  padding: 10px;
+}
+ul.ks-cboxtags li{
+display: inline;
+}
+ul.ks-cboxtags li label{
+  display: inline-block;
+  background-color: rgba(255, 255, 255, .9);
+  border: 2px solid rgba(139, 139, 139, .3);
+  color: #adadad;
+  border-radius: 25px;
+  white-space: nowrap;
+  margin: 3px 0px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: all .2s;
+}
+
+ul.ks-cboxtags li label {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+ul.ks-cboxtags li label::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 12px;
+  padding: 2px 6px 2px 2px;
+  content: "\f067";
+  transition: transform .3s ease-in-out;
+}
+
+ul.ks-cboxtags li input[type="checkbox"]:checked + label::before {
+  content: "\f00c";
+  transform: rotate(-360deg);
+  transition: transform .3s ease-in-out;
+}
+
+ul.ks-cboxtags li input[type="checkbox"]:checked + label {
+  border: 2px solid #1bdbf8;
+  background-color: #12bbd4;
+  color: #fff;
+  transition: all .2s;
+}
+
+ul.ks-cboxtags li input[type="checkbox"] {
+display: absolute;
+}
+ul.ks-cboxtags li input[type="checkbox"] {
+position: absolute;
+opacity: 0;
+}
+ul.ks-cboxtags li input[type="checkbox"]:focus + label {
+border: 2px solid #e9a1ff;
+}
+
+/*WEIGHT*/
+#weigthcont{
+  text-align: right;
+  width:230px;
+ height:230px;
+ background: #fff;
+ border-radius: 10px;
+ overflow: hidden;
+ padding: 20px;
+ position: absolute;
+ z-index: 3;
+transform: translate(-50px,-270px);
+ box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+ -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+ -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+ -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+ -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+}
+.circle {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  background-color: #504c52;
+  border-radius: 50%;
+  width: 50%;
+  height: 25%;
+  padding-bottom: 25%;
+  transform: translate3d(-50%, -50%, 0);
+  box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+ -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+ -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+ -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+ -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+}
+.circle:before {
+  content: "";
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  background-color: #ecf0f1;
+  border-radius: 50%;
+  top: 5%;
+  left: 5%;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.circle .dot {
+  position: absolute;
+  width: 10%;
+  height: 55%;
+  left: 47.5%;
+  top: 0;
+  transform: rotate(0deg);
+  transform-origin: center bottom;
+}
+
+.circle .dot:before {
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.315);
+  -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.26);
+  -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.363);
+  -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.336);
+  -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.329);
+  width: 200%;
+  transform: translate3d(-25%, -25%, 0);
+  height: 0;
+  padding-bottom: 200%;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.debug {
+  color: #9b59b6;
+  font-family: monospace;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  z-index: 100;
+  font-size: 3vw;
+}
+*::selection{
+  background-color: transparent;
+  
 }

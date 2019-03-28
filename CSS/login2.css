@@ -56,6 +56,18 @@ html, body{
    color: aqua;
    animation: grow 0.3s ease-in-out forwards;
  }
+ 
+@-webkit-keyframes slide-in {
+  0% {
+    
+            opacity: 0;
+  }
+  100% {
+ 
+            opacity: 1;
+  }
+}
+
  #card{
      background: rgb(255, 255, 255);
      width: 400px;
@@ -70,7 +82,10 @@ html, body{
      -webkit-animation: fade 3s linear;
      animation: fade 1s linear;
      z-index:2;
-          
+     opacity:0;
+     animation: slide-in 0.55s cubic-bezier(0.250, 0.460, 0.550, 0.940) forwards;
+           
+  
  }
  #orG{
    

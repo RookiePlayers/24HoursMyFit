@@ -89,18 +89,34 @@ $('.ml3').each(function(){
         rangeBullet.style.left = (bulletPosition * 56) + "vw";
       }
       
-     //height
- var elem = document.querySelector('#heightScale');
- var height=3.5;
+     
+     
+ 
+  function feetToCm(feet){
+        return feet*30.48;
+      }
+      function cmToFeet(cm){
+        return cm/30.48;
+      }
+    
+     function heightchange(){
+      var x = document.getElementById("hmatrix").value;
+      console.log("You selected: " + x);
+    }
+      //height
+ var elem = document.querySelector('.heightM');
+ var height=5.6;
 var rangeValue = function(){
   var newValue = height=elem.value;
-  var target = document.querySelector('.value');
-  target.innerHTML = newValue+" \"";
+  var target = document.querySelector('#heightnum');
+  console.log(20-newValue);
+  
+  target.innerHTML = (Math.round((20-newValue)* 10) / 10 )+" \"";
 }
 
-//elem.addEventListener("input", rangeValue);
+elem.addEventListener("input", rangeValue);
 
-/*** animate onm scroll */
+/*** animate onm scroll 
 var $window = $(window);
 var $elem1=$("#basicDetails");
 var $elem2=$("#physicalDetails");
@@ -150,7 +166,7 @@ console.log("now you see me");
 
 });
 
-
+*/
 
 
 
@@ -168,7 +184,7 @@ function getRadioVal(form, name) {
   }
   return val; // return value of checked radio or undefined if none checked
 }
-runThread();
+//runThread();
 var fname=document.getElementById("input");
 var lname=document.getElementById("input2");
 var dob=document.getElementById("datepicker");
@@ -351,9 +367,16 @@ document.addEventListener("click", closeAllSelect);
     var is_dragging;
     is_dragging = false;
     $(document).on("mousedown touchstart", ".circle", function (e) {
+       $(".dot").addClass('dot2');
+       $(".dot").removeClass('dot');
+       console.log("mousedown");
+       
+   
       return is_dragging = true;
     });
     $(document).on("mouseup touchend", function (e) {
+      $(".dot2").addClass('dot');
+      $(".dot").removeClass('dot2');
       return is_dragging = false;
     });
     return $(window).on("mousemove touchmove", function (e) {
@@ -377,6 +400,7 @@ document.addEventListener("click", closeAllSelect);
         }
         angle = Math.round(angle);
         $(".dot").css("transform", "rotate(" + angle + "deg)");
+        $(".dot2").css("transform", "rotate(" + angle + "deg)");
         return $(".debug").html(angle + "<sub style='font-size: 18px'>kg</sub>");
       }
     });
@@ -385,3 +409,13 @@ document.addEventListener("click", closeAllSelect);
 }).call(this);
 
 //# sourceURL=coffeescript
+
+document.addEventListener('DOMContentLoaded',function() {
+  document.querySelector('select[name="hmatrix"]').onchange=changeEventHandler;
+},false);
+
+function changeEventHandler(event) {
+  // You can use “this” to refer to the selected element.
+  if(!event.target.value) alert('Please Select One');
+  else alert('You like ' + event.target.value + '.'); 
+}

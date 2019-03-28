@@ -73,8 +73,8 @@
                         <div id=heightcont>
                                 <div style="display:inline">
                                     <div class="custom-select" style="width:200px;">
-                                        <select>
-                                          <option value="0">Ft </option>
+                                        <select id="hmatrix" name="hmatrix">
+                                          <option value="0" id="hm">Ft </option>
                                           <option value="1">Ft </option>
                                           <option value="2">Cm</option>
                                           
@@ -100,8 +100,8 @@
                             border-bottom: 1px solid rgba(14,19,24,.15);
                              margin: 7px 0;">  
                             <div id="height">
-                                <p style="position:absolute;z-index:1;font-size:50px;  font-family: 'Dosis', Helvetica, Arial, sans-serif;">5.6<sup>"</sup></p>
-                            <input class="heightM" style="position:absolute;z-index:1;" type='range' min='3.0' max='20' step='0.1' value='15.6'/>
+                                <p id="heightnum"style="position:absolute;z-index:1;font-size:50px;  font-family: 'Dosis', Helvetica, Arial, sans-serif;">5.6<sup>"</sup></p>
+                            <input class="heightM" style="position:absolute;z-index:1;" type='range' min='0' max='20' step='0.1' value='14.6'/>
                                 <img src="../Resources/characters/giraffe-idle.gif" style="height: 500px;width: 500px;position: absolute;z-index: 0; transform: translate(-67%,3%)"alt="" srcset="">                        </div>
                         </div>
                         <div id="about">
@@ -167,9 +167,9 @@
                             border: none;
                             border-bottom: 1px solid rgba(14,19,24,.15);
                              margin: 7px 0;">    
-                            <div class='debug'>70<sub style="font-size: 18px">kg</sub></div>
+                            <div  onmousedown="return false" class='debug'>70<sub style="font-size: 18px">kg</sub></div>
                             <div class='circle'>
-                              <div class='dot'></div>
+                              <div class='dot' id="circledot"></div>
                             </div>
                             
                       </div>

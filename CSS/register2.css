@@ -28,7 +28,7 @@ html, body{
   background-position: center;
   
   background-size: cover;
-  background-color: rgba(255, 255, 255, 0.555);
+  background-color: rgba(255, 255, 255, 0.678);
   background-blend-mode: soft-light;
     z-index: -1; 
  }
@@ -60,6 +60,8 @@ position:relative;
 
  }
  #nextArrow{
+   /*<i class="fa fa-angle-double-right"></i>*/
+   content:"ddd";
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 24px;
  
@@ -162,7 +164,27 @@ margin-bottom: 180px;
     -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
     -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
     -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-         
+    opacity: 0;
+    animation: slide-right 0.60s cubic-bezier(0.250, 0.460, 0.550, 0.940) .5s forwards; 
+  
+}
+.card.out{
+  width: 340px;
+  height: 600px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 50px 55px 30px 55px;
+  margin: 20px;
+  margin-bottom: 60px;
+  box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+ 
+  animation: slide-right-out 0.60s ease-out  forwards; 
+
 }
 .card2{
   width: 500px;
@@ -179,9 +201,28 @@ margin-bottom: 180px;
   -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
   -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
   -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-       
+  opacity: 0;animation: slide-right 0.60s cubic-bezier(0.250, 0.460, 0.550, 0.940) .6s forwards; 
+  
 }
+.card2.out2{
+   width: 500px;
+  height: 600px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 50px 55px 30px 55px;
+  margin: 20px;
+  margin-bottom: 60px;
  
+  box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+ 
+  animation: slide-right-out 0.60s ease-out  forwards; 
+
+}
   
   #link{
     text-align: center;
@@ -820,6 +861,19 @@ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubun
     }
   }
 
+  @-webkit-keyframes slide-right-out {
+    0% {
+      -webkit-transform: translateX(0px);
+              transform: translateX(0px);
+              opacity: 1;
+    }
+    100% {
+      -webkit-transform: translateX(1000px);
+              transform: translateX(1000px);
+              opacity: 0;
+    }
+  }
+
   
 @keyframes bounce_up {
   0% {
@@ -931,6 +985,8 @@ z-index: 4;
   transform: translateY(-90px);
   box-shadow: 0px 3px 8px rgba(0,0,0,0.25);
   border-radius: 2px;
+  
+  
 }
 .button {
   background: #3D4C53;
@@ -943,7 +999,26 @@ z-index: 4;
   cursor : pointer;
   border-radius: 3px;
   box-shadow: 0px 1px 2px rgba(0,0,0,.2);
+  opacity: 0;
+  animation: slide-right 0.60s cubic-bezier(0.250, 0.460, 0.550, 0.940) .75s forwards; 
+  
 }
+.button.out {
+  background: #3D4C53;
+  margin : 20px auto;
+  width : 200px;
+  height : 50px;
+  overflow: hidden;
+  text-align : center;
+  transition : .2s;
+  cursor : pointer;
+  border-radius: 3px;
+  box-shadow: 0px 1px 2px rgba(0,0,0,.2);
+
+  animation: slide-right-out 0.60s ease-out  forwards; 
+
+}
+
 .btnTwo {
   position : relative;
   width : 200px;
@@ -1424,6 +1499,9 @@ transform: translate(-50px,-270px);
   transform: translate3d(-50%, -50%, 0);
   z-index: 100;
   font-size: 40px;
+}
+.inputr::selection{
+  background-color: #d4f7ff
 }
 *::selection{
   background-color: transparent;

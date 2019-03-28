@@ -1,4 +1,4 @@
-
+resetValues();
 $('.ml3').each(function(){
     $(this).html($(this).text().replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>"));
   });
@@ -113,12 +113,12 @@ function kgToPounds(kg){
     }
       //height
  var elem = document.querySelector('.heightM');
- var height=5.6;
+ var height;
 var rangeValue = function(){
   var newValue = height=elem.value;
   var target = document.querySelector('#heightnum');
   console.log(20-newValue);
-  
+  currentHeight=(Math.round((20-newValue)* 10) / 10 );
   target.innerHTML = (Math.round((20-newValue)* 10) / 10 )+" \"";
 }
 
@@ -198,17 +198,23 @@ function getRadioVal(form, name) {
 var fnameElem=document.getElementById("fname");
 var lnameElem=document.getElementById("lname");
 var dobElem=document.getElementById("datepicker");
-var genderElem=document.getElementById("genderPicked");
+var genderElem=document.getElementsByName("radio");
 var input = $('.validate-input .inputr');
 
-var fname=document.getElementById("fname");
-var lname=document.getElementById("lname");
-var dob=document.getElementById("datepicker");
-var gender=document.getElementById("genderPicked");
+var fname=localStorage.getItem("fn");
+var lname=localStorage.getItem("ln");
+var dob=localStorage.getItem("dob");
+var gender=localStorage.getItem("gender");
 
 console.log(document.getElementById("genders"));
 
-gender=getRadioVal(document.getElementById("genders"),'radio');
+document.getElementById("genders").addEventListener("change",function(){
+  
+  
+  gender=getRadioVal(document.getElementById("genders"),'radio');
+  console.log(gender);
+})
+
 
 
 
@@ -233,7 +239,7 @@ lnameElem.addEventListener("change",function () {
   if(validatefield(lnameElem.value)){
     
     hideValidate(input[1]);
-    lname=lnameElem;
+    lname=lnameElem.value;
   }
   else{
     showValidate(input[1]);
@@ -361,6 +367,7 @@ function runThread(){
 });
 
 }*/
+
 
 
   /*==================================================================
@@ -599,6 +606,43 @@ function changeEventHandler(event) {
   else alert('You like ' + event.target.value + '.'); 
 }
 
+var problemAreas=["Belly-fat","Small Legs","Weak Back","Glutes"];
+function checkboxclicked(id) {
+  var elem=document.getElementById(id);
+  var val=elem.value;
+ 
+  if(elem.checked){
+    if(!problemAreas.includes(val))problemAreas.push(val);
+  }else{
+    if(problemAreas.includes(val))problemAreas=problemAreas.filter(function(value, index, arr){
+
+      return value !=val;
+  
+  });
+  }
+
+  
+}
+$("#checkboxOne").on("change",function(){
+  checkboxclicked("checkboxOne")});
+  $("#checkboxTwo").on("change",function(){
+    checkboxclicked("checkboxTwo")});
+    $("#checkboxThree").on("change",function(){
+      checkboxclicked("checkboxThree")});
+      $("#checkboxFour").on("change",function(){
+        checkboxclicked("checkboxFour")});
+        $("#checkboxFive").on("change",function(){
+          checkboxclicked("checkboxFive")});
+          $("#checkboxSix").on("change",function(){
+            checkboxclicked("checkboxSix")});
+            $("#checkboxSeven").on("change",function(){
+              checkboxclicked("checkboxSeven")});
+              $("#checkboxEight").on("change",function(){
+                checkboxclicked("checkboxEight")});
+                $("#checkboxNine").on("change",function(){
+                  checkboxclicked("checkboxNine")});
+              
+  
 
 
 
@@ -606,12 +650,7 @@ function changeEventHandler(event) {
 $('.button').on('click',function(){
 
 
-  console.log(
-    "First name: "+fname+
-    "Last name: "+lname+
-    "Dob: "+dob+
-    "Gender: "+gender
-  );
+
 
   var check = true;
 
@@ -623,8 +662,52 @@ $('.button').on('click',function(){
   }
   if(check)
   {
+    var w=70;
+      if(isKg){
+        w=currentWeight;
+      }
+      else{
+        w=poundsToKg(currentWeight);
+      }
+      console.log(currentHeight);
       
-     
+      var h=5.6;
+      if(isFeet){
+        h=currentHeight;
+      }
+      else{
+        h=cmToFeet(currentHeight);
+      }
+      
+
+
+          console.log(
+      "First name: "+fname+
+      "\nLast name: "+lname+
+      "\nDob: "+dob+
+      "Gender: "+gender+"\n"+
+      "Height: "+h+"\n"+
+      "Weight: "+w+"\n"
+    );
+    problemAreas.forEach(element => {
+      console.log(element);
+      
+    });
+    storeValuesinLocalStorage(
+      fname,
+      lname,
+      dob,
+      gender,
+      h,
+      w,
+      problemAreas
+    );
+    setTimeout(() => {
+   window.location.href="../HTML/register3.html";
+    }, 350);
+    $(".card").toggleClass("out");
+    $(".card2").toggleClass("out2");
+    $(".button").toggleClass("out");
   }
   else{
      
@@ -632,3 +715,64 @@ $('.button').on('click',function(){
   }
 
 });
+function storeValuesinLocalStorage(fname,lname,dob,gender,height,weight,problemAreas){
+  if (typeof(Storage) !== "undefined") {
+    // Store
+    localStorage.setItem("fn",fname);
+    localStorage.setItem("ln",lname);
+    localStorage.setItem("dob",dob);
+    localStorage.setItem("gender",gender);
+    localStorage.setItem("height",height);
+    localStorage.setItem("weight",weight);
+    localStorage.setItem("problemAreas",problemAreas);
+
+  
+    // Retrieve
+   
+  }
+ 
+
+
+}
+  function resetValues(){
+    console.log("resetting value");
+    
+    var firstName=localStorage.getItem("fn");
+    
+      document.getElementById("fname").value=firstName;
+      $("#fname").addClass("has-val");
+    
+    var lastName=localStorage.getItem("ln");
+    $("#lname").addClass("has-val");
+      document.getElementById("lname").value=lastName;
+    
+    var d=localStorage.getItem("dob");
+    $("#dob").addClass("has-val");
+      document.getElementById("datepicker").value=d;
+
+      var g=localStorage.getItem("gender");
+      if(g==="Male")
+      document.getElementsByClassName("male").checked = true;
+      else   if(g==="Female")
+      document.getElementsByClassName("female").checked = true;
+      else if(g==="Other")
+      document.getElementsByClassName("other").checked = true;
+    
+      var ht=localStorage.getItem("height");
+      var elem = document.querySelector('.heightM');
+      document.getElementsByClassName("heightM")[0].value=20-ht;
+      document.getElementById('heightnum').innerHTML=ht+"\"";
+
+     /* var wt=localStorage.getItem("weight");
+      var elem = document.querySelector('.weightM');
+      elem.value=wt;
+      document.getElementById('#weightnum').value=wt;
+*/
+var angle=localStorage.getItem("weight");
+      $(".dot").css("transform", "rotate(" + angle + "deg)");
+
+   $(".debug").html(angle + "<sub style='font-size: 18px'>kg</sub>");
+  
+
+  }
+  

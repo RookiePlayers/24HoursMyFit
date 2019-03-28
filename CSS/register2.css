@@ -26,7 +26,7 @@ html, body{
 
   /* Center and scale the image nicely */
   background-position: center;
-  background-repeat: no-repeat;
+  
   background-size: cover;
   background-color: rgba(255, 255, 255, 0.555);
   background-blend-mode: soft-light;
@@ -56,30 +56,27 @@ html, body{
    top:20%;
     z-index: 1;
 position:relative;
-margin-bottom: 180px;
-opacity: 0;
-/**/
-animation: slide-right 0.60s cubic-bezier(0.250, 0.460, 0.550, 0.940) 3.75s forwards; 
-    
+
 
  }
  #nextArrow{
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 3vw;
+  font-size: 24px;
  
-  color: white;
-  margin-block-start: 10px;
+  color: rgb(83, 83, 83);
+  margin-block-start: 0;
   margin-block-end: 0;
 
   
  }
  #nextText{
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 2vw;
+  font-size: 18px;
   font-style: italic;
-  color: white;
+  color: rgb(99, 99, 99);
   margin-block-start: 0;
   margin-block-end: 0;
+  text-decoration: none
  
   
  }
@@ -388,6 +385,65 @@ transition: all 0.4s;
 
 }
 
+/*INCORRECT INPUT*/
+.focus-input-incorrect{
+  position: absolute;
+  display:block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none
+}
+.focus-input-incorrect{
+  position: absolute;
+  display:block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none
+}
+.focus-input-incorrect::before{
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+
+  background: #fe6a6a;
+  background: -webkit-linear-gradient(left, #fd5421, #ff2121);
+  background: -o-linear-gradient(left, #fd5421, #ff2121);
+  background: -moz-linear-gradient(left, #fd5421, #ff2121);
+  background: linear-gradient(left, #fd5421, #ff2121);
+}
+.focus-input-incorrect::after{
+  font-family: Poppins-Regular;
+font-size: 15px;
+color: #e45a5a;
+line-height: 1.2;
+
+content: attr(data-placeholder);
+display: block;
+width: 100%;
+position: absolute;
+top: 15px;
+left: 0px;
+padding-left: 5px;
+
+-webkit-transition: all 0.4s;
+-o-transition: all 0.4s;
+-moz-transition: all 0.4s;
+transition: all 0.4s;
+
+}
 .validate-input {
   position: relative;
 }
@@ -430,6 +486,23 @@ input, textarea, select, button, meter, progress {
 .has-val.inputr + .focus-input::before{
   width: 100%;
 }
+
+.inputr:focus + .focus-input-incorrect::after  {
+  top: -15px;
+}
+
+.inputr:focus + .focus-input-incorrect::before {
+  width: 100%;
+}
+.has-val.inputr+ .focus-input-incorrect::after {
+  top: -15px;
+}
+
+.has-val.inputr+ .focus-input-incorrect::before {
+  width: 100%;
+}
+
+
 /****/
  /* The container */
 .container {
@@ -787,7 +860,7 @@ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubun
   transform: translateY(-50%);
   right: 0px;
   pointer-events: none;
-
+z-index: 4;
   font-family: Poppins-Regular;
   color: #f04b4b;
   font-size: 13px;
@@ -855,7 +928,7 @@ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubun
   margin: 0 auto;
   position: relative;
   top: 50%;
-  transform: translateY(-65%);
+  transform: translateY(-90px);
   box-shadow: 0px 3px 8px rgba(0,0,0,0.25);
   border-radius: 2px;
 }

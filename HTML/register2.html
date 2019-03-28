@@ -51,8 +51,10 @@
                                 <i class="fas fa-restroom"style="text-align:center"></i>
                             </div>
                         <h2 id="questions">What's your Gender?</h2>
+                         </form><form id="genders">
                         <div id="gender">
-                              <label class="container"><span id="genderText">Male</span>
+                           
+                               <label class="container"><span id="genderText">Male</span>
                                                 <input type="radio" id="genderPicked" checked="checked" name="radio" value="Male">
                                                 <span class="checkmark"></span>
                                             </label>
@@ -65,18 +67,23 @@
                                                 <span class="checkmark"></span>
                                             </label>   
                                         
-                                   
+                                 
                             </div>
-                        </form>
+                          </form>
+                       
+                        <br><br>
+                        <a href="#physicaldetails">
+                         <div id="nextBox"><h1 id="nextArrow"><i class="fa fa-angle-double-right"></i></h1></div>
+                        </a> 
                     </div>
                     <div id="physicaldetails " class=" card2">
                         <div id=heightcont>
                                 <div style="display:inline">
                                     <div class="custom-select" style="width:200px;">
-                                        <select id="hmatrix" name="hmatrix">
-                                          <option value="0" id="hm">Ft </option>
-                                          <option value="1">Ft </option>
-                                          <option value="2">Cm</option>
+                                        <select id="hm" name="hmatrix">
+                                          <option value="ft" id="hm">Ft </option>
+                                          <option value="ft">Ft </option>
+                                          <option value="cm">Cm</option>
                                           
                                         </select>
                                       </div>
@@ -100,7 +107,7 @@
                             border-bottom: 1px solid rgba(14,19,24,.15);
                              margin: 7px 0;">  
                             <div id="height">
-                                <p id="heightnum"style="position:absolute;z-index:1;font-size:50px;  font-family: 'Dosis', Helvetica, Arial, sans-serif;">5.6<sup>"</sup></p>
+                                <p id="heightnum"style="position:absolute;z-index:1;font-size:50px;  font-family: 'Dosis', Helvetica, Arial, sans-serif;">5.6<sup id="hmtag">"</sup></p>
                             <input class="heightM" style="position:absolute;z-index:1;" type='range' min='0' max='20' step='0.1' value='14.6'/>
                                 <img src="../Resources/characters/giraffe-idle.gif" style="height: 500px;width: 500px;position: absolute;z-index: 0; transform: translate(-67%,3%)"alt="" srcset="">                        </div>
                         </div>
@@ -121,15 +128,15 @@
                              margin: 7px 0;">       
                             <ul class="ks-cboxtags">
                                         <li><input type="checkbox" id="checkboxOne" value="Chest-Growth"><label for="checkboxOne">Chest-Growth</label></li>
-                                        <li><input type="checkbox" id="checkboxTwo" value="Chest-fat" checked><label for="checkboxTwo">Chest-fat</label></li>
+                                        <li><input type="checkbox" id="checkboxTwo" value="Chest-fat"><label for="checkboxTwo">Chest-fat</label></li>
                                         <li><input type="checkbox" id="checkboxThree" value="Belly-fat" checked><label for="checkboxThree">Belly-fat</label></li>
                                         <li><input type="checkbox" id="checkboxFour" value="Obliques"><label for="checkboxFour">Obliques</label></li>
-                                        <li><input type="checkbox" id="checkboxFive" value="Small Legs"><label for="checkboxFive">Small Legs</label></li>
+                                        <li><input type="checkbox" id="checkboxFive" value="Small Legs"checked><label for="checkboxFive">Small Legs</label></li>
                                         <li><input type="checkbox" id="checkboxSix" value="Weak Back" checked><label for="checkboxSix">Weak Back</label></li>
         
                                         <li><input type="checkbox" id="checkboxSeven" value="Arm-Growth"><label for="checkboxSeven">Arm-Growth</label></li>
                                         <li><input type="checkbox" id="checkboxEight" value="Core"><label for="checkboxEight">Core</label></li>
-                                        <li><input type="checkbox" id="checkboxNine" value="Glutes"><label for="checkboxNine">Glutes
+                                        <li><input type="checkbox" id="checkboxNine" value="Glutes" checked><label for="checkboxNine">Glutes
                                       
                                       </ul>
                                     
@@ -141,9 +148,9 @@
                                 <div style="display:inline">
                                     <div class="custom-select" style="width:200px;">
                                         <select>
-                                          <option value="0">Kg </option>
-                                          <option value="1">Kg </option>
-                                          <option value="2">Pounds</option>
+                                          <option value="kg">Kg </option>
+                                          <option value="kg">Kg </option>
+                                          <option value="lb">lb</option>
                                           
                                         </select>
                                       </div>
@@ -167,7 +174,7 @@
                             border: none;
                             border-bottom: 1px solid rgba(14,19,24,.15);
                              margin: 7px 0;">    
-                            <div  onmousedown="return false" class='debug'>70<sub style="font-size: 18px">kg</sub></div>
+                            <div  onmousedown="return false" class='debug'>10<sub style="font-size: 18px" id=wmatrix>kg</sub></div>
                             <div class='circle'>
                               <div class='dot' id="circledot"></div>
                             </div>

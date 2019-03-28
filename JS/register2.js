@@ -91,16 +91,24 @@ $('.ml3').each(function(){
       
      
      
- 
+ var isFeet=true;
+ var isKg=true;
   function feetToCm(feet){
-        return feet*30.48;
+        return Math.floor(feet*30.48);
       }
       function cmToFeet(cm){
-        return cm/30.48;
+        return (Math.round((cm/30.48)* 10) / 10 );
       }
-    
+function kgToPounds(kg){
+  return(Math.round(kg*2.2046))
+}function poundsToKg(lb){
+  return(Math.round(lb/2.2046))
+}
+
+      document.getElementById("hm").onchange=function(){console.log("tap");
+       heightchange()};
      function heightchange(){
-      var x = document.getElementById("hmatrix").value;
+      var x = document.getElementById("hm").value;
       console.log("You selected: " + x);
     }
       //height
@@ -185,11 +193,92 @@ function getRadioVal(form, name) {
   return val; // return value of checked radio or undefined if none checked
 }
 //runThread();
-var fname=document.getElementById("input");
-var lname=document.getElementById("input2");
+
+
+var fnameElem=document.getElementById("fname");
+var lnameElem=document.getElementById("lname");
+var dobElem=document.getElementById("datepicker");
+var genderElem=document.getElementById("genderPicked");
+var input = $('.validate-input .inputr');
+
+var fname=document.getElementById("fname");
+var lname=document.getElementById("lname");
 var dob=document.getElementById("datepicker");
 var gender=document.getElementById("genderPicked");
-var fullnameelem=document.getElementById("fullname");
+
+console.log(document.getElementById("genders"));
+
+gender=getRadioVal(document.getElementById("genders"),'radio');
+
+
+
+fnameElem.addEventListener("change",function () {
+  console.log(fnameElem.value);
+    
+  if(validatefield(fnameElem.value)){
+    
+    hideValidate(input[0]);
+    fname=fnameElem.value;
+
+  }
+  else{
+    showValidate(input[0]);
+    fname="";
+  }
+});
+
+lnameElem.addEventListener("change",function () {
+  console.log(lnameElem.value);
+    
+  if(validatefield(lnameElem.value)){
+    
+    hideValidate(input[1]);
+    lname=lnameElem;
+  }
+  else{
+    showValidate(input[1]);
+    lname="";
+  }
+})
+dobElem.addEventListener("change",function () {
+  
+  if(validatefield(dobElem.value)){
+    dob=dobElem.value;
+    hideValidate(input[2])
+  }
+  else{
+    showValidate(input[2]);
+  }
+})
+
+function validatefield(val){
+  console.log(val);
+  
+  if (val == '')
+  {
+    return false;
+  }
+  else return true;
+}
+
+function showValidate(input) {
+  
+  var thisAlert = $(input).parent();
+  $(thisAlert).addClass('alert-validate');
+ 
+}
+
+function hideValidate(input) {
+  var thisAlert = $(input).parent();
+  $(thisAlert).removeClass('alert-validate');
+
+
+}
+
+
+
+
+
 var dobelem=document.getElementById("dob");
 var genderelem=document.getElementById("sex");
 var bt=document.getElementById("bt");
@@ -199,6 +288,7 @@ var weightelem=document.getElementById("weigh");
  var f=l="";
  var userGender="";
  var userBodyType="";
+ 
 function runThread(){
   var x= setInterval(() => {
  
@@ -288,7 +378,8 @@ function runThread(){
       })    
   });
 
-
+var currentHeight=5.6;
+var currentWeight=70;
 
 var x, i, j, selElmnt, a, b, c;
 /*look for any elements with the class "custom-select":*/
@@ -318,6 +409,88 @@ for (i = 0; i < x.length; i++) {
           if (s.options[i].innerHTML == this.innerHTML) {
             s.selectedIndex = i;
             h.innerHTML = this.innerHTML;
+            
+            console.log(s.options[s.selectedIndex].value);
+            
+            /**What happens when an item is selected */
+            switch(s.options[s.selectedIndex].value){
+              case "ft":{
+                if(isFeet){
+                   document.getElementById("heightnum").innerHTML=currentHeight+"\""
+                }
+                else{
+                  document.getElementById("heightnum").innerHTML = cmToFeet(currentHeight)+"\"";
+                  currentHeight=cmToFeet(currentHeight)
+                   isFeet=true;
+                }
+                rangeValue = function(){
+                  var newValue = height=elem.value;
+                  currentHeight=(Math.round((20-elem.value)* 10) / 10 )
+                  var target = document.querySelector('#heightnum');
+                  
+                  target.innerHTML = (Math.round((20-newValue)* 10) / 10 )+" \"";
+                 /// target.innerHTML = cmToFeet(currentHeight)+"<sub style='font-size:24px'>cm<sub>";
+                 
+                 
+                }
+                
+                elem.addEventListener("input", rangeValue);
+              }break;
+              case "cm":{
+                if(!isFeet){
+                  console.log("Current: cm");
+                  
+                  document.getElementById("heightnum").innerHTML=currentHeight+"<sub style='font-size:24px'>cm<sub>";
+               }
+               else{
+                console.log("Current: ft");
+                 document.getElementById("heightnum").innerHTML = feetToCm(currentHeight)+"<sub style='font-size:24px'>cm<sub>";;
+                 currentHeight=feetToCm(currentHeight);
+                  isFeet=false;
+               }
+              
+                rangeValue = function(){
+                  var newValue = height=elem.value;
+                  var target = document.querySelector('#heightnum');
+                  currentHeight=feetToCm((Math.round((20-newValue)* 10) / 10 ));
+                  
+                  target.innerHTML = feetToCm((Math.round((20-newValue)* 10) / 10 ))+"<sub style='font-size:24px'>cm<sub>";
+                  
+                }
+                
+                elem.addEventListener("input", rangeValue);
+              }break;
+              case "kg":{
+                
+                  if(isKg){
+                    $(".debug").html((currentWeight)+"<sub style='font-size:24px'>kg<sub>");
+                  }
+                  else{
+                    $(".debug").html(poundsToKg(currentWeight)+"<sub style='font-size:24px'>kg<sub>");
+               
+                    currentWeight=poundsToKg(currentWeight)
+                     isKg=true;
+                  }
+              }break;
+              case "lb":{
+                if(!isKg){
+                  console.log("Current: lb");
+                  
+                  $(".debug").html((currentWeight)+"<sub style='font-size:24px'>lb<sub>");
+               
+               }
+               else{
+                console.log("Current: kg");
+                 $(".debug").html(kgToPounds(currentWeight)+"<sub style='font-size:24px'>lb<sub>");
+                 currentWeight=kgToPounds(currentWeight);
+                  isKg=false;
+               }
+              }break;
+            }
+
+
+            /*** */
+
             y = this.parentNode.getElementsByClassName("same-as-selected");
             for (k = 0; k < y.length; k++) {
               y[k].removeAttribute("class");
@@ -369,8 +542,7 @@ document.addEventListener("click", closeAllSelect);
     $(document).on("mousedown touchstart", ".circle", function (e) {
        $(".dot").addClass('dot2');
        $(".dot").removeClass('dot');
-       console.log("mousedown");
-       
+     
    
       return is_dragging = true;
     });
@@ -401,7 +573,14 @@ document.addEventListener("click", closeAllSelect);
         angle = Math.round(angle);
         $(".dot").css("transform", "rotate(" + angle + "deg)");
         $(".dot2").css("transform", "rotate(" + angle + "deg)");
-        return $(".debug").html(angle + "<sub style='font-size: 18px'>kg</sub>");
+        if(isKg){
+          currentWeight=angle;
+          return $(".debug").html(angle + "<sub style='font-size: 18px'>kg</sub>");
+          
+        }else{
+          currentWeight=kgToPounds(angle);
+          return $(".debug").html(kgToPounds(angle) + "<sub style='font-size: 18px'>lb</sub>");
+        }
       }
     });
   });
@@ -419,3 +598,37 @@ function changeEventHandler(event) {
   if(!event.target.value) alert('Please Select One');
   else alert('You like ' + event.target.value + '.'); 
 }
+
+
+
+
+/***Hit Send */
+$('.button').on('click',function(){
+
+
+  console.log(
+    "First name: "+fname+
+    "Last name: "+lname+
+    "Dob: "+dob+
+    "Gender: "+gender
+  );
+
+  var check = true;
+
+  for(var i=0; i<input.length; i++) {
+      if(validatefield($(input[i]).val()) == false){
+          showValidate(input[i]);
+          check=false;
+      }
+  }
+  if(check)
+  {
+      
+     
+  }
+  else{
+     
+    $('html, body').animate({ scrollTop: 0 }, 'fast');
+  }
+
+});

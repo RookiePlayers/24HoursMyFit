@@ -1,8 +1,9 @@
-
+var fullphone="";
 var telInput = $("#phone"),
+
 errorMsg = $("#error-msg"),
 validMsg = $("#valid-msg");
-
+var countryCode;
 // initialise plugin
 telInput.intlTelInput({
 
@@ -23,7 +24,8 @@ separateDialCode: true,
 initialCountry: "auto",
 geoIpLookup: function(callback) {
 $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
-  var countryCode = (resp && resp.country) ? resp.country : "";
+   countryCode = (resp && resp.country) ? resp.country : "";
+  
   callback(countryCode);
 });
 },
@@ -39,8 +41,16 @@ validMsg.addClass("hide");
 // on blur: validate
 telInput.blur(function() {
 reset();
+
+
+
 if ($.trim(telInput.val())) {
   if (telInput.intlTelInput("isValidNumber")) {
+    
+  
+    fullphone=getFullphone(document.getElementsByClassName("selected-dial-code")[0].textContent,$.trim(telInput.val()));
+    
+    console.log(fullphone);
     validMsg.removeClass("hide");
   } else {
     telInput.addClass("error");
@@ -48,8 +58,16 @@ if ($.trim(telInput.val())) {
   }
 }
 });
-
+function getFullphone(CC,phone){
+if(phone.startsWith("0")){
+  return CC+phone.substring(1,phone.length)
+}
+return CC+phone;
+}
 // on keyup / change flag: reset
-telInput.on("keyup change", reset);
+telInput.on("keyup", reset);
+telInput.on("change", reset);
+
+
 
 

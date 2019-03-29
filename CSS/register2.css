@@ -967,6 +967,18 @@ z-index: 4;
  
 }
 }
+@media(max-width:500px){
+  .card2{
+    height:1200px;
+  }
+  #heightcont{
+    width:500px;
+  }
+    #weigthcont{
+    transform: translate(-550px,-270px);
+  }
+  
+}
 .validate-input {
   position: relative;
 }
@@ -1084,7 +1096,7 @@ input[type='range'] {
   font-size: 1em;
   
   cursor: pointer;
-  transform: rotate(90deg) translate(42%,340%);
+  transform: rotate(90deg) translate(42%,360%);
  
 }
 

@@ -6,13 +6,24 @@
         "use strict";
     
     document.getElementById('loginbtn').onclick=function(){
-        signIn()
+      
+        if(signIn()){
+            //
+            firebase.auth().onAuthStateChanged(user => {
+                if(user) {
+                    location.replace("../HTML/Homepage/home.html"); //After successful login, user will be redirected to home.html
+                }
+              });
+        }else{
+            alert("Try Again!");
+        }
     };
 
 
     
     function signIn(){
-      
+      removeValidate(document.getElementById('input'));
+      removeValidate(document.getElementById('input2'));
     
     if( document.getElementById('input').value.includes("@")){
         email= document.getElementById('input').value;
@@ -29,11 +40,16 @@
             firebase.auth().signInWithEmailAndPassword(username, password)
         .catch(function(err) {
         // Handle errors
-        console.log(err.message());
+        console.log(err.code);
+        if(err.code==="auth/invalid-email")
+        showValidate(document.getElementById('input'));
+        else     if(err.code==="auth/invalid-email")  showValidate(document.getElementById('input'));
+        else 
+        showValidate(document.getElementById('input2'));
         
         return false;
         });
-        location.replace("../HTML/Homepage/home.html");
+        
         return true;
     }
     }
@@ -49,6 +65,9 @@
         }else showValidate(document.getElementById('input2'))
 
 
+    }
+    function userNotFound(){
+        
     }
     function showValidate(input) {
         var thisAlert = $(input).parent();

@@ -37,13 +37,16 @@ crossorigin="anonymous">
           </div>
           <div class="user-info">
             <span class="user-name">
-              <strong>Guest</strong>
+              <p id="uname">
+                 <strong>Guest</strong>
+              </p>
+             
             </span>
-            <span class="user-fitpoints" style="font-color: rgb(231, 189, 3);font-size: 16px">100<sub>Fp</sub></span>
+            <span class="user-fitpoints" style="font-color: rgb(231, 189, 3);font-size: 16px"id="fitPoints">0<sub>Fp</sub></span>
            <div>
-                <span class="user-followers" style="font-color: white;font-size: 14px;margin-right: 6px;">0 Followers</span>
+                <span class="user-followers" style="font-color: white;font-size: 14px;margin-right: 6px;"id="followingCount">0 Followers</span>
                 •
-                <span class="user-following" style="font-color: white;font-size: 14px;margin-left: 6px;">0 Following</span>
+                <span class="user-following" style="font-color: white;font-size: 14px;margin-left: 6px;"id="followersCount">0 Following</span>
             
             </div>
             <span class="user-status">
@@ -100,46 +103,64 @@ crossorigin="anonymous">
             <li class="sidebar-dropdown">
               <a href="#">
                 <i class="fa fa-shopping-cart"></i>
-                <span>E-commerce</span>
+                <span>Profile</span>
                 <span class="badge badge-pill badge-danger">3</span>
               </a>
               <div class="sidebar-submenu">
                 <ul>
                   <li>
-                    <a href="#">Products
+                    <a href="#">MyProfile
   
                     </a>
                   </li>
                   <li>
-                    <a href="#">Orders</a>
+                      <a href="#">MyFollowers</a>
+                    </li>
+                    <li>
+                        <a href="#">MyFollowings</a>
+                      </li>
+                  <li>
+                    <a href="#">MyDownloads</a>
                   </li>
                   <li>
-                    <a href="#">Credit cart</a>
+                    <a href="#">MyWorkoutPlans</a>
                   </li>
+                  <li>
+                      <a href="#">MyMealPlans</a>
+                    </li>
+                    <li>
+                        <a href="#">MyFavourites</a>
+                      </li>
+                      <li>
+                          <a href="#">MyGallery</a>
+                      </li>
+                      <li>
+                          <a href="#">MyHistory</a>
+                        </li>
                 </ul>
               </div>
             </li>
             <li class="sidebar-dropdown">
               <a href="#">
                 <i class="far fa-gem"></i>
-                <span>Components</span>
+                <span>Achievments</span>
               </a>
               <div class="sidebar-submenu">
                 <ul>
                   <li>
-                    <a href="#">General</a>
+                    <a href="#">Diamond</a>
                   </li>
                   <li>
-                    <a href="#">Panels</a>
+                    <a href="#">Ruby</a>
                   </li>
                   <li>
-                    <a href="#">Tables</a>
+                    <a href="#">Emerald</a>
                   </li>
                   <li>
-                    <a href="#">Icons</a>
+                    <a href="#">Onyx</a>
                   </li>
                   <li>
-                    <a href="#">Forms</a>
+                    <a href="#">Quartz</a>
                   </li>
                 </ul>
               </div>
@@ -147,63 +168,55 @@ crossorigin="anonymous">
             <li class="sidebar-dropdown">
               <a href="#">
                 <i class="fa fa-chart-line"></i>
-                <span>Charts</span>
+                <span>Stats</span>
               </a>
               <div class="sidebar-submenu">
                 <ul>
                   <li>
-                    <a href="#">Pie chart</a>
+                    <a href="#">How Active am I</a>
                   </li>
                   <li>
-                    <a href="#">Line chart</a>
+                    <a href="#">Contribution</a>
                   </li>
                   <li>
-                    <a href="#">Bar chart</a>
+                    <a href="#">Impact</a>
                   </li>
-                  <li>
-                    <a href="#">Histogram</a>
-                  </li>
+                 
                 </ul>
               </div>
             </li>
             <li class="sidebar-dropdown">
               <a href="#">
                 <i class="fa fa-globe"></i>
-                <span>Maps</span>
+                <span>Chats</span>
               </a>
               <div class="sidebar-submenu">
                 <ul>
+                 
                   <li>
-                    <a href="#">Google maps</a>
-                  </li>
-                  <li>
-                    <a href="#">Open street map</a>
+                    <!---The recent chats show here-->
+                    <a href="#">Open Chats</a>
                   </li>
                 </ul>
               </div>
             </li>
             <li class="header-menu">
-              <span>Extra</span>
+              <span>24Hours</span>
             </li>
             <li>
               <a href="#">
                 <i class="fa fa-book"></i>
-                <span>Documentation</span>
+                <span>MyLifestyle</span>
                 <span class="badge badge-pill badge-primary">Beta</span>
               </a>
             </li>
             <li>
               <a href="#">
                 <i class="fa fa-calendar"></i>
-                <span>Calendar</span>
+                <span>myEdu</span>
               </a>
             </li>
-            <li>
-              <a href="#">
-                <i class="fa fa-folder"></i>
-                <span>Examples</span>
-              </a>
-            </li>
+           
           </ul>
         </div>
         <!-- sidebar-menu  -->
@@ -222,7 +235,7 @@ crossorigin="anonymous">
           <i class="fa fa-cog"></i>
           <span class="badge-sonar"></span>
         </a>
-        <a href="#">
+        <a href="#" onclick="openForm()">
           <i class="fa fa-power-off"></i>
         </a>
       </div>
@@ -270,11 +283,42 @@ crossorigin="anonymous">
           </div>
         </div>
       </div>
-  
+      
+      <div class="form-popup" id="myForm">
+          <form action="/action_page.php" class="form-container">
+            <h1>Logout</h1>
+        
+            <label for="psw"><b>Please confirm Your Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+        
+            <button type="submit" class="btn" onclick="logout()"><i class="fa fa-power-off"></i></button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+          </form>
+        </div>
+        
+      
     </main>
     <!-- page-content" -->
+    
   </div>
   <!-- page-wrapper -->
+  <script>
+    function logout(){
+      firebase.auth().signOut().then(function() {
+      // Sign-out successful.
+        window.location.href
+    }).catch(function(error) {
+      // An error happened.
+      });
+    }
+      function openForm() {
+        document.getElementById("myForm").style.display = "block";
+      }
+      
+      function closeForm() {
+        document.getElementById("myForm").style.display = "none";
+      }
+      </script>
         <!--Navbar on small screen-->    
         <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
         <!-- Firebase App is always required and must be first -->
@@ -284,6 +328,7 @@ crossorigin="anonymous">
          <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
          <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-storage.js"></script>
          <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
+         <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-firestore.js"></script>
         
         
             <script>

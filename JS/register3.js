@@ -1,5 +1,47 @@
+
+
 var imgurl = "";
 var file;
+
+var Achievements={
+    Diamonds:[{name:"Shine Bright Like A Diamond",description:"Completed Your First WorkoutPlan",date:new Date().getTime(),img:"",rarity:"Common"}],
+    Ruby:[{name:"Stunned",description:"Like 40 Picture",date:new Date().getTime(),img:"",rarity:"Common"}],
+    Emerald:[{name:"Lights, Camera, Action",description:"Upload your First Video",img:"",date:new Date().getTime(),rarity:"Common"}],
+    Onyx:[{name:"Oou, That Felt Gooood",description:"Complete A full Stretch",img:"",date:new Date().getTime(),rarity:"Common"}],
+    Quarts:[{name:"And So It Begins",description:"Use MyFit For The First Time",img:"",date:new Date().getTime(),rarity:"Common"}]
+}
+var bio= "Welcome to MyFit";
+var jcole="WDSFER43f56353433c5";
+var Gallery={uid:"D31d34f45f56g",pId:"edcd3d342f45f67",vId:"",type:"photo"}
+var Profile={
+    Achievements:Achievements,
+    FitPoint:200,
+    Bio:bio,
+    Followers:[jcole],
+    Following:[jcole],
+    MyGallery:[Gallery],
+    Chats:[],
+    Favourite:[],
+    SavedWorkouts:[],
+    SavedWorkoutPlans:[],
+    SavedVideo:[],
+    SavedMealPlans:[],
+    SavedArticles:[],
+    Groups:[],
+}
+
+
+function addProfiletoDB(userId){
+    var db = firebase.firestore();
+    db.collection("MyFit").doc(userId).set({Profile:Profile})
+    .then(function(docRef) {
+        window.location.replace("../HTML/Homepage/home.html")
+        console.log("Document written with ID: ", docRef.id);
+    })
+    .catch(function(error) {
+        console.error("Error adding document: ", error);
+    });
+}
 function previewFile() {
     var preview = document.querySelector('img'); //selects the query named img
     file = document.querySelector('input[type=file]').files[0]; //sames as here
@@ -374,7 +416,8 @@ function genRandUsername() {
         };
         //sign Up New User
         signUpNewUser(email, password);
-        sendEmail(email);
+      
+            sendEmail(email);
         /**profileimg */
 
         firebase.auth().onAuthStateChanged(function (user) { //or use firebase.auth().currentUser;
@@ -390,7 +433,7 @@ function genRandUsername() {
                     var storageRef = storage.ref();
                     
                     // Upload file and metadata to the object 'images/mountains.jpg'
-                    var uploadTask = storageRef.child(user.uid + '/images/' + file.name).put(file, metadata);
+                    var uploadTask = storageRef.child("Users/"+user.uid + '/images/' + file.name).put(file, metadata);
                     uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
                         function (snapshot) {
                             // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
@@ -425,19 +468,27 @@ function genRandUsername() {
                             // Upload completed successfully, now we can get the download URL
                             uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
                                 user.updateProfile({photoURL: downloadURL});
+                                imgurl=downloadURL;
+                                console.log(imgurl);
+                                user.updateProfile({displayName:username});
+                                signToDatabase(UserInformation,user.uid);
+                
 
                             });
 
-
+                            
 
                         });  /*---------- */
 
 
-                }
-                
+                    
+                }else
+            {
                 user.updateProfile({displayName:username});
                 signToDatabase(UserInformation,user.uid);
-
+            }
+                
+               
                 
 
 
@@ -445,6 +496,7 @@ function genRandUsername() {
                 // No user is signed in.
             }
         });
+    
         //wait for email confirmation
         //sign To Database
         //navigate Home
@@ -458,16 +510,23 @@ function genRandUsername() {
             // Handle Errors here.
             let errorCode = error.code;
             let errorMessage = error.message;
+            if(errorCode=="auth/email-already-in-use"){
+                userExists=true;
+                $("#emailVarification").html("<p>Sorry this user already has an Account <br><button style='background-color:transparent;border:0px;font-size:12px;color:teal'>Login in Here</button></p>");
+                alert("Sorry User Already has an account")
+            }
+            console.log(errorCode);
+            
             return false;
         });
-        alert("Sined up!");
-
+        
         return true;
     }
     function signToDatabase(userinformation,userId) {
       
     
             firebase.database().ref('Users/' + userId).set(userinformation);
+            addProfiletoDB(userId);
           
     }
 
@@ -482,7 +541,7 @@ function genRandUsername() {
     //BASIC DETAILS
     //PHYSICAL DETAILS
     //LOGIN DETAILS
-
+var userExists=false;
 $(".btnz").on("click",function() {
     var check = true;
 
@@ -494,7 +553,10 @@ $(".btnz").on("click",function() {
     }
     console.log("Name: " + $("#uname").val() + "\n" + "Email: " + $("#email").val() + "\nPhone: " + $("#phone").val());
     if ($("#uname").val() != '' && $("#pword").val() != '' && $("#email").val() && $("#phone").val() != '') {
-        saveUserInfo(
+       
+firebase.auth().signOut().then(function() {
+    // Sign-out successful. 
+    saveUserInfo(
             $("#uname").val(),
             $("#email").val(),
             $("#pword").val(),
@@ -502,6 +564,10 @@ $(".btnz").on("click",function() {
            fullphone,
             imgurl
         )
+    }).catch(function(error) {
+    // An error happened.
+    });
+    
 
         check = false;
     }

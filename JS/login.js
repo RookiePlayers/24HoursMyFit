@@ -69,6 +69,15 @@
     function userNotFound(){
         
     }
+    function LoginWithUsername(username){
+        
+    }
+    function LoginWithGoogle(){
+
+    }
+    function LoginWithFacebook(){
+
+    }
     function showValidate(input) {
         var thisAlert = $(input).parent();
 

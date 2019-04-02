@@ -32,7 +32,7 @@ if (user) {
     document.getElementById("uname").innerHTML=(UserInformation.LoginDetails.username);
     let db = firebase.firestore();
 
-    UserInformation.LoginDetails.profileImg!=""?document.getElementById("profilePicture").src=UserInformation.LoginDetails.profileImg:UserInformation.UserDetails.gender.toLowerCase()=="female"?document.getElementById("profilePicture").src="http://primacollisionrepairs.co.nz/wp-content/uploads/2018/06/user-female-icon.png":document.getElementById("profilePicture").src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg";
+    UserInformation.LoginDetails.profileImg!=""?document.getElementById("profilePicture").src=user.photoURL:UserInformation.UserDetails.gender.toLowerCase()=="female"?document.getElementById("profilePicture").src="http://primacollisionrepairs.co.nz/wp-content/uploads/2018/06/user-female-icon.png":document.getElementById("profilePicture").src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg";
   db.collection("MyFit").doc(user.uid)
     .onSnapshot(function(doc) {
         console.log("Current data: ", doc.data());
@@ -155,10 +155,12 @@ window.location.replace("../../HTML/login2.html")
     // Handle Errors here.
     let errorCode = error.code;
     let errorMessage = error.message;
+    console.log(errorCode)
     valid=false;
       document.getElementById("err").innerHTML=errorMessage;
   });
-  setTimeout(() => {console.log(valid);
+  setTimeout(() => {
+    console.log(valid);
     if(valid){
       document.getElementById("err").innerHTML="";
       firebase.auth().signOut().then(function() {

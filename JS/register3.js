@@ -522,13 +522,7 @@ function genRandUsername() {
         
         return true;
     }
-    function signToDatabase(userinformation,userId) {
-      
-    
-            firebase.database().ref('Users/' + userId).set(userinformation);
-            addProfiletoDB(userId);
-          
-    }
+   
 
 
 

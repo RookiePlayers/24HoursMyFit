@@ -6,7 +6,8 @@
     <title>Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="../../CSS/Homepage/main.css">
-    <link rel="stylesheet" href="../../CSS/sidebar-themes.css">
+    <link rel="stylesheet" href="../../CSS/Homepage/sidebar-themes.css">
+   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -15,7 +16,7 @@
 crossorigin="anonymous">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
 crossorigin="anonymous">
-<link rel="stylesheet" href="//malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="http://malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.min.css">
 
 </head>
 <body>
@@ -23,41 +24,45 @@ crossorigin="anonymous">
 <div class="page-wrapper default-theme sidebar-bg bg1 toggled">
     <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
       <i class="fas fa-bars"></i>
-    </a>
+    </a
+    >
     <nav id="sidebar" class="sidebar-wrapper">
       <div class="sidebar-content">
-        <div class="sidebar-brand">
-          <a href="#">MyFit</a>
-          <div id="close-sidebar">
-            <i class="fas fa-times"></i>
+          <!-- sidebar-brand  -->
+          <div class="sidebar-item sidebar-brand">
+              <a href="#" style="text-decoration:none">MyFit</a>
+              <button style="background-color: transparent;border:0;color:white"id="pin-sidebar" href="#"><i class="fas fa-thumbtack"></i></button>
+              <button style="background-color: transparent;border:0;color:white"id="toggle-sidebar" href="#"><i class="fa fa-close "></i></button>
           </div>
-        </div>
-        <div class="sidebar-header">
-          <div class="user-pic">
-            <img class="img-responsive img-rounded" id="profilePicture" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
-              alt="User picture">
-          </div>
-          <div class="user-info">
-            <span class="user-name">
-              <p id="uname">
-                 <strong>Guest</strong>
-              </p>
-             
-            </span>
-            <span class="user-fitpoints" style="font-color: rgb(231, 189, 3);font-size: 16px"id="fitPoints">0<sub>Fp</sub></span>
-           <div>
-                <span class="user-followers" style="font-color: white;font-size: 14px;margin-right: 6px;"id="followingCount">0 Followers</span>
-                •
-                <span class="user-following" style="font-color: white;font-size: 14px;margin-left: 6px;"id="followersCount">0 Following</span>
-            
+          <!-- sidebar-header  -->
+          <div class="sidebar-item sidebar-header d-flex flex-nowrap">
+            <div class="user-pic">
+                <img class="img-responsive img-rounded"  id="profilePicture" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
+                alt="User picture">
             </div>
-            <span class="user-status">
-              <i class="fa fa-circle"></i>
-              <span>Online</span>
-            </span>
-          </div>
+            <div class="user-info">
+                <span class="user-name">
+                    <strong id=uname>Guest</strong>
+                </span>
+                <span class="user-fitpoints" style="font-color: rgb(231, 189, 3);font-size: 16px"id="fitPoints">0<sub>Fp</sub></span>
+                <span class="user-status">
+                    <i class="fa fa-circle"></i>
+                    <span>Online</span>
+                </span>
+            </div>   
+        <div class="follows" style="position: absolute;transform: translate(-15px,80px)">
+          <span class="user-followers" style="font-color: white;font-size: 14px;margin-right: 6px;"id="followingCount">0 Followers</span>
+          |
+          <span class="user-following" style="font-color: white;font-size: 14px;margin-left: 6px;"id="followersCount">0 Following</span>
+      
+      </div>
+          
         </div>
+          
+            
+       
         <!-- sidebar-header  -->
+        
         <div class="sidebar-item sidebar-search">
           <div>
             <div class="input-group">
@@ -79,7 +84,7 @@ crossorigin="anonymous">
             <li class="sidebar-dropdown">
               <a href="#">
                 <i class="fa fa-globe"></i>
-                <span>community</span>
+                <span style="margin-right:5px;">community</span>
                 <span class="badge badge-pill badge-warning">New</span>
               </a>
               <div class="sidebar-submenu">
@@ -149,7 +154,7 @@ crossorigin="anonymous">
             <li class="sidebar-dropdown">
               <a href="#">
                 <i class="fa fa-id-badge"></i>
-                <span>Profile</span>
+                <span style="margin-right:5px;">Profile</span>
                 <span class="badge badge-pill badge-danger">3</span>
               </a>
               <div class="sidebar-submenu">
@@ -252,7 +257,7 @@ crossorigin="anonymous">
             <li>
               <a href="#">
                 <i class="fa fa-book"></i>
-                <span>MyLifestyle</span>
+                <span style="margin-right:5px;">MyLifestyle</span>
                 <span class="badge badge-pill badge-primary">Beta</span>
               </a>
             </li>
@@ -266,9 +271,11 @@ crossorigin="anonymous">
           </ul>
         </div>
         <!-- sidebar-menu  -->
-      </div>
+      
       <!-- sidebar-content  -->
-      <div class="sidebar-footer">
+    </div>
+    <!-- sidebar-footer  -->
+    <div class="sidebar-footer">
         <div class="dropdown">
 
             <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -341,7 +348,7 @@ crossorigin="anonymous">
                 <a class="dropdown-item" href="#">
                     <div class="message-content">
                         <div class="pic">
-                            <img src="img/user.jpg" alt="">
+                            <img src="../../img/user.jpg" alt="">
                         </div>
                         <div class="content">
                             <div class="message-title">
@@ -356,7 +363,7 @@ crossorigin="anonymous">
                 <a class="dropdown-item" href="#">
                     <div class="message-content">
                         <div class="pic">
-                            <img src="img/user.jpg" alt="">
+                            <img src="../../img/user.jpg" alt="">
                         </div>
                         <div class="content">
                             <div class="message-title">
@@ -371,7 +378,7 @@ crossorigin="anonymous">
                 <a class="dropdown-item" href="#">
                     <div class="message-content">
                         <div class="pic">
-                            <img src="img/user.jpg" alt="">
+                            <img src="../../img/user.jpg" alt="">
                         </div>
                         <div class="content">
                             <div class="message-title">
@@ -398,79 +405,112 @@ crossorigin="anonymous">
                 <a class="dropdown-item" href="#">Setting</a>
             </div>
         </div>
-        <a href="#" onclick="openForm()">
-          <i class="fa fa-power-off" style="color:red;animation: swing ease-in-out 0.5s 1 alternate;text-shadow: 2px 2px 4px #ff2929;"></i>
-        </a>
+        <div>
+            <a href="#" onclick="openForm()">
+                <i class="fa fa-power-off" style="color:red;animation: swing ease-in-out 0.5s 1 alternate;text-shadow: 2px 2px 4px #ff2929;"></i>
+            </a>
+        </div>
         <div class="pinned-footer">
-          <a href="#">
-              <i class="fas fa-ellipsis-h"></i>
-          </a>
+            <a href="#">
+                <i class="fas fa-ellipsis-h"></i>
+            </a>
+        </div>
+    </div>
+   
+</nav> <div id="modal_overlay" onclick="closeForm()"></div>
+    <div class="form-popup" id="myForm">
+     
+        <div  class="form-container">
+          <h1>Logout</h1>
+
+          <p style="color:red" id="err"></p>
+          <label for="psw"><b>Please confirm Your Password</b></label>
+         
+          <input type="password" id="pword";placeholder="Enter Password" name="psw" required>
+          <button type="submit" class="btn" id="signout"><i class="fa fa-power-off"></i></button>
+          <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+       
+        </div>
       </div>
-      </div>
-    </nav>
-    <!-- sidebar-wrapper  -->
-    <main class="page-content">
-      <div class="container-fluid">
-        <h2>Pro Sidebar</h2>
+<!-- page-content  -->
+<main class="page-content pt-2">
+    <div id="overlay" class="overlay"></div>
+    <div class="container-fluid p-5">
+        <div class="row">
+            <div class="form-group col-md-12">
+                <h2>Sidebar template</h2>
+                <p>This is a responsive sidebar template with dropdown menu based on bootstrap 4 framework.</p>
+
+            </div>
+            <div class="form-group col-md-12">
+                <a id="toggle-sidebar" class="btn btn-dark" href="#">
+                    <span>Toggle Sidebar</span>
+                </a>
+                <a id="pin-sidebar" class="btn btn-dark" href="#">
+                    <span>Pin Sidebar</span>
+                </a>
+
+            </div>
+        </div>
         <hr>
         <div class="row">
-          <div class="form-group col-md-12">
-            <p>This is a responsive sidebar template with dropdown menu based on bootstrap 4 framework.</p>
-            <p> You can find the complete code on <a href="https://github.com/azouaoui-med/pro-sidebar-template" target="_blank">
-                Github</a>, it contains more themes and background image option</p>
-          </div>
-          <div class="form-group col-md-12">
-            <iframe src="https://ghbtns.com/github-btn.html?user=azouaoui-med&repo=pro-sidebar-template&type=star&count=true&size=large"
-              frameborder="0" scrolling="0" width="140px" height="30px"></iframe>
-            <iframe src="https://ghbtns.com/github-btn.html?user=azouaoui-med&repo=pro-sidebar-template&type=fork&count=true&size=large"
-              frameborder="0" scrolling="0" width="140px" height="30px"></iframe>
-          </div>
+            <div class="form-group col-md-12">
+                <h3>Themes</h3>
+                <p>Here are more themes that you can use</p>
+            </div>
         </div>
-        <h5>More templates</h5>
+
+        <div class="row">
+            <div class="form-group col-md-12">
+                <a href="#" data-theme="default-theme" class="theme default-theme selected"></a>
+                <a href="#" data-theme="chiller-theme" class="theme chiller-theme"></a>
+                <a href="#" data-theme="legacy-theme" class="theme legacy-theme"></a>
+                <a href="#" data-theme="ice-theme" class="theme ice-theme"></a>
+                <a href="#" data-theme="cool-theme" class="theme cool-theme"></a>
+                <a href="#" data-theme="light-theme" class="theme light-theme"></a>
+            </div>
+            <div class="form-group col-md-12">
+                <p>You can also use background image </p>
+            </div>
+            <div class="form-group col-md-12">
+                <a href="#" data-bg="bg1" class="theme theme-bg selected"></a>
+                <a href="#" data-bg="bg2" class="theme theme-bg"></a>
+                <a href="#" data-bg="bg3" class="theme theme-bg"></a>
+                <a href="#" data-bg="bg4" class="theme theme-bg"></a>
+            </div>
+            <div class="form-group col-md-12">
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="toggle-bg" checked>
+                    <label class="custom-control-label" for="toggle-bg">Background image</label>
+                </div>
+            </div>
+            <div class="form-group col-md-12">
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="toggle-border-radius">
+                    <label class="custom-control-label" for="toggle-border-radius">Border radius</label>
+                </div>
+            </div>
+
+        </div>
+
         <hr>
         <div class="row">
-          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">          
-            <div class="card rounded-0 p-0 shadow-sm">
-              <img src="https://user-images.githubusercontent.com/25878302/53659076-e2204680-3c5a-11e9-8c00-0c10bcd945e6.jpg" class="card-img-top rounded-0" alt="Angular pro sidebar">
-              <div class="card-body text-center">
-                  <h6 class="card-title">Angular Pro Sidebar</h6>
-                  <a href="https://github.com/azouaoui-med/angular-pro-sidebar" target="_blank" class="btn btn-primary btn-sm">Github</a>
-                  <a href="https://azouaoui-med.github.io/angular-pro-sidebar/demo/" target="_blank" class="btn btn-success btn-sm">Preview</a>
-              </div>
-            </div>          
-          </div>
-                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">          
-            <div class="card rounded-0 p-0 shadow-sm">
-              <img src="https://user-images.githubusercontent.com/25878302/53659497-016ba380-3c5c-11e9-8dfd-4901ddaf090b.jpg" class="card-img-top rounded-0" alt="Angular pro sidebar">
-              <div class="card-body text-center">
-                  <h6 class="card-title">Angular Dashboard</h6>
-                  <a href="https://github.com/azouaoui-med/lightning-admin-angular" target="_blank" class="btn btn-primary btn-sm">Github</a>
-                  <a href="https://azouaoui-med.github.io/lightning-admin-angular/demo/" target="_blank" class="btn btn-success btn-sm">Preview</a>
-              </div>
-            </div>          
-          </div>
-        </div>
-      </div>
-        <div id="modal_overlay" onclick="closeForm()"></div>
-      <div class="form-popup" id="myForm">
-          <div  class="form-container">
-            <h1>Logout</h1>
-            <p style="color:red" id="err"></p>
-            <label for="psw"><b>Please confirm Your Password</b></label>
-            <input type="password" id="pword";placeholder="Enter Password" name="psw" required>
-        
-            <button type="submit" class="btn" id="signout"><i class="fa fa-power-off"></i></button>
-            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-          </div>
-        </div>
-      
-        </div>
-      
-    </main>
-    <!-- page-content" -->
+            <div class="form-group col-md-12">
+                <a href="https://github.com/azouaoui-med/pro-sidebar-template" class="btn btn-dark" target="_blank">
+                    <i class="fab fa-github"></i> View source</a>
+                <a href="https://github.com/azouaoui-med/pro-sidebar-template/archive/gh-pages.zip" class="btn btn-outline-dark"
+                    target="_blank">
+                    <i class="fa fa-download"></i> Download</a>
+            </div>
+        </div>      
+                   
+        <hr>
+    </div>
     
-  </div>
-  <!-- page-wrapper -->
+</main>
+<!-- page-content" -->
+</div>
+<!-- page-wrapper -->
  
         <!--Navbar on small screen-->    
         <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
@@ -496,7 +536,7 @@ crossorigin="anonymous">
             };
             firebase.initializeApp(config);
             </script>
-           <script src="../../JS/Home/main.js"></script>
+          
            <script>
             
               </script>
@@ -505,8 +545,8 @@ crossorigin="anonymous">
                      crossorigin="anonymous"></script>
                  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
                      crossorigin="anonymous"></script>
-                 <script src="//malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-             
-                 
+                 <script src="https://malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+                 <script src="../../JS/Home/main.js"></script>
+               
 </body>
 </html>

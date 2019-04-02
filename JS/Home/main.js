@@ -93,7 +93,12 @@ window.location.replace("../../HTML/login2.html")
 
       }
   });
-
+  $("#close-sidebar").click(function() {
+    $(".page-wrapper").removeClass("toggled");
+  });
+  $("#show-sidebar").click(function() {
+    $(".page-wrapper").addClass("toggled");
+  });
 
   //toggle sidebar overlay
   $("#overlay").click(function () {

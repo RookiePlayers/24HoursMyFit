@@ -7,7 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="../../CSS/Homepage/main.css">
     <link rel="stylesheet" href="../../CSS/Homepage/sidebar-themes.css">
-   
+    <link rel="stylesheet" href="../../CSS/Homepage/setting-myprofile.css">
+    <link rel="stylesheet" href="../../CSS/completed.css">
+    <link rel="stylesheet" href="../../CSS/tooltip.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -44,8 +46,8 @@ crossorigin="anonymous">
                 <span class="user-name">
                     <strong id=uname>Guest</strong>
                 </span>
-                <span class="user-fitpoints" style="font-color: rgb(231, 189, 3);font-size: 16px"id="fitPoints">0<sub>Fp</sub></span>
-                <span class="user-status">
+                <span class="user-fitpoints" style="font-color: rgb(231, 189, 3);font-size: 16px"><img src="../../Resources/logos/fitpoint.png" style="object-fit: cover;height: 30px;width: 30px"><span id="fitPoints"></span></span>
+              <span class="user-status">
                     <i class="fa fa-circle"></i>
                     <span>Online</span>
                 </span>
@@ -434,13 +436,58 @@ crossorigin="anonymous">
       </div>
 <!-- page-content  -->
 <main class="page-content pt-2">
+  
+<!-- ADD NEW PHOTO -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Add New Photo</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="piccontainer">
+                    
+                <div>
+                    <div class='success-checkmark'><div class='check-icon'><span class='icon-line line-tip'></span><span class='icon-line line-long'></span><div class='icon-circle'></div><div class='icon-fix'></div></div><span>All Done!</span></div>
+                   
+                    <div class="progress">
+                        <div id="progressPic"class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">0%</div>
+                      </div>
+                      <br>
+                    <span class="reg-form-avtar2">
+                      <img src="" class="popup profile-picture"id="newPhoto" style="object-fit: cover"srcset="">
+                    </span>
+                </div>
+                <div class="upload-btn-wrapper">
+                       <button id="imgbtn">Upload New Photo</button>
+                       <input type="file" id="imgbtn1" onchange="previewFile()"name="myfile" />
+               </div>
+              
+                
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="closeNewPhoto" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="saveNewPhoto">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!---------------------->
     <div id="overlay" class="overlay"></div>
     <div class="container-fluid p-5">
         <div class="row">
             <div class="form-group col-md-12">
-                <h2>Sidebar template</h2>
-                <p>This is a responsive sidebar template with dropdown menu based on bootstrap 4 framework.</p>
-
+               <div class="b-tooltip form-group col-md-12">
+                  <button type="button" style="background-color: transparent;border:0px" data-toggle="modal" data-target="#exampleModalCenter">
+                     <img class="settings profile-picture"  data-toggle="tooltip" data-placement="right" title="Click to Add New Photo" id="changeAvatar"  alt="" srcset="">
+                 
+                    </button>  
+              
+                </div>
             </div>
             <div class="form-group col-md-12">
                 <a id="toggle-sidebar" class="btn btn-dark" href="#">
@@ -547,6 +594,7 @@ crossorigin="anonymous">
                      crossorigin="anonymous"></script>
                  <script src="https://malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
                  <script src="../../JS/Home/main.js"></script>
+                 <script src="../../JS/Home/settings-profile.js"></script>
                
 </body>
 </html>

@@ -42,6 +42,14 @@ function addProfiletoDB(userId){
         console.error("Error adding document: ", error);
     });
 }
+function signToDatabase(userinformation,userId) {
+      
+    console.log("adding to DB");
+    
+    firebase.database().ref('Users/' + userId).set(userinformation);
+    addProfiletoDB(userId);
+  
+}
 function previewFile() {
     var preview = document.querySelector('img'); //selects the query named img
     file = document.querySelector('input[type=file]').files[0]; //sames as here

@@ -9,13 +9,17 @@ var Achievements={}
 var Gallery={}
 var Profile={}
 var email="";
-
+var currentuser;
+document.getElementById("uname").innerHTML=localStorage.getItem("Username");
+document.getElementById("fitPoints").innerHTML=localStorage.getItem("fitPoints");
+document.getElementById("followingCount").innerHTML=localStorage.getItem("followingCount")+" Followings";
+document.getElementById("followersCount").innerHTML=localStorage.getItem("followersCount")+" Followers";
 firebase.auth().onAuthStateChanged(function(user) { //or use firebase.auth().currentUser;
 if (user) {
  // User is signed in.
  firebase.database().ref('Users/' + user.uid).once('value').then(function(snapshot) {
  email=user.email;
-  
+  currentuse=user;
    LoginDetails=snapshot.val().LoginDetails;
    PhysicalDetails=snapshot.val().PhysicalDetails;
    OverallFocus=snapshot.val().OverallFocus;
@@ -28,7 +32,7 @@ if (user) {
 };
     // ...
     console.log(UserInformation);
-    
+    if(document.getElementById("uname").value==="")
     document.getElementById("uname").innerHTML=(UserInformation.LoginDetails.username);
     let db = firebase.firestore();
 
@@ -37,8 +41,15 @@ if (user) {
     .onSnapshot(function(doc) {
         console.log("Current data: ", doc.data());
         Profile=doc.data();
+        localStorage.setItem("Username",UserInformation.LoginDetails.username);
+        localStorage.setItem("fitPoints",Profile.Profile.FitPoint);
+        localStorage.setItem("followingCount",Profile.Profile.Following.length);
+        localStorage.setItem("followersCount",Profile.Profile.Followers.length);
+        if(document.getElementById("fitPoints").value==="")
         document.getElementById("fitPoints").innerHTML=Profile.Profile.FitPoint + "<sub>Fp</sub>";
+        if(document.getElementById("followersCount").value==="")
         document.getElementById("followersCount").innerHTML=Profile.Profile.Followers.length +" Followers";
+        if(document.getElementById("followingCount").value==="")
         document.getElementById("followingCount").innerHTML=Profile.Profile.Following.length+" Following";
     });
     document.getElementById("signout").addEventListener("click",function () {

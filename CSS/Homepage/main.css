@@ -1,3 +1,18 @@
+@import url(../../Resources/fonts/Acme-Regular.ttf);
+@import url(../../Resources/fonts/BalooChettan-Regular.ttf);
+@import url(../../Resources/fonts/Aladin/Aladin-Regular.ttf);
+@import url(../../Resources/fonts/Baloo/Baloo-Regular.ttf);
+@import url(../../Resources/fonts/Bangers/Bangers-Regular.ttf);
+@import url(../../Resources/fonts/Carme/Carme-Regular.ttf);
+@import url(../../Resources/fonts/Catamaran/Catamaran-Light.ttf);
+@import url(../../Resources/fonts/Comfortaa/Comfortaa[wght].ttf);
+@import url(../../Resources/fonts/Concert_One/ConcertOne-Regular.ttf);
+@import url(../../Resources/fonts/Exo/Exo-Light.ttf);
+@import url(../../Resources/fonts/IBM_Plex_Sans/IBMPlexSans-Light.ttf);
+@import url(../../Resources/fonts/Iceberg/Iceberg-Regular.ttf);
+@import url(../../Resources/fonts/Itim/Itim-Regular.ttf);
+@import url(../../Resources/fonts/Jua/Jua-Regular.ttf);
+@import url(../../Resources/fonts/Kosugi_Maru/KosugiMaru-Regular.ttf);
 @-webkit-keyframes swing {
   0%, 30%, 50%, 70%, 100% {
     -webkit-transform: rotate(0deg);
@@ -53,7 +68,8 @@
     opacity: 0; } }
  /*----------------show sidebar button----------------*/
  #show-sidebar {
-  position: fixed;
+  position: absolute;
+  z-index: 9999;
   left: 0;
   top: 10px;
   border-radius: 0 4px 4px 0px;

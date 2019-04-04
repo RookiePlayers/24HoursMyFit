@@ -23,7 +23,7 @@ crossorigin="anonymous">
 </head>
 <body>
 <!--https://codepen.io/Kamilica/pen/BRGqap-->
-<div class="page-wrapper default-theme sidebar-bg bg1 toggled">
+<div class="page-wrapper default-theme sidebar-bg bg1 toggled" style="position: absolute;z-index: 9999">
     <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
       <i class="fas fa-bars"></i>
     </a
@@ -39,7 +39,7 @@ crossorigin="anonymous">
           <!-- sidebar-header  -->
           <div class="sidebar-item sidebar-header d-flex flex-nowrap">
             <div class="user-pic">
-                <img class="img-responsive img-rounded"  id="profilePicture" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
+                <img class="img-responsive img-rounded"  id="profilePicture" src="../../Resources/gifs/hexLoad.gif"
                 alt="User picture">
             </div>
             <div class="user-info">
@@ -435,9 +435,9 @@ crossorigin="anonymous">
         </div>
       </div>
 <!-- page-content  -->
-<main class="page-content pt-2">
+<main class="page-content">
   
-<!-- ADD NEW PHOTO -->
+<!-- ADD NEW PHOTO MODAL -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
@@ -477,36 +477,99 @@ crossorigin="anonymous">
     </div>
   </div>
   <!---------------------->
-    <div id="overlay" class="overlay"></div>
-    <div class="container-fluid p-5">
-        <div class="row">
-            <div class="form-group col-md-12">
-               <div class="b-tooltip form-group col-md-12">
-                  <button type="button" style="background-color: transparent;border:0px" data-toggle="modal" data-target="#exampleModalCenter">
-                     <img class="settings profile-picture"  data-toggle="tooltip" data-placement="right" title="Click to Add New Photo" id="changeAvatar"  alt="" srcset="">
-                 
-                    </button>  
-              
+
+
+  <!-- STYLE COVER MODAL -->
+<div class="modal fade" id="coverModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="styleCoverModalCenter">Update Cover</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="coverContainer row">
+                    
+          <div class="form-group col-md-12">
+              <div class='success-checkmark'><div class='check-icon'><span class='icon-line line-tip'></span><span class='icon-line line-long'></span><div class='icon-circle'></div><div class='icon-fix'></div></div><span>All Done!</span></div>
+             
+              <div class="progress">
+                  <div id="progressUploadCover"class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">0%</div>
                 </div>
+          </div>
+          <div class="form-group col-md-12">
+        <div class="coverSample"></div>
+        </div>
+        <br>
+        
+          <div class="form-group col-md-12">
+            <p>Choose a color </p>
+        </div>
+          <div class="form-group col-md-12 colorsettings">
+            <a href="#" data-theme="default-theme" class="theme default-theme selected"></a>
+            <a href="#" data-theme="chiller-theme" class="theme chiller-theme"></a>
+            <a href="#" data-theme="legacy-theme" class="theme legacy-theme"></a>
+            <a href="#" data-theme="ice-theme" class="theme ice-theme"></a>
+            <a href="#" data-theme="cool-theme" class="theme cool-theme"></a>
+            <a href="#" data-theme="light-theme" class="theme light-theme"></a>
+        </div>
+        
+        <div class="form-group col-md-12">
+          <p>Select an image </p>
+      </div>
+      <div class="form-group col-md-12">
+          <a href="#" data-bg="bg1" class="theme theme-bg selected"></a>
+          <a href="#" data-bg="bg2" class="theme theme-bg"></a>
+          <a href="#" data-bg="bg3" class="theme theme-bg"></a>
+          <a href="#" data-bg="bg4" class="theme theme-bg"></a>
+      </div>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="closeStyleCover" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="saveStyleCover">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!---------------------->
+
+
+
+    <div id="overlay" class="overlay"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="form-group col-md-12 profileheader">
+               <div class="b-tooltip form-group col-md-12">
+                     <img src="../../Resources/gifs/hexLoad.gif" class="settings profile-picture"  data-toggle="modal" data-placement="right"  data-target="#exampleModalCenter" title="Click to Add New Photo" id="changeAvatar"  alt="" srcset="">
+                  
             </div>
-            <div class="form-group col-md-12">
+            <div class="form-group col-md-12 center">
+              <span class="settings username"></span> • <img src="../../Resources/logos/fitpoint.png"  style="object-fit: cover;height: 30px;width: 30px" alt="" srcset=""><span class="settings fp"></span>
+            </div>
+            <div class="form-group col-md-12 center">
                 <a id="toggle-sidebar" class="btn btn-dark" href="#">
-                    <span>Toggle Sidebar</span>
+                    <span>Followers</span>
                 </a>
                 <a id="pin-sidebar" class="btn btn-dark" href="#">
-                    <span>Pin Sidebar</span>
+                    <span>Followings</span>
                 </a>
 
             </div>
+            <button  style="position: absolute; z-index: 1; margin-left: 80%"  data-toggle="modal" data-placement="right"  data-target="#coverModalCenter"id="editCover" class="btn btn-dark" href="">
+              <i class="fas fa-paint-brush"> Style Cover</i>
+            </button>
         </div>
-        <hr>
+        <hr class="settings line center">
         <div class="row">
             <div class="form-group col-md-12">
                 <h3>Themes</h3>
                 <p>Here are more themes that you can use</p>
             </div>
         </div>
-
+        <hr >
         <div class="row">
             <div class="form-group col-md-12">
                 <a href="#" data-theme="default-theme" class="theme default-theme selected"></a>

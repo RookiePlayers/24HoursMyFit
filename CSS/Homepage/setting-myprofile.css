@@ -1,3 +1,18 @@
+@import url(../../Resources/fonts/Acme-Regular.ttf);
+@import url(../../Resources/fonts/BalooChettan-Regular.ttf);
+@import url(../../Resources/fonts/Aladin/Aladin-Regular.ttf);
+@import url(../../Resources/fonts/Baloo/Baloo-Regular.ttf);
+@import url(../../Resources/fonts/Bangers/Bangers-Regular.ttf);
+@import url(../../Resources/fonts/Carme/Carme-Regular.ttf);
+@import url(../../Resources/fonts/Catamaran/Catamaran-Light.ttf);
+@import url(../../Resources/fonts/Comfortaa/Comfortaa[wght].ttf);
+@import url(../../Resources/fonts/Concert_One/ConcertOne-Regular.ttf);
+@import url(../../Resources/fonts/Exo/Exo-Light.ttf);
+@import url(../../Resources/fonts/IBM_Plex_Sans/IBMPlexSans-Light.ttf);
+@import url(../../Resources/fonts/Iceberg/Iceberg-Regular.ttf);
+@import url(../../Resources/fonts/Itim/Itim-Regular.ttf);
+@import url(../../Resources/fonts/Jua/Jua-Regular.ttf);
+@import url(../../Resources/fonts/Kosugi_Maru/KosugiMaru-Regular.ttf);
 .settings.profile-picture{
     display:block;
     width:120px;
@@ -9,6 +24,85 @@
     box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.685);
     background-color: #8a8a8a;
     text-align: center;
+}
+.coverSample{
+  width: 100%;
+  height:100px;
+  background-image: url(../../Resources/Backgrounds/stars.jpg);
+  background-blend-mode: color-dodge;
+  background-color: #1E2328;
+  border-radius: 10px;
+  padding: 25px;
+  color: whitesmoke;
+  font-family:Jua-Regular;
+  box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+}
+.setting-profile-page{
+  padding:0px
+}
+.profileheader{
+  background-image: url(../../Resources/Backgrounds/stars.jpg);
+  background-blend-mode: color-dodge;
+  
+  
+  background-color: #1E2328;
+  padding: 25px;
+  color: whitesmoke;
+  font-family:Jua-Regular;
+  box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+}
+.settings.line{
+ -webkit-tap-highlight-color:transparent;
+ display: block;
+width: 50%;
+ border-bottom: 1px solid rgba(14,19,24,.15);
+  margin: 7px 0;
+}
+.center{
+  display:block;
+  overflow: hidden;
+  margin: 0 auto;
+  border: none;
+  text-align: center;
+}
+.colorsettings .theme {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  margin: 2px;
+  background-size: cover; }
+.colorsettings.theme.selected {
+  border: 2px solid #00c7ff; }
+.colorsettings.theme.default-theme {
+  background: #1E2328; }
+.colorsettings.theme.chiller-theme {
+  background: #374140; }
+.colorsettings.theme.legacy-theme {
+  background: #2e333c; }
+.colorsettings.theme.ice-theme {
+  background: #3a4d56; }
+.colorsettings.theme.cool-theme {
+  background: #46454c; }
+.colorsettings.theme.light-theme {
+  background: #ececec; }
+/*profile pic*/
+.settings.profile-btn{
+  display:block;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto;
+  border: none;
+  box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.685);
+  background-color: transparent;
+  text-align: center;
 }
 .settings.profile-picture:hover{
     cursor: pointer;
@@ -71,3 +165,4 @@
   #imgbtn:hover{
     background-color: rgba(8, 8, 8, 0.164);cursor: pointer;
   }
+

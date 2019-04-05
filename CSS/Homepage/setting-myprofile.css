@@ -268,6 +268,8 @@ width: 50%;
   background-size: cover; }
 .imgsettings .theme.selected {
   border: 2px solid #ff00bf; }
+  .imgsettings .theme.bg0 {
+    background-image: url(../../Resources/icons/remove.png) }
 .imgsettings .theme.bg1 {
   
   background-image: url(../../Resources/Backgrounds/stars.jpg) }
@@ -356,4 +358,19 @@ width: 50%;
   content: "";
   font-family: FontAwesome;
   color: yellow;
+}
+
+#imgbtn1 {
+  border: 2px solid rgb(127, 207, 120);
+  color: gray;
+  background-color: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 10px;
+  cursor: pointer;
+}
+#imgbtn1:hover{
+  color: rgba(8, 8, 8, 0.164);cursor: pointer;
 }

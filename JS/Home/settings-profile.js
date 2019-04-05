@@ -242,22 +242,25 @@ function getimgCode(){
 
         if(imgs[i].checked){
                switch(i){
-            case 0:{
+                   case 0:{
+                    return "transparent"
+                   }
+            case 1:{
                      return "../../Resources/Backgrounds/stars.jpg";
                 }
-                case 1:{
+                case 2:{
                     return  "../../img/bg1.jpg";
                }
-               case 2:{
+               case 3:{
                     return  "../../img/bg3.jpg";
                 }
-                case 3:{
+                case 4:{
                     return  "../../img/bg4.jpg";
                }
-               case 4:{
+               case 5:{
                     return "#46454c";
                 }
-                case 5:{
+                case 6:{
                     return "#ececec";
                }
             }

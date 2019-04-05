@@ -570,6 +570,10 @@
                 </div>
                 <div class="imgsettings form-group2 col-md-12">
 
+                  <label>
+                    <input type="radio" name="imgs" checked />
+                    <span class="theme bg0 box2"></span>
+                  </label>
                     <label>
                       <input type="radio" name="imgs" checked />
                       <span class="theme bg1 box2"></span>
@@ -596,12 +600,14 @@
                   </div>
                   <div class="form-group col-md-12 center">
                     <p>Add Your Own Image </p>
+                <sub>Recommended: (1890 x 720 or higher)</sub>
                   </div>
                   <div class="form-group col-md-12">
-                    <button id="imgbtn">Upload New Photo</button>
-                    <input type="file" id="imgbtn" onchange="addNewImg()" name="myfile" />
-                       
-                      </label>
+                    <div class="upload-btn-wrapper">
+                      <button id="imgbtn1">Upload Image</button>
+                      <input type="file" id="imgbtn1" onchange="addcoverImg()" name="myfile" />
+                    </div>
+                     
                   </div>
               </div>
             </div>

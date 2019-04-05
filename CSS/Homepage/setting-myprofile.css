@@ -24,6 +24,7 @@
     box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.685);
     background-color: #8a8a8a;
     text-align: center;
+    
 }
 .coverSample{
   width: 100%;
@@ -32,6 +33,7 @@
   background-blend-mode: color-dodge;
   background-color: #1E2328;
   border-radius: 10px;
+  background-size: cover;
   padding: 25px;
   color: whitesmoke;
   font-family:Jua-Regular;
@@ -131,7 +133,7 @@ width: 50%;
   
  
   
-  /* Style the button and place it in the middle of the container/image */
+  /* Style the button and place it in the colorsettings of the container/image */
  
   .upload-btn-wrapper input[type=file] {
     font-size: 100px;
@@ -166,3 +168,188 @@ width: 50%;
     background-color: rgba(8, 8, 8, 0.164);cursor: pointer;
   }
 
+
+
+
+
+
+@import url("https://fonts.googleapis.com/css?family=Dax:400,900");
+
+
+.colorsettings {
+  width: 100%;
+  text-align: center;
+  /* Made by */
+}
+.colorsettings h1 {
+  font-family: "Dax", sans-serif;
+  color: #fff;
+}
+.colorsettings input[type=radio] {
+  display: none;
+}
+.colorsettings input[type=radio]:checked{
+  border: 2px solid #00c7ff;
+}
+.colorsettings input[type=radio]:checked + .box {
+  border: 2px solid #00c7ff;
+  
+}
+.colorsettings input[type=radio]:checked + .box span:before {
+  border:0;
+  transform: translateY(0px);
+  opacity: 1;
+}
+.colorsettings .box {
+ 
+  text-align: center;
+  cursor: pointer;
+  
+}
+.colorsettings .box:active {
+  transform: translateY(10px);
+}
+.colorsettings .box span {
+  position: absolute;
+  transform: translate(0, 60px);
+  left: 0;
+  right: 0;
+  transition: all 300ms ease;
+  font-size: 1.5em;
+  user-select: none;
+  color: #007e90;
+}
+.colorsettings .box span:before {
+  font-size: 1.2em;
+  font-family: FontAwesome;
+  display: block;
+  transform: translateY(-80px);
+  opacity: 0;
+  transition: all 300ms ease-in-out;
+  font-weight: normal;
+  color: white;
+}
+.colorsettings .front-end span:before {
+  content: "";
+}
+.colorsettings .back-end span:before {
+  content: "";
+}
+.colorsettings p {
+  color: #fff;
+  font-family: "Dax", sans-serif;
+  font-weight: 400;
+}
+.colorsettings p a {
+  text-decoration: underline;
+  font-weight: bold;
+  color: #FFF;
+}
+.colorsettings p span:after {
+  content: "";
+  font-family: FontAwesome;
+  color: yellow;
+}
+
+
+
+.imgsettings {
+  width: 100%;
+  text-align: center;
+
+  /* Made by */
+}
+.imgsettings .theme {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: inline-block;
+  margin: 2px;
+  background-size: cover; }
+.imgsettings .theme.selected {
+  border: 2px solid #ff00bf; }
+.imgsettings .theme.bg1 {
+  
+  background-image: url(../../Resources/Backgrounds/stars.jpg) }
+.imgsettings .theme.bg2 {
+  background-image: url(../../img/bg1.jpg) }
+.imgsettings .theme.bg3 {
+  background-image: url(../../img/bg3.jpg) }
+  .imgsettings .theme.bg4 {
+    background-image: url(../../img/bg4.jpg) }
+
+    
+.imgsettings {
+  width: 100%;
+  text-align: center;
+  /* Made by */
+}
+.imgsettings h1 {
+  font-family: "Dax", sans-serif;
+  color: #fff;
+}
+.imgsettings input[type=radio] {
+  display: none;
+}
+.imgsettings input[type=radio]:checked{
+  border: 2px solid #00c7ff;
+}
+.imgsettings input[type=radio]:checked + .box2 {
+  border: 2px solid #00c7ff;
+  
+}
+.imgsettings input[type=radio]:checked + .box2 span:before {
+  border:0;
+  transform: translateY(0px);
+  opacity: 1;
+}
+.imgsettings .box2 {
+ 
+  text-align: center;
+  cursor: pointer;
+  
+}
+.imgsettings .box2:active {
+  transform: translateY(10px);
+}
+.imgsettings .box2 span {
+  position: absolute;
+  transform: translate(0, 60px);
+  left: 0;
+  right: 0;
+  transition: all 300ms ease;
+  font-size: 1.5em;
+  user-select: none;
+  color: #007e90;
+}
+.imgsettings .box2 span:before {
+  font-size: 1.2em;
+  font-family: FontAwesome;
+  display: block;
+  transform: translateY(-80px);
+  opacity: 0;
+  transition: all 300ms ease-in-out;
+  font-weight: normal;
+  color: white;
+}
+.imgsettings .front-end span:before {
+  content: "";
+}
+.imgsettings .back-end span:before {
+  content: "";
+}
+.imgsettings p {
+  color: #fff;
+  font-family: "Dax", sans-serif;
+  font-weight: 400;
+}
+.imgsettings p a {
+  text-decoration: underline;
+  font-weight: bold;
+  color: #FFF;
+}
+.imgsettings p span:after {
+  content: "";
+  font-family: FontAwesome;
+  color: yellow;
+}

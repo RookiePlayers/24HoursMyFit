@@ -1,3 +1,5 @@
+
+/** HANDLE PROFILE PICTURE */
 var imgurl;
 $('#closeNewPhoto').removeClass("btn-primary")
 $('#saveNewPhoto').removeClass("btn-secondary")
@@ -165,3 +167,101 @@ function userInfoThread(){
     }, 1000);
 }
 })(jQuery);
+
+/** HANDLE PROFILE COVER  */
+//get selected color
+var newCoverGeneratedCss;//string
+var generatedColor;
+var generatedImg;
+function  updateCoverCss(){
+    $(".coverSample").css("backgroundColor",generatedColor);
+    $(".coverSample").css("backgroundImage","url("+generatedImg+")");
+
+}
+
+
+
+var colors=document.getElementsByName("colors");
+var imgs=document.getElementsByName("imgs");
+colors.forEach((color)=>{
+    color.addEventListener("click",function(){
+        var c=getColorCode();
+        console.log("chosen color is: "+getColorCode());
+        generatedColor=c;
+        updateCoverCss();
+    })
+})
+function getColorCode(){
+    
+    for(var i=0;i<colors.length;i++){
+
+        if(colors[i].checked){
+               switch(i){
+            case 0:{
+                     return "#1d1d1d";
+                }
+                case 1:{
+                    return "#374140";
+               }
+               case 2:{
+                    return "#2e333c";
+                }
+                case 3:{
+                    return "#3a4d56";
+               }
+               case 4:{
+                    return "#46454c";
+                }
+                case 5:{
+                    return "#ececec";
+               }
+            }
+        }
+       
+    }
+    console.log("Default choice was chosen due to an unforseen error/choice");
+    
+    return "#1d1d1d"
+    
+}
+imgs.forEach((img)=>{
+    img.addEventListener("click",function(){
+        var c=getimgCode();
+        console.log("chosen img is: "+getimgCode());
+        generatedImg=c;
+        updateCoverCss();
+    })
+})
+function getimgCode(){
+    
+    for(var i=0;i<imgs.length;i++){
+
+        if(imgs[i].checked){
+               switch(i){
+            case 0:{
+                     return "../../Resources/Backgrounds/stars.jpg";
+                }
+                case 1:{
+                    return  "../../img/bg1.jpg";
+               }
+               case 2:{
+                    return  "../../img/bg3.jpg";
+                }
+                case 3:{
+                    return  "../../img/bg4.jpg";
+               }
+               case 4:{
+                    return "#46454c";
+                }
+                case 5:{
+                    return "#ececec";
+               }
+            }
+        }
+       
+    }
+    console.log("Default choice was chosen due to an unforseen error/choice");
+    
+    return "../../Resources/Backgrounds/stars.jpg";
+    
+}

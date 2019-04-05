@@ -1,70 +1,78 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Home</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="../../CSS/Homepage/main.css">
-    <link rel="stylesheet" href="../../CSS/Homepage/sidebar-themes.css">
-    <link rel="stylesheet" href="../../CSS/Homepage/setting-myprofile.css">
-    <link rel="stylesheet" href="../../CSS/completed.css">
-    <link rel="stylesheet" href="../../CSS/tooltip.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<!-- using online links -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-crossorigin="anonymous">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
-crossorigin="anonymous">
-<link rel="stylesheet" href="http://malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.min.css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../../CSS/Homepage/main.css">
+  <link rel="stylesheet" href="../../CSS/Homepage/sidebar-themes.css">
+  <link rel="stylesheet" href="../../CSS/Homepage/setting-myprofile.css">
+  <link rel="stylesheet" href="../../CSS/completed.css">
+  <link rel="stylesheet" href="../../CSS/tooltip.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- using online links -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+    integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <link rel="stylesheet" href="http://malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.min.css">
 
 </head>
+
 <body>
-<!--https://codepen.io/Kamilica/pen/BRGqap-->
-<div class="page-wrapper default-theme sidebar-bg bg1 toggled" style="position: absolute;z-index: 9999">
+  <!--https://codepen.io/Kamilica/pen/BRGqap-->
+  <div class="page-wrapper default-theme sidebar-bg bg1 toggled" style="position: absolute;z-index: 9999">
     <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
       <i class="fas fa-bars"></i>
-    </a
-    >
+    </a>
     <nav id="sidebar" class="sidebar-wrapper">
       <div class="sidebar-content">
-          <!-- sidebar-brand  -->
-          <div class="sidebar-item sidebar-brand">
-              <a href="#" style="text-decoration:none">MyFit</a>
-              <button style="background-color: transparent;border:0;color:white"id="pin-sidebar" href="#"><i class="fas fa-thumbtack"></i></button>
-              <button style="background-color: transparent;border:0;color:white"id="toggle-sidebar" href="#"><i class="fa fa-close "></i></button>
-          </div>
-          <!-- sidebar-header  -->
-          <div class="sidebar-item sidebar-header d-flex flex-nowrap">
-            <div class="user-pic">
-                <img class="img-responsive img-rounded"  id="profilePicture" src="../../Resources/gifs/hexLoad.gif"
-                alt="User picture">
-            </div>
-            <div class="user-info">
-                <span class="user-name">
-                    <strong id=uname>Guest</strong>
-                </span>
-                <span class="user-fitpoints" style="font-color: rgb(231, 189, 3);font-size: 16px"><img src="../../Resources/logos/fitpoint.png" style="object-fit: cover;height: 30px;width: 30px"><span id="fitPoints"></span></span>
-              <span class="user-status">
-                    <i class="fa fa-circle"></i>
-                    <span>Online</span>
-                </span>
-            </div>   
-        <div class="follows" style="position: absolute;transform: translate(-15px,80px)">
-          <span class="user-followers" style="font-color: white;font-size: 14px;margin-right: 6px;"id="followingCount">0 Followers</span>
-          |
-          <span class="user-following" style="font-color: white;font-size: 14px;margin-left: 6px;"id="followersCount">0 Following</span>
-      
-      </div>
-          
+        <!-- sidebar-brand  -->
+        <div class="sidebar-item sidebar-brand">
+          <a href="#" style="text-decoration:none">MyFit</a>
+          <button style="background-color: transparent;border:0;color:white" id="pin-sidebar" href="#"><i
+              class="fas fa-thumbtack"></i></button>
+          <button style="background-color: transparent;border:0;color:white" id="toggle-sidebar" href="#"><i
+              class="fa fa-close "></i></button>
         </div>
-          
-            
-       
         <!-- sidebar-header  -->
-        
+        <div class="sidebar-item sidebar-header d-flex flex-nowrap">
+          <div class="user-pic">
+            <img class="img-responsive img-rounded" id="profilePicture" src="../../Resources/gifs/hexLoad.gif"
+              alt="User picture">
+          </div>
+          <div class="user-info">
+            <span class="user-name">
+              <strong id=uname>Guest</strong>
+            </span>
+            <span class="user-fitpoints" style="font-color: rgb(231, 189, 3);font-size: 16px"><img
+                src="../../Resources/logos/fitpoint.png" style="object-fit: cover;height: 30px;width: 30px"><span
+                id="fitPoints"></span></span>
+            <span class="user-status">
+              <i class="fa fa-circle"></i>
+              <span>Online</span>
+            </span>
+          </div>
+          <div class="follows" style="position: absolute;transform: translate(-15px,80px)">
+            <span class="user-followers" style="font-color: white;font-size: 14px;margin-right: 6px;"
+              id="followingCount">0 Followers</span>
+            |
+            <span class="user-following" style="font-color: white;font-size: 14px;margin-left: 6px;"
+              id="followersCount">0 Following</span>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- sidebar-header  -->
+
         <div class="sidebar-item sidebar-search">
           <div>
             <div class="input-group">
@@ -103,56 +111,56 @@ crossorigin="anonymous">
                     <a href="#">Recommended</a>
                   </li>
                   <li>
-                        <a href="#">24HTeam<span class="badge badge-pill badge-warning">New</span>
-                        </a>
-                      </li>
+                    <a href="#">24HTeam<span class="badge badge-pill badge-warning">New</span>
+                    </a>
+                  </li>
                 </ul>
               </div>
             </li>
             <li class="sidebar-dropdown">
-                <a href="#">
-                  <i class="fa fa-drafting-compass"></i>
-                  <span>Creator Space</span>
-                  <!--span class="badge badge-pill badge-warning">New</span-->
-                </a>
-                <div class="sidebar-submenu">
-                  <ul>
-                    <li>
-                      <a href="#">WorkoutPlan
-                        <span class="badge badge-pill badge-success">Popular</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">Workouts</a>
-                    </li>
-                    <li>
-                      <a href="#">Excersises</a>
-                    </li>
-                    <li>
-                        <a href="#">Meals</a>
-                      </li>
-                      <li>
-                          <a href="#">Recipie</a>
-                        </li>
-                        <li>
-                            <a href="#">Article</a>
-                          </li>
-                          <li>
-                              <a href="#">Meditation</a>
-                          </li>
-                          <li>
-                              <a href="#">Video</a>
-                            </li>
-                            <li>
-                                <a href="#">Picture</a>
-                              </li>
-                              <li>
-                                  <a href="#">Sports Drill</a>
-                                </li>
-                   
-                  </ul>
-                </div>
-              </li>
+              <a href="#">
+                <i class="fa fa-drafting-compass"></i>
+                <span>Creator Space</span>
+                <!--span class="badge badge-pill badge-warning">New</span-->
+              </a>
+              <div class="sidebar-submenu">
+                <ul>
+                  <li>
+                    <a href="#">WorkoutPlan
+                      <span class="badge badge-pill badge-success">Popular</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">Workouts</a>
+                  </li>
+                  <li>
+                    <a href="#">Excersises</a>
+                  </li>
+                  <li>
+                    <a href="#">Meals</a>
+                  </li>
+                  <li>
+                    <a href="#">Recipie</a>
+                  </li>
+                  <li>
+                    <a href="#">Article</a>
+                  </li>
+                  <li>
+                    <a href="#">Meditation</a>
+                  </li>
+                  <li>
+                    <a href="#">Video</a>
+                  </li>
+                  <li>
+                    <a href="#">Picture</a>
+                  </li>
+                  <li>
+                    <a href="#">Sports Drill</a>
+                  </li>
+
+                </ul>
+              </div>
+            </li>
             <li class="sidebar-dropdown">
               <a href="#">
                 <i class="fa fa-id-badge"></i>
@@ -163,15 +171,15 @@ crossorigin="anonymous">
                 <ul>
                   <li>
                     <a href="#">MyFit
-  
+
                     </a>
                   </li>
                   <li>
-                      <a href="#">MyFollowers</a>
-                    </li>
-                    <li>
-                        <a href="#">MyFollowings</a>
-                      </li>
+                    <a href="#">MyFollowers</a>
+                  </li>
+                  <li>
+                    <a href="#">MyFollowings</a>
+                  </li>
                   <li>
                     <a href="#">MyDownloads</a>
                   </li>
@@ -179,17 +187,17 @@ crossorigin="anonymous">
                     <a href="#">MyWorkoutPlans</a>
                   </li>
                   <li>
-                      <a href="#">MyMealPlans</a>
-                    </li>
-                    <li>
-                        <a href="#">MyFavourites</a>
-                      </li>
-                      <li>
-                          <a href="#">MyGallery</a>
-                      </li>
-                      <li>
-                          <a href="#">MyHistory</a>
-                        </li>
+                    <a href="#">MyMealPlans</a>
+                  </li>
+                  <li>
+                    <a href="#">MyFavourites</a>
+                  </li>
+                  <li>
+                    <a href="#">MyGallery</a>
+                  </li>
+                  <li>
+                    <a href="#">MyHistory</a>
+                  </li>
                 </ul>
               </div>
             </li>
@@ -234,7 +242,7 @@ crossorigin="anonymous">
                   <li>
                     <a href="#">Impact</a>
                   </li>
-                 
+
                 </ul>
               </div>
             </li>
@@ -245,7 +253,7 @@ crossorigin="anonymous">
               </a>
               <div class="sidebar-submenu">
                 <ul>
-                 
+
                   <li>
                     <!---The recent chats show here-->
                     <a href="#">Open Chats</a>
@@ -269,395 +277,424 @@ crossorigin="anonymous">
                 <span>myEdu</span>
               </a>
             </li>
-           
+
           </ul>
         </div>
         <!-- sidebar-menu  -->
-      
-      <!-- sidebar-content  -->
-    </div>
-    <!-- sidebar-footer  -->
-    <div class="sidebar-footer">
+
+        <!-- sidebar-content  -->
+      </div>
+      <!-- sidebar-footer  -->
+      <div class="sidebar-footer">
         <div class="dropdown">
 
-            <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fa fa-bell"></i>
-                <span class="badge badge-pill badge-warning notification">3</span>
-            </a>
-            <div class="dropdown-menu notifications" aria-labelledby="dropdownMenuMessage">
-                <div class="notifications-header">
-                    <i class="fa fa-bell"></i>
-                    Notifications
-                </div>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">
-                    <div class="notification-content">
-                        <div class="icon">
-                            <i class="fas fa-check text-success border border-success"></i>
-                        </div>
-                        <div class="content">
-                            <div class="notification-detail">Lorem ipsum dolor sit amet consectetur adipisicing
-                                elit. In totam explicabo</div>
-                            <div class="notification-time">
-                                6 minutes ago
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a class="dropdown-item" href="#">
-                    <div class="notification-content">
-                        <div class="icon">
-                            <i class="fas fa-exclamation text-info border border-info"></i>
-                        </div>
-                        <div class="content">
-                            <div class="notification-detail">Lorem ipsum dolor sit amet consectetur adipisicing
-                                elit. In totam explicabo</div>
-                            <div class="notification-time">
-                                Today
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a class="dropdown-item" href="#">
-                    <div class="notification-content">
-                        <div class="icon">
-                            <i class="fas fa-exclamation-triangle text-warning border border-warning"></i>
-                        </div>
-                        <div class="content">
-                            <div class="notification-detail">Lorem ipsum dolor sit amet consectetur adipisicing
-                                elit. In totam explicabo</div>
-                            <div class="notification-time">
-                                Yesterday
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item text-center" href="#">View all notifications</a>
+          <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-bell"></i>
+            <span class="badge badge-pill badge-warning notification">3</span>
+          </a>
+          <div class="dropdown-menu notifications" aria-labelledby="dropdownMenuMessage">
+            <div class="notifications-header">
+              <i class="fa fa-bell"></i>
+              Notifications
             </div>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <div class="notification-content">
+                <div class="icon">
+                  <i class="fas fa-check text-success border border-success"></i>
+                </div>
+                <div class="content">
+                  <div class="notification-detail">Lorem ipsum dolor sit amet consectetur adipisicing
+                    elit. In totam explicabo</div>
+                  <div class="notification-time">
+                    6 minutes ago
+                  </div>
+                </div>
+              </div>
+            </a>
+            <a class="dropdown-item" href="#">
+              <div class="notification-content">
+                <div class="icon">
+                  <i class="fas fa-exclamation text-info border border-info"></i>
+                </div>
+                <div class="content">
+                  <div class="notification-detail">Lorem ipsum dolor sit amet consectetur adipisicing
+                    elit. In totam explicabo</div>
+                  <div class="notification-time">
+                    Today
+                  </div>
+                </div>
+              </div>
+            </a>
+            <a class="dropdown-item" href="#">
+              <div class="notification-content">
+                <div class="icon">
+                  <i class="fas fa-exclamation-triangle text-warning border border-warning"></i>
+                </div>
+                <div class="content">
+                  <div class="notification-detail">Lorem ipsum dolor sit amet consectetur adipisicing
+                    elit. In totam explicabo</div>
+                  <div class="notification-time">
+                    Yesterday
+                  </div>
+                </div>
+              </div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item text-center" href="#">View all notifications</a>
+          </div>
         </div>
         <div class="dropdown">
-            <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fa fa-envelope"></i>
-                <span class="badge badge-pill badge-success notification">7</span>
-            </a>
-            <div class="dropdown-menu messages" aria-labelledby="dropdownMenuMessage">
-                <div class="messages-header">
-                    <i class="fa fa-envelope"></i>
-                    Messages
-                </div>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">
-                    <div class="message-content">
-                        <div class="pic">
-                            <img src="../../img/user.jpg" alt="">
-                        </div>
-                        <div class="content">
-                            <div class="message-title">
-                                <strong> Jhon doe</strong>
-                            </div>
-                            <div class="message-detail">Lorem ipsum dolor sit amet consectetur adipisicing
-                                elit. In totam explicabo</div>
-                        </div>
-                    </div>
-
-                </a>
-                <a class="dropdown-item" href="#">
-                    <div class="message-content">
-                        <div class="pic">
-                            <img src="../../img/user.jpg" alt="">
-                        </div>
-                        <div class="content">
-                            <div class="message-title">
-                                <strong> Jhon doe</strong>
-                            </div>
-                            <div class="message-detail">Lorem ipsum dolor sit amet consectetur adipisicing
-                                elit. In totam explicabo</div>
-                        </div>
-                    </div>
-
-                </a>
-                <a class="dropdown-item" href="#">
-                    <div class="message-content">
-                        <div class="pic">
-                            <img src="../../img/user.jpg" alt="">
-                        </div>
-                        <div class="content">
-                            <div class="message-title">
-                                <strong> Jhon doe</strong>
-                            </div>
-                            <div class="message-detail">Lorem ipsum dolor sit amet consectetur adipisicing
-                                elit. In totam explicabo</div>
-                        </div>
-                    </div>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item text-center" href="#">View all messages</a>
-
+          <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-envelope"></i>
+            <span class="badge badge-pill badge-success notification">7</span>
+          </a>
+          <div class="dropdown-menu messages" aria-labelledby="dropdownMenuMessage">
+            <div class="messages-header">
+              <i class="fa fa-envelope"></i>
+              Messages
             </div>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <div class="message-content">
+                <div class="pic">
+                  <img src="../../img/user.jpg" alt="">
+                </div>
+                <div class="content">
+                  <div class="message-title">
+                    <strong> Jhon doe</strong>
+                  </div>
+                  <div class="message-detail">Lorem ipsum dolor sit amet consectetur adipisicing
+                    elit. In totam explicabo</div>
+                </div>
+              </div>
+
+            </a>
+            <a class="dropdown-item" href="#">
+              <div class="message-content">
+                <div class="pic">
+                  <img src="../../img/user.jpg" alt="">
+                </div>
+                <div class="content">
+                  <div class="message-title">
+                    <strong> Jhon doe</strong>
+                  </div>
+                  <div class="message-detail">Lorem ipsum dolor sit amet consectetur adipisicing
+                    elit. In totam explicabo</div>
+                </div>
+              </div>
+
+            </a>
+            <a class="dropdown-item" href="#">
+              <div class="message-content">
+                <div class="pic">
+                  <img src="../../img/user.jpg" alt="">
+                </div>
+                <div class="content">
+                  <div class="message-title">
+                    <strong> Jhon doe</strong>
+                  </div>
+                  <div class="message-detail">Lorem ipsum dolor sit amet consectetur adipisicing
+                    elit. In totam explicabo</div>
+                </div>
+              </div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item text-center" href="#">View all messages</a>
+
+          </div>
         </div>
         <div class="dropdown">
-            <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fa fa-cog"></i>
-                <span class="badge-sonar"></span>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuMessage">
-                <a class="dropdown-item" href="#">My profile</a>
-                <a class="dropdown-item" href="#">Help</a>
-                <a class="dropdown-item" href="#">Setting</a>
-            </div>
+          <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-cog"></i>
+            <span class="badge-sonar"></span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuMessage">
+            <a class="dropdown-item" href="#">My profile</a>
+            <a class="dropdown-item" href="#">Help</a>
+            <a class="dropdown-item" href="#">Setting</a>
+          </div>
         </div>
         <div>
-            <a href="#" onclick="openForm()">
-                <i class="fa fa-power-off" style="color:red;animation: swing ease-in-out 0.5s 1 alternate;text-shadow: 2px 2px 4px #ff2929;"></i>
-            </a>
+          <a href="#" onclick="openForm()">
+            <i class="fa fa-power-off"
+              style="color:red;animation: swing ease-in-out 0.5s 1 alternate;text-shadow: 2px 2px 4px #ff2929;"></i>
+          </a>
         </div>
         <div class="pinned-footer">
-            <a href="#">
-                <i class="fas fa-ellipsis-h"></i>
-            </a>
-        </div>
-    </div>
-   
-</nav> <div id="modal_overlay" onclick="closeForm()"></div>
-    <div class="form-popup" id="myForm">
-     
-        <div  class="form-container">
-          <h1>Logout</h1>
-
-          <p style="color:red" id="err"></p>
-          <label for="psw"><b>Please confirm Your Password</b></label>
-         
-          <input type="password" id="pword";placeholder="Enter Password" name="psw" required>
-          <button type="submit" class="btn" id="signout"><i class="fa fa-power-off"></i></button>
-          <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-       
+          <a href="#">
+            <i class="fas fa-ellipsis-h"></i>
+          </a>
         </div>
       </div>
-<!-- page-content  -->
-<main class="page-content">
-  
-<!-- ADD NEW PHOTO MODAL -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Add New Photo</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-            <div class="piccontainer">
-                    
+
+    </nav>
+    <div id="modal_overlay" onclick="closeForm()"></div>
+    <div class="form-popup" id="myForm">
+
+      <div class="form-container">
+        <h1>Logout</h1>
+
+        <p style="color:red" id="err"></p>
+        <label for="psw"><b>Please confirm Your Password</b></label>
+
+        <input type="password" id="pword" ;placeholder="Enter Password" name="psw" required>
+        <button type="submit" class="btn" id="signout"><i class="fa fa-power-off"></i></button>
+        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+
+      </div>
+    </div>
+    <!-- page-content  -->
+    <main class="page-content">
+
+      <!-- ADD NEW PHOTO MODAL -->
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Add New Photo</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="piccontainer">
+
                 <div>
-                    <div class='success-checkmark'><div class='check-icon'><span class='icon-line line-tip'></span><span class='icon-line line-long'></span><div class='icon-circle'></div><div class='icon-fix'></div></div><span>All Done!</span></div>
-                   
-                    <div class="progress">
-                        <div id="progressPic"class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">0%</div>
-                      </div>
-                      <br>
-                    <span class="reg-form-avtar2">
-                      <img src="" class="popup profile-picture"id="newPhoto" style="object-fit: cover"srcset="">
-                    </span>
+                  <div class='success-checkmark'>
+                    <div class='check-icon'><span class='icon-line line-tip'></span><span
+                        class='icon-line line-long'></span>
+                      <div class='icon-circle'></div>
+                      <div class='icon-fix'></div>
+                    </div><span>All Done!</span>
+                  </div>
+
+                  <div class="progress">
+                    <div id="progressPic" class="progress-bar progress-bar-striped progress-bar-animated"
+                      role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">0%
+                    </div>
+                  </div>
+                  <br>
+                  <span class="reg-form-avtar2">
+                    <img src="" class="popup profile-picture" id="newPhoto" style="object-fit: cover" srcset="">
+                  </span>
                 </div>
                 <div class="upload-btn-wrapper">
-                       <button id="imgbtn">Upload New Photo</button>
-                       <input type="file" id="imgbtn1" onchange="previewFile()"name="myfile" />
-               </div>
-              
-                
-            </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" id="closeNewPhoto" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" id="saveNewPhoto">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!---------------------->
-
-
-  <!-- STYLE COVER MODAL -->
-<div class="modal fade" id="coverModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="styleCoverModalCenter">Update Cover</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="coverContainer row">
-                    
-          <div class="form-group col-md-12">
-              <div class='success-checkmark'><div class='check-icon'><span class='icon-line line-tip'></span><span class='icon-line line-long'></span><div class='icon-circle'></div><div class='icon-fix'></div></div><span>All Done!</span></div>
-             
-              <div class="progress">
-                  <div id="progressUploadCover"class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">0%</div>
+                  <button id="imgbtn">Upload New Photo</button>
+                  <input type="file" id="imgbtn1" onchange="previewFile()" name="myfile" />
                 </div>
+
+
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" id="closeNewPhoto" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" id="saveNewPhoto">Save changes</button>
+            </div>
           </div>
-          <div class="form-group col-md-12">
-        <div class="coverSample"></div>
         </div>
-        <br>
-        
-          <div class="form-group col-md-12">
-            <p>Choose a color </p>
+      </div>
+      <!---------------------->
+
+
+      <!-- STYLE COVER MODAL -->
+      <div class="modal fade" id="coverModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="styleCoverModalCenter">Update Cover</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="coverContainer row">
+
+                <div class="form-group col-md-12">
+                  <div class='success-checkmark'>
+                    <div class='check-icon'><span class='icon-line line-tip'></span><span
+                        class='icon-line line-long'></span>
+                      <div class='icon-circle'></div>
+                      <div class='icon-fix'></div>
+                    </div><span>All Done!</span>
+                  </div>
+
+                  <div class="progress">
+                    <div id="progressUploadCover" class="progress-bar progress-bar-striped progress-bar-animated"
+                      role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">0%
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group col-md-12">
+                  <div class="coverSample  default-theme sidebar-bg bg1 toggled"></div>
+                </div>
+                <br>
+
+                <div class="form-group col-md-12">
+                  <p>Choose a color </p>
+                </div>
+                <div class="colorsettings form-group2 col-md-12">
+
+                  <label>
+                    <input type="radio" name="colors" checked />
+                    <span class="theme default-theme box"></span>
+                  </label>
+                  <label>
+                    <input type="radio" name="colors" />
+
+                    <span href="#" class="theme chiller-theme box"></span>
+                  </label>
+
+                  <label>
+                    <input type="radio" name="colors" />
+                    <span class="theme legacy-theme box"></span>
+                  </label>
+                  <label>
+                    <input type="radio" name="colors" />
+                    <span class="theme ice-theme box"></span>
+                  </label>
+                  <label>
+                    <input type="radio" name="colors" />
+                    <span class="theme cool-theme box"></span>
+                  </label>
+                  <label>
+                    <input type="radio" name="colors" />
+                    <span class="theme light-theme box"></span>
+                  </label>
+                </div>
+
+                <div class="form-group col-md-12">
+                  <p>Select an image </p>
+                </div>
+                <div class="imgsettings form-group2 col-md-12">
+
+                    <label>
+                      <input type="radio" name="imgs" checked />
+                      <span class="theme bg1 box2"></span>
+                    </label>
+                    <label>
+                      <input type="radio" name="imgs" />
+  
+                      <span href="#" class="theme bg2 box2"></span>
+                    </label>
+  
+                    <label>
+                      <input type="radio" name="imgs" />
+                      <span class="theme bg3 box2"></span>
+                    </label>
+                    <label>
+                      <input type="radio" name="imgs" />
+                      <span class="theme bg4 box2"></span>
+                    </label>
+              
+                  </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" id="closeStyleCover" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" id="saveStyleCover">Save changes</button>
+            </div>
+          </div>
         </div>
-          <div class="form-group col-md-12 colorsettings">
-            <a href="#" data-theme="default-theme" class="theme default-theme selected"></a>
-            <a href="#" data-theme="chiller-theme" class="theme chiller-theme"></a>
-            <a href="#" data-theme="legacy-theme" class="theme legacy-theme"></a>
-            <a href="#" data-theme="ice-theme" class="theme ice-theme"></a>
-            <a href="#" data-theme="cool-theme" class="theme cool-theme"></a>
-            <a href="#" data-theme="light-theme" class="theme light-theme"></a>
-        </div>
-        
-        <div class="form-group col-md-12">
-          <p>Select an image </p>
       </div>
-      <div class="form-group col-md-12">
-          <a href="#" data-bg="bg1" class="theme theme-bg selected"></a>
-          <a href="#" data-bg="bg2" class="theme theme-bg"></a>
-          <a href="#" data-bg="bg3" class="theme theme-bg"></a>
-          <a href="#" data-bg="bg4" class="theme theme-bg"></a>
-      </div>
-      </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" id="closeStyleCover" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="saveStyleCover">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!---------------------->
+      <!---------------------->
 
 
 
-    <div id="overlay" class="overlay"></div>
-    <div class="container-fluid">
+      <div id="overlay" class="overlay"></div>
+      <div class="container-fluid">
         <div class="row">
-            <div class="form-group col-md-12 profileheader">
-               <div class="b-tooltip form-group col-md-12">
-                     <img src="../../Resources/gifs/hexLoad.gif" class="settings profile-picture"  data-toggle="modal" data-placement="right"  data-target="#exampleModalCenter" title="Click to Add New Photo" id="changeAvatar"  alt="" srcset="">
-                  
-            </div>
-            <div class="form-group col-md-12 center">
-              <span class="settings username"></span> • <img src="../../Resources/logos/fitpoint.png"  style="object-fit: cover;height: 30px;width: 30px" alt="" srcset=""><span class="settings fp"></span>
-            </div>
-            <div class="form-group col-md-12 center">
-                <a id="toggle-sidebar" class="btn btn-dark" href="#">
-                    <span>Followers</span>
-                </a>
-                <a id="pin-sidebar" class="btn btn-dark" href="#">
-                    <span>Followings</span>
-                </a>
+          <div class="form-group col-md-12 profileheader">
+            <div class="b-tooltip form-group col-md-12">
+              <img src="../../Resources/gifs/hexLoad.gif" class="settings profile-picture" data-toggle="modal"
+                data-placement="right" data-target="#exampleModalCenter" title="Click to Add New Photo"
+                id="changeAvatar" alt="" srcset="">
 
             </div>
-            <button  style="position: absolute; z-index: 1; margin-left: 80%"  data-toggle="modal" data-placement="right"  data-target="#coverModalCenter"id="editCover" class="btn btn-dark" href="">
+            <div class="form-group col-md-12 center">
+              <span class="settings username"></span> • <img src="../../Resources/logos/fitpoint.png"
+                style="object-fit: cover;height: 30px;width: 30px" alt="" srcset=""><span class="settings fp"></span>
+            </div>
+            <div class="form-group col-md-12 center">
+              <a id="toggle-sidebar" class="btn btn-dark" href="#">
+                <span>Followers</span>
+              </a>
+              <a id="pin-sidebar" class="btn btn-dark" href="#">
+                <span>Followings</span>
+              </a>
+
+            </div>
+            <button style="position: absolute; z-index: 1; margin-left: 80%" data-toggle="modal" data-placement="right"
+              data-target="#coverModalCenter" id="editCover" class="btn btn-dark" href="">
               <i class="fas fa-paint-brush"> Style Cover</i>
             </button>
-        </div>
-        <hr class="settings line center">
-        <div class="row">
-            <div class="form-group col-md-12">
-                <h3>Themes</h3>
-                <p>Here are more themes that you can use</p>
-            </div>
-        </div>
-        <hr >
-        <div class="row">
-            <div class="form-group col-md-12">
-                <a href="#" data-theme="default-theme" class="theme default-theme selected"></a>
-                <a href="#" data-theme="chiller-theme" class="theme chiller-theme"></a>
-                <a href="#" data-theme="legacy-theme" class="theme legacy-theme"></a>
-                <a href="#" data-theme="ice-theme" class="theme ice-theme"></a>
-                <a href="#" data-theme="cool-theme" class="theme cool-theme"></a>
-                <a href="#" data-theme="light-theme" class="theme light-theme"></a>
-            </div>
-            <div class="form-group col-md-12">
-                <p>You can also use background image </p>
-            </div>
-            <div class="form-group col-md-12">
-                <a href="#" data-bg="bg1" class="theme theme-bg selected"></a>
-                <a href="#" data-bg="bg2" class="theme theme-bg"></a>
-                <a href="#" data-bg="bg3" class="theme theme-bg"></a>
-                <a href="#" data-bg="bg4" class="theme theme-bg"></a>
-            </div>
-            <div class="form-group col-md-12">
-                <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="toggle-bg" checked>
-                    <label class="custom-control-label" for="toggle-bg">Background image</label>
-                </div>
-            </div>
-            <div class="form-group col-md-12">
-                <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="toggle-border-radius">
-                    <label class="custom-control-label" for="toggle-border-radius">Border radius</label>
-                </div>
-            </div>
+          </div>
+         
+       
+          <div class="row">
+           
+          </div>
 
+          <hr>
+          <div class="row">
+            <div class="form-group col-md-12">
+              <a href="https://github.com/azouaoui-med/pro-sidebar-template" class="btn btn-dark" target="_blank">
+                <i class="fab fa-github"></i> View source</a>
+              <a href="https://github.com/azouaoui-med/pro-sidebar-template/archive/gh-pages.zip"
+                class="btn btn-outline-dark" target="_blank">
+                <i class="fa fa-download"></i> Download</a>
+            </div>
+          </div>
+
+          <hr>
         </div>
 
-        <hr>
-        <div class="row">
-            <div class="form-group col-md-12">
-                <a href="https://github.com/azouaoui-med/pro-sidebar-template" class="btn btn-dark" target="_blank">
-                    <i class="fab fa-github"></i> View source</a>
-                <a href="https://github.com/azouaoui-med/pro-sidebar-template/archive/gh-pages.zip" class="btn btn-outline-dark"
-                    target="_blank">
-                    <i class="fa fa-download"></i> Download</a>
-            </div>
-        </div>      
-                   
-        <hr>
-    </div>
-    
-</main>
-<!-- page-content" -->
-</div>
-<!-- page-wrapper -->
- 
-        <!--Navbar on small screen-->    
-        <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
-        <!-- Firebase App is always required and must be first -->
-         <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
-    
-         <!-- Add additional services that you want to use -->
-         <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
-         <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-storage.js"></script>
-         <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
-         <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-firestore.js"></script>
-        
-        
-            <script>
-            // Initialize Firebase
-            var config = {
-                apiKey: "AIzaSyDYQitO0eG3eFaWo2MVUQwOLT3PYwd0M0g",
-                authDomain: "hours-db878.firebaseapp.com",
-                databaseURL: "https://hours-db878.firebaseio.com",
-                projectId: "hours-db878",
-                storageBucket: "hours-db878.appspot.com",
-                messagingSenderId: "265161097807"
-            };
-            firebase.initializeApp(config);
-            </script>
-          
-           <script>
-            
-              </script>
-                 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-                 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
-                     crossorigin="anonymous"></script>
-                 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
-                     crossorigin="anonymous"></script>
-                 <script src="https://malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-                 <script src="../../JS/Home/main.js"></script>
-                 <script src="../../JS/Home/settings-profile.js"></script>
-               
+    </main>
+    <!-- page-content" -->
+  </div>
+  <!-- page-wrapper -->
+
+  <!--Navbar on small screen-->
+  <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+  <!-- Firebase App is always required and must be first -->
+  <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
+
+  <!-- Add additional services that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-storage.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-firestore.js"></script>
+
+
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDYQitO0eG3eFaWo2MVUQwOLT3PYwd0M0g",
+      authDomain: "hours-db878.firebaseapp.com",
+      databaseURL: "https://hours-db878.firebaseio.com",
+      projectId: "hours-db878",
+      storageBucket: "hours-db878.appspot.com",
+      messagingSenderId: "265161097807"
+    };
+    firebase.initializeApp(config);
+  </script>
+
+  <script>
+
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+    integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+    crossorigin="anonymous"></script>
+  <script src="https://malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../../JS/Home/main.js"></script>
+  <script src="../../JS/Home/settings-profile.js"></script>
+
 </body>
+
 </html>

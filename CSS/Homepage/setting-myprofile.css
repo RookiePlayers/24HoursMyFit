@@ -277,6 +277,10 @@ width: 50%;
   background-image: url(../../img/bg3.jpg) }
   .imgsettings .theme.bg4 {
     background-image: url(../../img/bg4.jpg) }
+    .imgsettings .theme.bgAdd {
+      background-image: url(../../Resources/icons/camera-ic.png);
+      background-size: contain;
+    }
 
     
 .imgsettings {

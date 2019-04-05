@@ -170,13 +170,17 @@ function userInfoThread(){
 
 /** HANDLE PROFILE COVER  */
 //get selected color
+var profileCover={};
+
+
+
 var newCoverGeneratedCss;//string
 var generatedColor;
 var generatedImg;
 function  updateCoverCss(){
     $(".coverSample").css("backgroundColor",generatedColor);
     $(".coverSample").css("backgroundImage","url("+generatedImg+")");
-
+    profileCover={color:generatedColor,image:generatedImg}
 }
 
 

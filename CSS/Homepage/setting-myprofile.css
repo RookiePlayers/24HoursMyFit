@@ -26,11 +26,13 @@
     text-align: center;
     
 }
+
 .coverSample{
   width: 100%;
   height:100px;
   background-image: url(../../Resources/Backgrounds/stars.jpg);
   background-blend-mode: color-dodge;
+
   background-color: #1E2328;
   border-radius: 10px;
   background-size: cover;
@@ -81,20 +83,101 @@ width: 50%;
   display: inline-block;
   margin: 2px;
   background-size: cover; }
-.colorsettings.theme.selected {
+.colorsettings .theme.selected {
   border: 2px solid #00c7ff; }
-.colorsettings.theme.default-theme {
+.colorsettings .theme.default-theme {
+      background: linear-gradient(100deg,#ffecd2,#fcb69f);
   background: #1E2328; }
-.colorsettings.theme.chiller-theme {
+.colorsettings .theme.chiller-theme {
   background: #374140; }
-.colorsettings.theme.legacy-theme {
+.colorsettings .theme.legacy-theme {
   background: #2e333c; }
-.colorsettings.theme.ice-theme {
+.colorsettings .theme.ice-theme {
   background: #3a4d56; }
-.colorsettings.theme.cool-theme {
+.colorsettings .theme.cool-theme {
   background: #46454c; }
-.colorsettings.theme.light-theme {
+.colorsettings .theme.light-theme {
   background: #ececec; }
+  .colorsettings .theme.warm-flame {
+    background: linear-gradient(100deg,#ff9a96,#fad0c4);
+    background: -moz-box-shadow(100deg,#ff9a96,#fad0c4);
+    background: -ms-box-shadow(100deg,#ff9a96,#fad0c4);
+    background: -o-box-shadow(100deg,#ff9a96,#fad0c4);
+    background: -webkit-gradient(100deg,#ff9a96,#fad0c4);
+
+  }
+  .colorsettings .theme.juicy-peach {
+    background: linear-gradient(100deg,#ffecd2,#fcb69f);
+    background: -moz-box-shadow(100deg,#ffecd2,#fcb69f);
+    background: -ms-box-shadow(100deg,#ffecd2,#fcb69f);
+    background: -o-box-shadow(100deg,#ffecd2,#fcb69f);
+    background: -webkit-gradient(100deg,#ffecd2,#fcb69f);
+
+  }
+  .colorsettings .theme.lady-lips {
+    background: linear-gradient(100deg,#ff9a9e,#fecfef);
+    background: -moz-box-shadow(100deg,#ff9a9e,#fecfef);
+    background: -ms-box-shadow(100deg,#ff9a9e,#fecfef);
+    background: -o-box-shadow(100deg,#ff9a9e,#fecfef);
+    background: -webkit-gradient(100deg,#ff9a9e,#fecfef);;
+
+  }
+  .colorsettings .theme.winter-neva {
+    background: linear-gradient(100deg,#a1c4fd,#c2e9fb);
+    background: -moz-box-shadow(100deg,#a1c4fd,#c2e9fb);
+    background: -ms-box-shadow(100deg,#a1c4fd,#c2e9fb);
+    background: -o-box-shadow(100deg,#a1c4fd,#c2e9fb);
+    background: -webkit-gradient(100deg,#a1c4fd,#c2e9fb);
+
+  }
+  .colorsettings .theme.heavy-rain {
+    background: linear-gradient(100deg,#cfd9df,#e2ebf0);
+    background: -moz-box-shadow(100deg,#cfd9df,#e2ebf0);
+    background: -ms-box-shadow(100deg,#cfd9df,#e2ebf0);
+    background: -o-box-shadow(100deg,#cfd9df,#e2ebf0);
+    background: -webkit-gradient(100deg,#cfd9df,#e2ebf0);
+
+  }
+  .colorsettings .theme.plum-plate {
+    background: linear-gradient(100deg,#667eea,#764ba2);
+    background: -moz-box-shadow(100deg,#667eea,#764ba2);
+    background: -ms-box-shadow(100deg,#667eea,#764ba2);
+    background: -o-box-shadow(100deg,#667eea,#764ba2);
+    background: -webkit-gradient(100deg,#667eea,#764ba2);
+
+  }
+  .colorsettings .theme.fly-high {
+    background: linear-gradient(90deg,#48cdef,#6f86d6);
+    background: -moz-box-shadow(90deg,#48cdef,#6f86d6);
+    background: -ms-box-shadow(90deg,#48cdef,#6f86d6);
+    background: -o-box-shadow(90deg,#48cdef,#6f86d6);
+    background: -webkit-gradient(90deg,#48cdef,#6f86d6);
+
+  }
+  .colorsettings .theme.strong-bliss {
+    background: linear-gradient(100deg,#e65d4b,#ff1563);
+    background: -moz-box-shadow(100deg,#e65d4b,#ff1563);
+    background: -ms-box-shadow(100deg,#e65d4b,#ff1563);
+    background: -o-box-shadow(100deg,#e65d4b,#ff1563);
+    background: -webkit-gradient(100deg#e65d4b,#ff1563);
+
+  }
+  .colorsettings .theme.premium-dark{
+    background: linear-gradient(100deg,#434343,#000000);
+    background: -moz-box-shadow(100deg,#434343,#000000);
+    background: -ms-box-shadow(100deg,#434343,#000000);
+    background: -o-box-shadow(100deg,#434343,#000000);
+    background: -webkit-gradient(100deg#434343,#000000);
+
+  }
+  .colorsettings .theme.angle-care{
+    background: linear-gradient(100deg,#29323c,#485563);
+    background: -moz-box-shadow(100deg,#29323c,#485563);
+    background: -ms-box-shadow(100deg,#29323c,#485563);
+    background: -o-box-shadow(100deg,#29323c,#485563);
+    background: -webkit-gradient(100deg#29323c,#485563);
+
+  }
 /*profile pic*/
 .settings.profile-btn{
   display:block;
@@ -281,7 +364,8 @@ width: 50%;
     background-image: url(../../img/bg4.jpg) }
     .imgsettings .theme.bgAdd {
       background-image: url(../../Resources/icons/camera-ic.png);
-      background-size: contain;
+      background-size: cover;
+      background-repeat: no-repeat;
     }
 
     
@@ -298,10 +382,10 @@ width: 50%;
   display: none;
 }
 .imgsettings input[type=radio]:checked{
-  border: 2px solid #00c7ff;
+  border: 2px solid #ff009d;
 }
 .imgsettings input[type=radio]:checked + .box2 {
-  border: 2px solid #00c7ff;
+  border: 2px solid #ff009d;
   
 }
 .imgsettings input[type=radio]:checked + .box2 span:before {
@@ -373,4 +457,92 @@ width: 50%;
 }
 #imgbtn1:hover{
   color: rgba(8, 8, 8, 0.164);cursor: pointer;
+}
+
+
+   
+.fxsettings {
+  width: 70%;
+  text-align: center;
+  padding-left: 15px;
+  padding-right: 15px;
+  
+  /* Made by */
+}
+.fxsettings h1 {
+  font-family: "Dax", sans-serif;
+  color: #fff;
+}
+.fxsettings input[type=radio] {
+  display: none;
+}
+.fxsettings input[type=radio]:checked{
+  border: 2px solid #ffee00;
+}
+.fxsettings input[type=radio]:checked + .box2 {
+  border: 2px solid #ffd900;
+  
+}
+.fxsettings input[type=radio]:checked + .box2 span:before {
+  border:0;
+  transform: translateY(0px);
+  opacity: 1;
+}
+.fxsettings .box2 {
+ 
+  text-align: center;
+  cursor: pointer;
+  border-radius: 3px;
+  width:20px;
+  height: 20px;
+  background-color: #1E2328;
+  background-image: url(../../Resources/Backgrounds/stars.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+}
+.fxsettings .box2:active {
+  transform: translateY(10px);
+}
+.fxsettings .box2 span {
+  position: absolute;
+  transform: translate(0, 60px);
+  
+  left: 0;
+  right: 0;
+  transition: all 300ms ease;
+  font-size: 1.5em;
+  user-select: none;
+  color: #007e90;
+}
+.fxsettings .box2 span:before {
+  font-size: 1.2em;
+  font-family: FontAwesome;
+  display: block;
+  transform: translateY(-80px);
+  opacity: 0;
+  transition: all 300ms ease-in-out;
+  font-weight: normal;
+  color: white;
+}
+.fxsettings .front-end span:before {
+  content: "";
+}
+.fxsettings .back-end span:before {
+  content: "";
+}
+.fxsettings p {
+  color: #fff;
+  font-family: "Dax", sans-serif;
+  font-weight: 400;
+}
+.fxsettings p a {
+  text-decoration: underline;
+  font-weight: bold;
+  color: #FFF;
+}
+.fxsettings p span:after {
+  content: "";
+  font-family: FontAwesome;
+  color: yellow;
 }

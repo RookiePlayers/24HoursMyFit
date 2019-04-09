@@ -1,6 +1,7 @@
 
 /** HANDLE PROFILE PICTURE */
-var imgurl;
+initEffect();
+var imgurl,coverurl="";
 $('#closeNewPhoto').removeClass("btn-primary")
 $('#saveNewPhoto').removeClass("btn-secondary")
 $('#saveNewPhoto').addClass("btn-primary")
@@ -17,6 +18,20 @@ $("#imgbtn1").on("click",function () {
         $("#saveNewPhoto").removeAttr("disabled");
         $(".success-checkmark").hide();
 })
+function errorHandler(evt) {
+    switch(evt.target.error.code) {
+      case evt.target.error.NOT_FOUND_ERR:
+        alert('File Not Found!');
+        break;
+      case evt.target.error.NOT_READABLE_ERR:
+        alert('File is not readable');
+        break;
+      case evt.target.error.ABORT_ERR:
+        break; // noop
+      default:
+        alert('An error occurred reading this file.');
+    };
+  }
 function previewFile() {
     $('#closeNewPhoto').removeClass("btn-primary")
     $('#saveNewPhoto').removeClass("btn-secondary")
@@ -25,11 +40,11 @@ function previewFile() {
         $("#saveNewPhoto").removeAttr("disabled");
         $(".success-checkmark").hide();
     var preview = document.querySelector('img'); //selects the query named img
-    file = document.querySelector('input[type=file]').files[0]; //sames as here
+    var files = evt.target.myfile;//sames as here
     var reader = new FileReader();
 
     reader.onloadend = function () {
-
+        console.log("getting file."+files);
         document.getElementById("newPhoto").src=reader.result;
 
     }
@@ -41,6 +56,23 @@ function previewFile() {
 
     } 
 }
+$("#coverImgBtn").on("change",function(evt){
+   var reader = new FileReader();
+    reader.onerror = errorHandler;
+    var myfile=evt.target.files[0];
+    reader.onload = function(e) {
+        // Ensure that the progress bar displays 100% at the end.
+        console.log("loaded");
+        $('.bgAdd').css("backgroundImage","url("+reader.result+")");
+        coverurl = reader.result;
+              
+    }
+    if(myfile){
+        reader.readAsDataURL(myfile); //reads the data as a URL
+       
+    }
+
+});
 (function($){
 "use Strict";
 
@@ -175,18 +207,32 @@ var profileCover={};
 
 
 var newCoverGeneratedCss;//string
-var generatedColor;
-var generatedImg;
+var generatedColor="#1d1d1d";
+var generatedImg="";
 function  updateCoverCss(){
-    $(".coverSample").css("backgroundColor",generatedColor);
-    $(".coverSample").css("backgroundImage","url("+generatedImg+")");
-    profileCover={color:generatedColor,image:generatedImg}
+   
+    if(generatedColor.includes("gradient")) 
+    {
+        $(".coverSample").css("backgroundColor","");
+        $(".coverSample").css("background",generatedColor);
+    }
+        else 
+    {
+        $(".coverSample").css("background","");
+        $(".coverSample").css("backgroundColor",generatedColor);
+    }
+    $(".coverSample").css("backgroundImage","url("+generatedImg+");");
+    $(".coverSample").css("backgroundBlendMode",effect);
+    profileCover={color:generatedColor,image:generatedImg,effect:effect}
+    initEffect();
 }
 
 
 
 var colors=document.getElementsByName("colors");
 var imgs=document.getElementsByName("imgs");
+
+var effect="normal";
 colors.forEach((color)=>{
     color.addEventListener("click",function(){
         var c=getColorCode();
@@ -219,6 +265,38 @@ function getColorCode(){
                 case 5:{
                     return "#ececec";
                }
+               case 6:{
+                return "linear-gradient(100deg,#ff9a96,#fad0c4)";
+           }
+           case 7:{
+            return "linear-gradient(100deg,#ffecd2,#fcb69f)";
+       }
+       case 8:{
+        return "linear-gradient(100deg,#ff9a9e,#fecfef)";
+   }
+   case 9:{
+    return "linear-gradient(100deg,#a1c4fd,#c2e9fb)";
+}
+case 10:{
+    return "linear-gradient(100deg,#cfd9df,#e2ebf0)";
+}
+case 11:{
+    return "linear-gradient(100deg,#667eea,#764ba2)";
+}
+case 12:{
+    return "linear-gradient(90deg,#48cdef,#6f86d6)";
+}
+case 13:{
+    return "linear-gradient(100deg,#e65d4b,#ff1563)";
+}
+case 14:{
+    return "linear-gradient(100deg,#434343,#000000)";
+}
+case 15:{
+    return "linear-gradient(100deg,#29323c,#485563)";
+}
+
+
             }
         }
        
@@ -231,19 +309,168 @@ function getColorCode(){
 imgs.forEach((img)=>{
     img.addEventListener("click",function(){
         var c=getimgCode();
-        console.log("chosen img is: "+getimgCode());
+       // console.log("chosen img is: "+getimgCode());
         generatedImg=c;
         updateCoverCss();
     })
 })
+effects.forEach((fx)=>{
+  
+    fx.addEventListener("click",function () {
+        console.log("clicked**");
+        var e=getFXCode;
+        effect=e;
+        updateCoverCss();
+    })
+});
+var effects;
+function initEffect(){
+    effects=document.getElementsByName("fx");
+    var i=0;
+    effects.forEach((fx)=>{
+        var f=document.getElementsByClassName("fxbox")[i];
+     //   console.log(f);
+        
+        f.style.backgroundColor=generatedColor;
+        f.style.backgroundImage="url("+generatedImg+")";
+        switch(i){
+            case 0:{
+                f.style.backgroundBlendMode="normal";
+            }break;
+            case 1:{
+                f.style.backgroundBlendMode="color-burn";
+            }break;
+            case 2:{
+                f.style.backgroundBlendMode="color-dodge";
+            }break;
+            case 3:{
+                f.style.backgroundBlendMode="darken";
+
+            }break;
+            case 4:{
+                f.style.backgroundBlendMode="difference";
+            }break;
+            case 5:{
+                f.style.backgroundBlendMode="exclusion";
+            }break;
+            case 6:{
+                f.style.backgroundBlendMode="hard-light";
+            }break;
+            case 7:{
+                f.style.backgroundBlendMode="hue";
+            }break;
+            case 8:{
+                f.style.backgroundBlendMode="inherit";
+            }break;
+            case 9:{
+                f.style.backgroundBlendMode="initial";
+            }break;
+            case 10:{
+                f.style.backgroundBlendMode="lighten";
+            }break;
+            case 11:{
+                f.style.backgroundBlendMode="luminosity";
+            }break;
+            case 12:{
+                f.style.backgroundBlendMode="multiply";
+            }break;
+            case 13:{
+                f.style.backgroundBlendMode="overlay";
+            }break;
+            case 14:{
+                f.style.backgroundBlendMode="saturation";
+            }break;
+            case 15:{
+                f.style.backgroundBlendMode="soft-light";
+            }break;
+            case 16:{
+                f.style.filter="blur(8px)";
+            }break;
+
+            default:break;
+        }
+        i++;
+       
+    });
+   
+
+
+}
+
+function getFXCode(){
+    
+    
+    for(var i=0;i<effects.length;i++){
+
+        if(effects[i].checked){
+               switch(i){
+                   case 0:{
+                    return "normal"
+                   }
+            case 1:{
+                     return "color-burn";
+                }
+                case 2:{
+                    return  "color-dodge";
+               }
+               case 3:{
+                    return  "darken";
+                }
+                case 4:{
+                    return  "difference";
+               }
+               case 5:{
+                    return "exclusion";
+                }
+                case 6:{
+                    return "hard-light";
+               }
+                 case 7:{
+                    return "hue";
+               }
+               case 8:{
+                  return "inherit";
+             }
+             case 9:{
+                return "initial";
+           }
+           case 10:{
+              return "lighten";
+         }
+         case 11:{
+            return "luminosity";
+       }
+       case 12:{
+          return "multiply";
+     }
+     case 13:{
+        return "overlay";
+   }
+   case 14:{
+      return "saturation";
+ }
+ case 15:{
+    return "soft-light";
+}
+case 16:{
+   return "unset";
+}
+               
+            }
+        }
+       
+    }
+    return "normal";
+}
 function getimgCode(){
+    
     
     for(var i=0;i<imgs.length;i++){
 
         if(imgs[i].checked){
                switch(i){
                    case 0:{
-                    return "transparent"
+                    return ""
                    }
             case 1:{
                      return "../../Resources/Backgrounds/stars.jpg";
@@ -258,7 +485,7 @@ function getimgCode(){
                     return  "../../img/bg4.jpg";
                }
                case 5:{
-                    return "#46454c";
+                    return coverurl;
                 }
                 case 6:{
                     return "#ececec";

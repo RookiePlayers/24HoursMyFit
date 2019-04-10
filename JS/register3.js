@@ -98,6 +98,7 @@ function genRandUsername() {
             }
             else {
                 $(this).removeClass('has-val');
+                
             }
         })
     })
@@ -108,41 +109,69 @@ function genRandUsername() {
     var input = $('.validate-input .inputr');
     document.getElementById("uname").value = localStorage.getItem("fn") + Math.floor(Math.random() * 2400)
     $("#uname").addClass("has-val")
+ //  $("#verificationcode").addClass("has-val");
     $('.reg-form-btn').on('click', function () {
         var check = true;
 
-        for (var i = 0; i < input.length; i++) {
+        for (var i = 1; i < input.length; i++) {
             if (validate(input[i]) == false) {
                 showValidate(input[i]);
                 check = false;
             }
         }
+
+        if(check==true){
+           var email=$("#email").val();
+            createNewUser(email, $("#pword").val()).then(()=>{
+                    $('#exampleModal').modal('show');
+            window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+            sendEmail(email);
+            firebase.auth().signInWithPhoneNumber(fullphone, window.recaptchaVerifier) 
+            .then(function(confirmationResult) { 
+            window.confirmationResult = confirmationResult; 
+            a(confirmationResult); 
+            }); 
+            }).catch((e)=>{
+                console.log(e);
+                
+            })
+        
+        }
        
     });
+    $(".firebaseui-id-submit").on("click",function () 
+    {
+        if(validtelephonenumber){
+            confirmcode();
+        }    
+    })
+    function confirmcode() { 
+        $(".v-codebox").show();
+        $(".phonebox").hide();
+
+        window.confirmationResult.confirm(document.getElementById("verificationcode").value) 
+        .then(function(result) { 
+       // alert('login process successfull!\n redirecting');
+       // alert('<a href="javascript:alert(\'hi\');">alert</a>')
+       // window.location.href="details.html";
+        }, function(error) { 
+        alert(error); 
+        }); 
+        };
 
     $('#email').change(function () {
-
-
-        if (!validate(input[0])) {
-            showValidate(input[0]);
-
-
-
-        } else {
-            hideValidate(input[0]);
-        }
-    });
-    $('#uname').change(function () {
 
 
         if (!validate(input[1])) {
             showValidate(input[1]);
 
+
+
         } else {
             hideValidate(input[1]);
         }
     });
-    $('#pword').change(function () {
+    $('#uname').change(function () {
 
 
         if (!validate(input[2])) {
@@ -152,7 +181,7 @@ function genRandUsername() {
             hideValidate(input[2]);
         }
     });
-    $('#phone').change(function () {
+    $('#pword').change(function () {
 
 
         if (!validate(input[3])) {
@@ -160,6 +189,26 @@ function genRandUsername() {
 
         } else {
             hideValidate(input[3]);
+        }
+    });
+    $('#phone').change(function () {
+
+
+        if (!validate(input[4])) {
+            showValidate(input[4]);
+
+        } else {
+            hideValidate(input[4]);
+        }
+    });
+    $('#phone2').change(function () {
+
+
+        if (!validate(input[0])) {
+            showValidate(input[0]);
+
+        } else {
+            hideValidate(input[0]);
         }
     });
 
@@ -202,6 +251,7 @@ function genRandUsername() {
         else return true;
     }
     function validatePassword(password) {
+     
         var re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
         if (password == '' || !re.test(password)) {
 
@@ -235,7 +285,7 @@ function genRandUsername() {
                 $("#pwordValid").addClass('focus-input-incorrect');
 
             } break;
-            case "phone": {
+            case "phone":case "phone2": {
                 $("#phoneValid").removeClass('focus-input');
                 $("#phoneValid").removeClass('focus-input-correct');
                 $("#phoneValid").addClass('focus-input-incorrect');
@@ -268,7 +318,7 @@ function genRandUsername() {
                 $("#pwordValid").addClass('focus-input-correct');
 
             } break;
-            case "phone": {
+            case "phone":case "phone2": {
                 $("#phoneValid").removeClass('focus-input');
                 $("#phoneValid").removeClass('focus-input-incorrect');
                 $("#phoneValid").addClass('focus-input-correct');
@@ -400,8 +450,8 @@ function genRandUsername() {
                 newuser = user;
                 user.sendEmailVerification().then(function () {
                     // sent email.
-                    $("#emailVarification").html("<p>An Email was sent to: " + email + "<br>for Security reasons please go to your email and verify<br>Didn't see it? <button style='background-color:transparent;border:0px;font-size:12px;color:teal'>Resend</button></p>");
-                    alert("an email was sent to: " + email + "please varify");
+                   // $("#emailVarification").html("<p>An Email was sent to: " + email + "<br>for Security reasons please go to your email and verify<br>Didn't see it? <button style='background-color:transparent;border:0px;font-size:12px;color:teal'>Resend</button></p>");
+                   // alert("an email was sent to: " + email + "please varify");
                 }).catch(function (error) {
                     // An error happened.
                 });
@@ -416,16 +466,20 @@ function genRandUsername() {
     var UserInformation = {
           }
     function saveUserInfo(username, email, password,phoneNat, phone, imgurl) {
+        //TODO: change image value to acctual download link
+       var profileCover={color:"#1E2328",image:"../../Resources/Backgrounds/stars.jpg",effect:"color-dodge"}
+                             
         UserInformation = {
             LoginDetails: { email: email, username: username,phoneNumber:phoneNat, phone: phone, profileImg: imgurl, terms: true },
             UserDetails: { firstName: firstName, lastName: lastName, dob: dob, gender: gender },
             PhysicalDetails: { problemAreas: problemAreas, height: height, weight: weight },
-            OverallFocus: [{ fitnessGoal: { physicalGoal: fitnessGoalphysical, dietGoal: fitnessGoaldiet } }]
+            OverallFocus: [{ fitnessGoal: { physicalGoal: fitnessGoalphysical, dietGoal: fitnessGoaldiet } }],
+            Cover:profileCover
         };
         //sign Up New User
-        signUpNewUser(email, password);
+       
       
-            sendEmail(email);
+            
         /**profileimg */
 
         firebase.auth().onAuthStateChanged(function (user) { //or use firebase.auth().currentUser;
@@ -512,26 +566,31 @@ function genRandUsername() {
 
 
     }
-    function signUpNewUser(email, password) {
+    function createNewUser(email,password){
+    return new Promise(function (resolve, reject) {
 
-        firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
-            // Handle Errors here.
-            let errorCode = error.code;
-            let errorMessage = error.message;
-            if(errorCode=="auth/email-already-in-use"){
-                userExists=true;
-                $("#emailVarification").html("<p>Sorry this user already has an Account <br><button style='background-color:transparent;border:0px;font-size:12px;color:teal'>Login in Here</button></p>");
-                alert("Sorry User Already has an account")
-            }
-            console.log(errorCode);
+        setTimeout(function() {
+            firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
+                // Handle Errors here.
+                let errorCode = error.code;
+                let errorMessage = error.message;
+                if(errorCode=="auth/email-already-in-use"){
+                    userExists=true;
+                    $("#emailVarification").html("<p>Sorry this user already has an Account <br><button style='background-color:transparent;border:0px;font-size:12px;color:teal'>Login in Here</button></p>");
+                    alert("Sorry User Already has an account")
+                }
+                console.log(errorCode);
+                
+               reject(error);
+            });
             
-            return false;
-        });
-        
-        return true;
-    }
+            
+           
+          },100);
+       
+    });
    
-
+    }
 
 
 
@@ -579,4 +638,7 @@ firebase.auth().signOut().then(function() {
     }
     return check;    
 })
+$('#exampleModal').modal() 
+$(".v-codebox").hide();
+$(".phonebox").show();
 })(jQuery);

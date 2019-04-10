@@ -1,11 +1,16 @@
 
 /** HANDLE PROFILE PICTURE */
 initEffect();
+loadCover();
 var imgurl,coverurl="";
 $('#closeNewPhoto').removeClass("btn-primary")
 $('#saveNewPhoto').removeClass("btn-secondary")
 $('#saveNewPhoto').addClass("btn-primary")
 $('#closeNewPhoto').addClass("btn-secondary")
+$('#closeCover').removeClass("btn-primary")
+$('#saveCover').removeClass("btn-secondary")
+$('#saveCover').addClass("btn-primary")
+$('#closeCover').addClass("btn-secondary")
 $(".success-checkmark").hide();
 document.getElementById("newPhoto").src="../../Resources/icons/camera-ic.png"
 $("#imgbtn1").on("click",function () {
@@ -211,19 +216,21 @@ var generatedColor="#1d1d1d";
 var generatedImg="";
 function  updateCoverCss(){
    
-    if(generatedColor.includes("gradient")) 
+   if(generatedColor.includes("gradient")&&generatedImg=="") 
     {
         $(".coverSample").css("backgroundColor","");
         $(".coverSample").css("background",generatedColor);
+        
     }
         else 
     {
         $(".coverSample").css("background","");
-        $(".coverSample").css("backgroundColor",generatedColor);
+        $(".coverSample").css("backgroundColor",generatedColor); 
+        $(".coverSample").css("backgroundImage","url("+generatedImg+")");
     }
-    $(".coverSample").css("backgroundImage","url("+generatedImg+");");
+  
     $(".coverSample").css("backgroundBlendMode",effect);
-    profileCover={color:generatedColor,image:generatedImg,effect:effect}
+  
     initEffect();
 }
 
@@ -236,6 +243,10 @@ var effect="normal";
 colors.forEach((color)=>{
     color.addEventListener("click",function(){
         var c=getColorCode();
+        if(c.includes("gradient")) 
+        {
+            generatedImg="";
+        }
         console.log("chosen color is: "+getColorCode());
         generatedColor=c;
         updateCoverCss();
@@ -308,8 +319,9 @@ case 15:{
 }
 imgs.forEach((img)=>{
     img.addEventListener("click",function(){
+        $(".coverSample").css("background","");
         var c=getimgCode();
-       // console.log("chosen img is: "+getimgCode());
+       console.log("chosen img is: "+getimgCode());
         generatedImg=c;
         updateCoverCss();
     })
@@ -317,6 +329,7 @@ imgs.forEach((img)=>{
 effects.forEach((fx)=>{
   
     fx.addEventListener("click",function () {
+        $(".coverSample").css("background","");
         console.log("clicked**");
         var e=getFXCode;
         effect=e;
@@ -498,4 +511,168 @@ function getimgCode(){
     
     return "../../Resources/Backgrounds/stars.jpg";
     
+}
+function saveCover()
+{
+    saveImg();
+    SaveToDB();
+    ReloadCover();
+}
+function ReloadCover(){
+    window.reload();
+}
+var savingCover = new Promise(function(resolve, reject) {
+    setTimeout(function() {
+        firebase.database().ref('Users/' + user.uid+"/LoginDetails/Cover").set(profileCover);
+      resolve();
+    }, 300);
+  });
+function SaveToDB(){
+    savingCover.then(()=>{
+       console.log(profileCover);
+       ReloadCover();
+    })
+    
+    
+}
+function saveImg(){
+    var coverimg = '';
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function(){
+  if(xmlhttp.status == 200 && xmlhttp.readyState == 4){
+    coverimg = xmlhttp.response;
+    return coverimg;
+  }
+};
+xmlhttp.open("GET",getimgCode,true);
+xmlhttp.send();
+
+}
+    $("#saveCover").on("click",function () {
+        var imgfile;
+        if(getimgCode.includes("../../Resources/"))
+        imgfile=saveImg();
+        else imgfile=coverurl;
+        //show progress
+        //upload to firebase
+        firebase.auth().onAuthStateChanged(function (user) { //or use firebase.auth().currentUser;
+            if (user) {
+                // User is signed in.
+                try {
+                    
+                
+                if (imgfile) {
+                    var metadata = {
+                        name: coverurl,
+                        contentType: 'image/jpeg'
+    
+                    };
+                    var storage = firebase.storage();
+                    var storageRef = storage.ref();
+                    
+                    // Upload file and metadata to the object 'images/mountains.jpg'
+                    var uploadTask = storageRef.child("Users/"+user.uid + '/images/' + imgfile.name).put(imgfile, metadata);
+                    uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
+                        function (snapshot) {
+                            // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+                            var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                            
+                            progress=Math.floor(progress);
+                            console.log('Upload is ' + progress + '% done');
+                            $(".progress").show();
+                            $("#progressPic").attr("aria-valuenow",progress);
+                            $("#progressPic").html(progress+"%");
+                            $("#progressPic").css("width",progress+"%");
+                            switch (snapshot.state) {
+                                case firebase.storage.TaskState.PAUSED: // or 'paused'
+                                    console.log('Upload is paused');
+                                    break;
+                                case firebase.storage.TaskState.RUNNING: // or 'running'
+                                    console.log('Upload is running');
+                                    break;
+                            }
+                        }, function (error) {
+    
+                            // A full list of error codes is available at
+                            // https://firebase.google.com/docs/storage/web/handle-errors
+                            switch (error.code) {
+                                case 'storage/unauthorized':
+                                    // User doesn't have permission to access the object
+                                    break;
+    
+                                case 'storage/canceled':
+                                    // User canceled the upload
+                                    break;
+    
+                                case 'storage/unknown':
+                                    // Unknown error occurred, inspect error.serverResponse
+                                    break;
+                            }
+                        }, function () {
+                            $('#saveCover').removeClass("btn-primary")
+                            $('#closeCover').removeClass("btn-secondary")
+                            $('#closeCover').addClass("btn-primary")
+                            $('#saveCover').addClass("btn-secondary")
+                            $("#saveCover").attr("disabled", true);
+                            $(".progress").hide();
+                            $(".success-checkmark").show();
+                            /*$(".progress").html(
+                                "<div class='success-checkmark'><div class='check-icon'><span class='icon-line line-tip'></span><span class='icon-line line-long'></span><div class='icon-circle'></div><div class='icon-fix'></div></div></div>"
+                            );*/
+                            $(".check-icon").hide();
+                            setTimeout(function () {
+                              $(".check-icon").show();
+                            }, 10);
+    
+                            // Upload completed successfully, now we can get the download URL
+                            uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
+                               
+                                coverurl=downloadURL;
+                                
+                                //Store in DB
+                                profileCover={color:generatedColor,image:coverurl,effect:effect}
+                                SaveToDB();
+
+                            });
+                        });  /*---------- */  
+                }
+             else {
+                // No user is signed in.
+            }
+        } catch (error) {
+                alert("No Changes Made!");
+               $('#closeCover').removeClass("btn-primary")
+               $('#saveCover').removeClass("btn-secondary")
+               $('#saveCover').addClass("btn-primary")
+               $('#closeCover').addClass("btn-secondary")
+               $("#saveCover").attr("disabled", false);
+        }
+    }
+    });
+    })
+function loadCover(){
+    
+    generatedImg=localStorage.getItem("CoverUrl");
+    generatedColor=localStorage.getItem("CoverColor");
+    effect=localStorage.getItem("CoverEffect");
+
+    if(generatedImg!=""||generatedColor!=""||effect!=""){
+    if(generatedColor.includes("gradient")&&generatedImg=="") 
+    {
+        $(".coverSample").css("backgroundColor","");
+        $(".coverSample").css("background",generatedColor);
+        
+    }
+        else 
+    {
+        $(".coverSample").css("background","");
+        $(".coverSample").css("backgroundColor",generatedColor); 
+        $(".coverSample").css("backgroundImage","url("+generatedImg+")");
+    }
+  
+    $(".coverSample").css("backgroundBlendMode",effect);
+  
+    initEffect();
+}
+   
 }

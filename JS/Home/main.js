@@ -3,7 +3,7 @@ var LoginDetails={};
 var PhysicalDetails={};
 var OverallFocus={};
 var UserDetail={};
-
+var ProfileCover={};
 var Achievements={}
 
 var Gallery={}
@@ -24,6 +24,7 @@ if (user) {
    PhysicalDetails=snapshot.val().PhysicalDetails;
    OverallFocus=snapshot.val().OverallFocus;
    UserDetail=snapshot.val().UserDetails;
+   ProfileCover=snapshot.val().Cover;
    UserInformation = {
     LoginDetails:LoginDetails,
     UserDetails:UserDetail,
@@ -45,6 +46,11 @@ if (user) {
         localStorage.setItem("fitPoints",Profile.Profile.FitPoint);
         localStorage.setItem("followingCount",Profile.Profile.Following.length);
         localStorage.setItem("followersCount",Profile.Profile.Followers.length);
+        
+        localStorage.setItem("CoverUrl",ProfileCover.image);
+        localStorage.setItem("CoverColor",ProfileCover.color);
+        localStorage.setItem("CoverEffect",ProfileCover.effect);
+
         if(document.getElementById("fitPoints").value==="")
         document.getElementById("fitPoints").innerHTML=Profile.Profile.FitPoint + "<sub>Fp</sub>";
         if(document.getElementById("followersCount").value==="")
@@ -160,18 +166,20 @@ window.location.replace("../../HTML/login2.html")
   
   function logout(){
     var valid=true;
-    
-    
-    firebase.auth().signInWithEmailAndPassword(email, $("#pword").val()).catch(function(error) {
-    // Handle Errors here.
-    let errorCode = error.code;
-    let errorMessage = error.message;
-    console.log(errorCode)
-    valid=false;
-      document.getElementById("err").innerHTML=errorMessage;
-  });
-  setTimeout(() => {
-    console.log(valid);
+    var uname=$("#pword").val().toLowerCase().trim();
+    uname=uname.replace(" ","");
+    console.log((UserInformation.LoginDetails.username).toLowerCase().trim().replace(" ",""))
+    if(uname!=(UserInformation.LoginDetails.username).toLowerCase().trim().replace(" ",""))
+    { 
+      valid=false;
+      document.getElementById("err").innerHTML="Oops, Username Doesn't Match";
+
+    }
+    else{
+     
+    }
+   
+ 
     if(valid){
       document.getElementById("err").innerHTML="";
       firebase.auth().signOut().then(function() {
@@ -181,7 +189,7 @@ window.location.replace("../../HTML/login2.html")
     // An error happened.
     });
     }
-  }, 1000);
+  
     
   }
     function openForm() {

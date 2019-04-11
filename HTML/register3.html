@@ -12,15 +12,14 @@
     <link rel="stylesheet" href="../CSS/phoneInput.css">
     <link rel="stylesheet" href="../CSS/FirebaseUI-Extra/firebaseui.css">
     <link rel="stylesheet" type="text/css" media="screen" href="../CSS/register3.css">
+    <link rel="stylesheet" href="../CSS/loader.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/intlTelInput.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/intlTelInput.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/utils.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script
-        src="https://apis.google.com/_/scs/apps-static/_/js/k=oz.gapi.en.DiRLoj8ZuFQ.O/m=gapi_iframes/rt=j/sv=1/d=1/ed=1/am=wQ/rs=AGLTcCO4VfJH7BEDFjlcF0qZVA7GmEzKXw/cb=gapi.loaded_0"
-        async=""></script>
+    
 
     <script type="text/javascript" charset="UTF-8" src="https://smartlock.google.com/client"></script>
      <link rel="stylesheet" type="text/css" media="screen" href="../CSS/footer.css">
@@ -44,9 +43,17 @@
                         <div class="col-md-12">
                             <h6>Email Varification</h6>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-12 email-confirmationBox .p-3">
                             <p>An Email has been sent to you</p>
-                            <button type="button" class="btn btn-primary" id="resendEmail">Resend</button>
+                            <div class="row email-waiting">
+                                <div class="loader1 .ml-1" style="margin-right:10px;margin-left:10px"></div>
+                                <p>Waiting For Email Confirmation</p>
+                            </div>
+                            <div class="email-confirm">
+                                <i class="fa fa-check" style="color:green">Email has Been Confirmed</i>
+                            </div>
+
+                            <button type="button" class="btn btn-primary resend" id="resendEmail" style="margin-top:10px">Resend</button>
                         </div>
                         <div
                             style="margin: 8px 16px;align-items: center;padding:10px;display: flex;justify-content: center">
@@ -135,6 +142,7 @@
                                                 data-upgraded=",MaterialButton">Cancel</button>
                                             <button type="submit"
                                                 class="firebaseui-id-submit firebaseui-button mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+                                                id="verify-code-button"
                                                 data-upgraded=",MaterialButton">Verify</button>
                                         </div>
                                     </div>
@@ -224,10 +232,8 @@
                 <div class="container-reg-form-btn">
                     <div class="wrap-reg-form-btn">
                         <div class="reg-form-bgbtn">
-                            <button class="reg-form-btn " type="button" class="" data-toggle=""
-                                data-target="#exampleModal">
-                                Verify
-                            </button>
+                            <button class="reg-form-btn " type="button" class="" data-toggle="modal"
+                                data-target="#exampleModal">Sign up</button>
                            
                         </div>
                     </div>
@@ -496,7 +502,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
-
+        <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>

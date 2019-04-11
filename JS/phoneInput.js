@@ -124,7 +124,7 @@ telInput2.intlTelInput({
   
   
   if ($.trim(telInput2.val())) {
-    if (telInput2.intlTelInput2("isValidNumber")) {
+    if (telInput2.intlTelInput("isValidNumber")) {
       
     
       fullphone=getFullphone(document.getElementsByClassName("selected-dial-code")[0].textContent,$.trim(telInput2.val()));

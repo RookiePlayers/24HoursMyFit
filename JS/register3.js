@@ -1,8 +1,26 @@
+window.onload=function(){
+    deleteUser();
+}
 
+ function deleteUser(){
+     var user = firebase.auth().currentUser;
+    console.log("deleted old");
+    if(user!=null)
+        user.delete().then(function() {
+        // User deleted.
+        
+        }).catch(function(error) {
+        // An error happened.
+        console.log(error.message);
+      
+        });
+ } 
 
 var imgurl = "";
 var file;
-
+$(".finalPageBtn").attr("disabled",true)
+$(".finalPage").hide();
+$("registerInfoBox").show();
 var Achievements={
     Diamonds:[{name:"Shine Bright Like A Diamond",description:"Completed Your First WorkoutPlan",date:new Date().getTime(),img:"",rarity:"Common"}],
     Ruby:[{name:"Stunned",description:"Like 40 Picture",date:new Date().getTime(),img:"",rarity:"Common"}],
@@ -105,21 +123,35 @@ function genRandUsername() {
         })
     })
 
+   
+
+    var signingIn;
+    var recaptchaVerifier;
+    var confirmationResult;
+    var recaptchaWidgetId;
+    var verifyingCode;
     function phonevarification(){
+        console.log("isCaptchaOk: "+isCaptchaOK()+"\nvalid number: "+isPhoneNumberValid());
         if (isCaptchaOK() && isPhoneNumberValid()) {
-            window.signingIn = true;
-            updateSignInButtonUI();
+            signingIn = true;
+           // updateSignInButtonUI();
             // [START signin]
             var phoneNumber = getPhoneNumberFromUserInput();
-            var appVerifier = window.recaptchaVerifier;
+             console.log("phoneNumber: "+phoneNumber);
+              var appVerifier = recaptchaVerifier;
+
+           // console.log("phoneNumber: "+phoneNumber);
+            console.log("appVerifier: "+appVerifier);
+            
             firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
                 .then(function (confirmationResult) {
                   // SMS sent. Prompt user to type the code from the message, then sign the
                   // user in with confirmationResult.confirm(code).
-                  window.confirmationResult = confirmationResult;
+                  confirmationResult = confirmationResult;
+                  console.log("confirmResults: ");
                   // [START_EXCLUDE silent]
-                  window.signingIn = false;
-                  updateSignInButtonUI();
+                 signingIn = false;
+                  //updateSignInButtonUI();
                   updateVerificationCodeFormUI();
                   updateVerifyCodeButtonUI();
                   ///updateSignInFormUI();
@@ -128,23 +160,24 @@ function genRandUsername() {
                   // Error; SMS not sent
                   // [START_EXCLUDE]
                   console.error('Error during signInWithPhoneNumber', error);
-                  window.alert('Error during signInWithPhoneNumber:\n\n'
+                alert('Error during signInWithPhoneNumber:\n\n'
                       + error.code + '\n\n' + error.message);
-                  window.signingIn = false;
+                  signingIn = false;
                   //updateSignInFormUI();
-                  updateSignInButtonUI();
+                  //updateSignInButtonUI();
                   // [END_EXCLUDE]
                 });
             // [END signin]
           }
     }
     function phonevarificationsetup(){
-        window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+        recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
             'size': 'normal',
             'callback': function(response) {
               // reCAPTCHA solved, allow signInWithPhoneNumber.
               // [START_EXCLUDE]
-              updateSignInButtonUI();
+              console.log("response: "+response);
+              //phonevarification();
               // [END_EXCLUDE]
             },
             'expired-callback': function() {
@@ -158,14 +191,14 @@ function genRandUsername() {
           
           // [START renderCaptcha]
         recaptchaVerifier.render().then(function(widgetId) {
-        window.recaptchaWidgetId = widgetId;
+       recaptchaWidgetId = widgetId;
       });
       // [END renderCaptcha]
     };
     
   function isCaptchaOK() {
     if (typeof grecaptcha !== 'undefined'
-        && typeof window.recaptchaWidgetId !== 'undefined') {
+        && typeof recaptchaWidgetId !== 'undefined') {
       // [START getRecaptchaResponse]
       var recaptchaResponse = grecaptcha.getResponse(window.recaptchaWidgetId);
       // [END getRecaptchaResponse]
@@ -180,7 +213,7 @@ function genRandUsername() {
   function onVerifyCodeSubmit(e) {
     e.preventDefault();
     if (!!getCodeFromUserInput()) {
-      window.verifyingCode = true;
+      verifyingCode = true;
       updateVerifyCodeButtonUI();
       // [START verifyCode]
       var code = getCodeFromUserInput();
@@ -188,17 +221,17 @@ function genRandUsername() {
         // User signed in successfully.
         var user = result.user;
         // [START_EXCLUDE]
-        window.verifyingCode = false;
-        window.confirmationResult = null;
+        verifyingCode = false;
+        confirmationResult = null;
         updateVerificationCodeFormUI();
         // [END_EXCLUDE]
       }).catch(function (error) {
         // User couldn't sign in (bad verification code?)
         // [START_EXCLUDE]
         console.error('Error while checking the verification code', error);
-        window.alert('Error while checking the verification code:\n\n'
+        alert('Error while checking the verification code:\n\n'
             + error.code + '\n\n' + error.message);
-        window.verifyingCode = false;
+        verifyingCode = false;
       //  updateSignInButtonUI();
         updateVerifyCodeButtonUI();
         // [END_EXCLUDE]
@@ -209,6 +242,7 @@ function genRandUsername() {
   /**
    * Updates the Verify-code button state depending on form values state.
    */
+
   function updateVerifyCodeButtonUI() {
     document.getElementById('verify-code-button').disabled =
         !!window.verifyingCode
@@ -220,13 +254,13 @@ function genRandUsername() {
    */
   function resetReCaptcha() {
     if (typeof grecaptcha !== 'undefined'
-        && typeof window.recaptchaWidgetId !== 'undefined') {
+        && typeof recaptchaWidgetId !== 'undefined') {
       grecaptcha.reset(window.recaptchaWidgetId);
     }
   }
   /**?Dont implement */
   function updateSignInFormUI() {
-    if (firebase.auth().currentUser || window.confirmationResult) {
+    if (firebase.auth().currentUser ||confirmationResult) {
       document.getElementById('sign-in-form').style.display = 'none';
     } else {
       resetReCaptcha();
@@ -237,7 +271,7 @@ function genRandUsername() {
    * Updates the state of the Verify code form.
    */
   function updateVerificationCodeFormUI() {
-    if (!firebase.auth().currentUser && window.confirmationResult) {
+    if (!firebase.auth().currentUser && confirmationResult) {
         $(".v-codebox").show();
         $(".phonebox").hide();
     } else {
@@ -258,18 +292,22 @@ function genRandUsername() {
    * Returns true if the phone number is valid.
    */
   function isPhoneNumberValid() {
-    return isPhoneNumberValid;
+    return validtelephonenumber;
   }
  /**
    * Cancels the verification code input.
    */
   function cancelVerification(e) {
     e.preventDefault();
-    window.confirmationResult = null;
+    confirmationResult = null;
     updateVerificationCodeFormUI();
    
   }
 
+  $("#verify-code-button").on("click",function name(params) {
+      phonevarification();
+        document.getElementById("verify-code-button").textContent="verify"
+  })
     /*==================================================================
     [ Validate ]*/
     var input = $('.validate-input .inputr');
@@ -292,7 +330,7 @@ function genRandUsername() {
             
            var email=$("#email").val();
            console.log(document.getElementsByClassName("reg-form-btn")[0].textContent.toLowerCase().trim());
-           if(document.getElementsByClassName("reg-form-btn")[0].textContent.toLowerCase().trim().includes("Sign")&&!oldEmails.includes($("#uname").val()))
+           
             createNewUser(email, $("#pword").val()).then(()=>{
                     $('.email-confirmationBox').show();
            // window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
@@ -307,22 +345,12 @@ function genRandUsername() {
             return firebase.auth.PhoneAuthProvider.credential(verificationId,
                 verificationCode);
           });*/
-          phonevarificationsetup();
+        
             }).catch((e)=>{
                 console.log(e);
                 //alert(e.message)
             });
-            else
-            continueReg().then(()=>{
-                $('.email-confirmationBox').show();
-        //window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
-        sendEmail();
-        phonevarificationsetup();
-        }).catch((e)=>{
-            console.log(e);
-          //  alert(e.message)
-        });
-        
+           
         }else{
             $('#exampleModal').hide();
             $('.modal-backdrop').hide();
@@ -335,7 +363,7 @@ function genRandUsername() {
         $(".v-codebox").hide();
         $(".phonebox").show();  
     })
-    $(".firebaseui-id-submit").on("click",function () 
+    /*$(".firebaseui-id-submit").on("click",function () 
     {
         if(validtelephonenumber){
             confirmcode();
@@ -344,7 +372,7 @@ function genRandUsername() {
     function confirmcode() { 
       
 
-        window.confirmationResult.confirm(document.getElementById("verificationcode").value) 
+        confirmationResult.confirm(document.getElementById("verificationcode").value) 
         .then(function(result) { 
        // alert('login process successfull!\n redirecting');
        // alert('<a href="javascript:alert(\'hi\');">alert</a>')
@@ -352,13 +380,8 @@ function genRandUsername() {
         }, function(error) { 
         alert(error); 
         }); 
-    }
-        $('#email').on("keyup",(function () {
-            if(!oldEmails.includes($("#uname").val())){
-                document.getElementsByClassName("reg-form-btn")[0].textContent="Sign up";
-            }
-            else document.getElementsByClassName("reg-form-btn")[0].textContent="Re-Verify"
-        }));
+    }*/
+       
     $('#email').change(function () {
 
 
@@ -624,12 +647,21 @@ function genRandUsername() {
                 );
             user.reauthenticateAndRetrieveDataWithCredential(credentials);
             firebase.auth().onAuthStateChanged(function(user) { //or use firebase.auth().currentUser;
-                console.log("Email Varified: "+user.emailVerified);
+             //   console.log("Email Varified: "+user.emailVerified);
             if (user) {
                 if(user.emailVerified){
                     $('.email-waiting').hide();
                     $(".email-confirm").show();
                     $(".resend").hide();
+                    
+                    $(".finalPageBtn").attr("disabled",false);
+                    $(".finalPageBtn").on("click",function () {
+                        $(".registerInfoBox").hide();
+                        $(".finalPage").show();
+                        $('#exampleModal').hide();
+                        $('.modal-backdrop').hide();
+                    });
+                    
                     clearInterval(timeout);
                 }
                 else{
@@ -762,31 +794,51 @@ function genRandUsername() {
            
         
     }
+    $(".closeModal").on("click",function name(params) {
+       deleteUser();
+    });
+    $('.modal-backdrop').on("click",function name(params) {
+      deleteUser();
+    });
+    $(".closeModal1").on("click",function name(params) {
+        var user = firebase.auth().currentUser;
+        console.log("deleted old");
+        if(user!=null)
+            user.delete().then(function() {
+            // User deleted.
+            
+            }).catch(function(error) {
+            // An error happened.
+            console.log(error.message);
+          
+            });
+    });
+
     function createNewUser(email,password){
     return new Promise(function (resolve, reject) {
 
         setTimeout(function() {
+            deleteUser();
             firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
-                // Handle Errors here.
-                let errorCode = error.code;
-                let errorMessage = error.message;
-                if(errorCode=="auth/email-already-in-use"){
-                    userExists=true;
-                   // $("#emailVarification").html("<p>Sorry this user already has an Account <br><button style='background-color:transparent;border:0px;font-size:12px;color:teal'>Login in Here</button></p>");
-                  //  alert("Sorry User Already has an account")
-                }
-                console.log(errorCode);
-                alert(error.message);
-                $('#exampleModal').hide();
-                $('.modal-backdrop').hide();
-               reject(error);
-            });
-            oldEmails.push($("#email").val());
-            localStorage.setItem("oldEmails",oldEmails);
+                    // Handle Errors here.
+                    let errorCode = error.code;
+                    let errorMessage = error.message;
+                    if(errorCode=="auth/email-already-in-use"){
+                        userExists=true;
+                       // $("#emailVarification").html("<p>Sorry this user already has an Account <br><button style='background-color:transparent;border:0px;font-size:12px;color:teal'>Login in Here</button></p>");
+                      //  alert("Sorry User Already has an account")
+                    }
+                    console.log(errorCode);
+                    alert(error.message);
+                    $('#exampleModal').hide();
+                    $('.modal-backdrop').hide();
+                   reject(error);
+                });
+           // oldEmails.push($("#email").val());
+            //localStorage.setItem("oldEmails",oldEmails);
             $('#exampleModal').show();
             $('.modal-backdrop').show();
-            document.getElementsByClassName("reg-form-btn")[0].textContent="RE-Verify";
-            resolve();
+             resolve();
            
           },100);
        
@@ -817,7 +869,7 @@ $(".btnz").on("click",function() {
     console.log("Name: " + $("#uname").val() + "\n" + "Email: " + $("#email").val() + "\nPhone: " + $("#phone").val());
     if ($("#uname").val() != '' && $("#pword").val() != '' && $("#email").val() && $("#phone").val() != '') {
        
-firebase.auth().signOut().then(function() {
+
     // Sign-out successful. 
     saveUserInfo(
             $("#uname").val(),
@@ -827,9 +879,7 @@ firebase.auth().signOut().then(function() {
            fullphone,
             imgurl
         )
-    }).catch(function(error) {
-    // An error happened.
-    });
+    
     
 
         check = false;

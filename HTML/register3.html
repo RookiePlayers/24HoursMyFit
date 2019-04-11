@@ -34,7 +34,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">2-step Varification</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close closeModal1" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -48,6 +48,9 @@
                             <div class="row email-waiting">
                                 <div class="loader1 .ml-1" style="margin-right:10px;margin-left:10px"></div>
                                 <p>Waiting For Email Confirmation</p>
+                                <div class="col-md-12">
+                                <p style="color:red">Please check Your Email</p>
+                                </div>
                             </div>
                             <div class="email-confirm">
                                 <i class="fa fa-check" style="color:green">Email has Been Confirmed</i>
@@ -143,7 +146,7 @@
                                             <button type="submit"
                                                 class="firebaseui-id-submit firebaseui-button mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
                                                 id="verify-code-button"
-                                                data-upgraded=",MaterialButton">Verify</button>
+                                                data-upgraded=",MaterialButton">Next</button>
                                         </div>
                                     </div>
                                     <div class="firebaseui-card-footer">
@@ -166,8 +169,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Varify</button>
+                    <button type="button" class="btn btn-secondary closeModal" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary finalPageBtn">Next</button>
                 </div>
             </div>
         </div>
@@ -181,7 +184,8 @@
 
 
         <div class="registerInfoBox">
-            <div class="regform" method="POST">
+            <div class="col">
+            <div class="regform col" method="POST">
                 <span class="regform-title">Login Details</span>
                 <div class="container">
 
@@ -240,12 +244,15 @@
 
                 </div>
             </div>
-
+            </div>
         </div>
         <div class="vl"></div>
+        <div class="finalPage">
         <div class="legalBox">
-            <h1> Terms & Conditions</h1>
-            <div class="TnCs">
+            <div class="row">
+
+            <h4> Terms & Conditions</h4>
+            <div class="TnCs col-md-12">
                 <article>
                     <p>These terms and conditions outline the rules and regulations for the use of Rookieplays's
                         Website.</p> <br />
@@ -272,7 +279,7 @@
                         of . Any use of the above terminology or other words in the singular, plural,
                         capitalisation and/or he/she or they, are taken as interchangeable and therefore as referring to
                         same.</p>
-                    <h2>Cookies</h2>
+                    <h6>Cookies</h6>
                     <p>We employ the use of cookies. By using Rookieplays's website you consent to the use of cookies
                         in accordance with Rookieplays’s privacy policy.</p>
                     <p>Most of the modern day interactive web sites
@@ -280,7 +287,7 @@
                         of our site
                         to enable the functionality of this area and ease of use for those people visiting. Some of our
                         affiliate / advertising partners may also use cookies.</p>
-                    <h2>License</h2>
+                    <h6>License</h6>
                     <p>Unless otherwise stated, Rookieplays and/or it’s licensors own the intellectual property rights
                         for
                         all material on Rookieplays. All intellectual property rights are reserved. You may view and/or
@@ -295,7 +302,7 @@
                     </ol>
                     <p>Redistribute content from Rookieplays (unless content is specifically made for redistribution).
                     </p>
-                    <h2>Hyperlinking to our Content</h2>
+                    <h6>Hyperlinking to our Content</h6>
                     <ol>
                         <li>The following organizations may link to our Web site without prior written approval:
                             <ol>
@@ -381,12 +388,12 @@
                     <p>No use of Rookieplays’s logo or other artwork will be allowed for linking absent a trademark
                         license
                         agreement.</p>
-                    <h2>Iframes</h2>
+                    <h6>Iframes</h6>
                     <p>Without prior approval and express written permission, you may not create frames around our Web
                         pages or
                         use other techniques that alter in any way the visual presentation or appearance of our Web
                         site.</p>
-                    <h2>Reservation of Rights</h2>
+                    <h6>Reservation of Rights</h6>
                     <p>We reserve the right at any time and in its sole discretion to request that you remove all links
                         or any particular
                         link to our Web site. You agree to immediately remove all links to our Web site upon such
@@ -395,7 +402,7 @@
                         continuing
                         to link to our Web site, you agree to be bound to and abide by these linking terms and
                         conditions.</p>
-                    <h2>Removal of links from our website</h2>
+                    <h6>Removal of links from our website</h6>
                     <p>If you find any link on our Web site or any linked web site objectionable for any reason, you may
                         contact
                         us about this. We will consider requests to remove links but will have no obligation to do so or
@@ -406,7 +413,7 @@
                         or accuracy; nor do we commit to ensuring that the website remains available or that the
                         material on the
                         website is kept up to date.</p>
-                    <h2>Content Liability</h2>
+                    <h6>Content Liability</h6>
                     <p>We shall have no responsibility or liability for any content appearing on your Web site. You
                         agree to indemnify
                         and defend us against all claims arising out of or based upon your Website. No link(s) may
@@ -416,7 +423,7 @@
                         libelous, obscene or criminal, or which infringes, otherwise violates, or advocates the
                         infringement or
                         other violation of, any third party rights.</p>
-                    <h2>Disclaimer</h2>
+                    <h6>Disclaimer</h6>
                     <p>To the maximum extent permitted by applicable law, we exclude all representations, warranties and
                         conditions relating to our website and the use of this website (including, without limitation,
                         any warranties implied by law in respect of satisfactory quality, fitness for purpose and/or the
@@ -439,9 +446,9 @@
                     <p>To the extent that the website and the information and services on the website are provided free
                         of charge,
                         we will not be liable for any loss or damage of any nature.</p>
-                    <h2></h2>
+                    <h6></h6>
                     <p></p>
-                    <h2>Credit & Contact Information</h2>
+                    <h6>Credit & Contact Information</h6>
                     <p>This Terms and conditions page was created at <a
                             style="color:inherit;text-decoration:none;cursor:text;"
                             href="https://termsandconditionstemplate.com">termsandconditionstemplate.com</a> generator.
@@ -451,18 +458,20 @@
 
             </div>
             <p>By clicking "I Agree" Below you are accpting the above Terms and conditions</p>
-
-
+            <div class="col-md-12">
+                    <div class='btn-cont'>
+                        <a class='btnz' href='#'>I Agree<span class='line-1'></span>
+                            <span class='line-2'></span>
+                            <span class='line-3'></span>
+                            <span class='line-4'></span>
+                        </a>
+                    </div>
+                </div>
+                </div>
+        </div>
         </div>
         <br>
-
-        <div class='btn-cont'>
-            <a class='btnz' href='#'>I Agree<span class='line-1'></span>
-                <span class='line-2'></span>
-                <span class='line-3'></span>
-                <span class='line-4'></span>
-            </a>
-        </div>
+      
 
 
 

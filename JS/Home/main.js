@@ -58,6 +58,11 @@ if (user) {
         if(document.getElementById("followingCount").value==="")
         document.getElementById("followingCount").innerHTML=Profile.Profile.Following.length+" Following";
     });
+    document.getElementById("uname").innerHTML=localStorage.getItem("Username");
+document.getElementById("fitPoints").innerHTML=localStorage.getItem("fitPoints");
+document.getElementById("followingCount").innerHTML=localStorage.getItem("followingCount")+" Followings";
+document.getElementById("followersCount").innerHTML=localStorage.getItem("followersCount")+" Followers";
+
     document.getElementById("signout").addEventListener("click",function () {
       logout();
       
@@ -184,6 +189,7 @@ window.location.replace("../../HTML/login2.html")
       document.getElementById("err").innerHTML="";
       firebase.auth().signOut().then(function() {
     // Sign-out successful.
+    localStorage.clear();
       window.location.href
   }).catch(function(error) {
     // An error happened.

@@ -759,6 +759,7 @@ function storeValuesinLocalStorage(fname,lname,dob,gender,height,weight,problemA
       document.getElementsByClassName("other").checked = true;
     
       var ht=localStorage.getItem("height");
+      if(ht==null)ht=5.6;
       var elem = document.querySelector('.heightM');
       document.getElementsByClassName("heightM")[0].value=20-ht;
       document.getElementById('heightnum').innerHTML=ht+"\"";
@@ -769,6 +770,7 @@ function storeValuesinLocalStorage(fname,lname,dob,gender,height,weight,problemA
       document.getElementById('#weightnum').value=wt;
 */
 var angle=localStorage.getItem("weight");
+if(angle==null)angle=70;
       $(".dot").css("transform", "rotate(" + angle + "deg)");
 
    $(".debug").html(angle + "<sub style='font-size: 18px'>kg</sub>");

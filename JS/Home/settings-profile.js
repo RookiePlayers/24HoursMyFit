@@ -2,6 +2,8 @@
 /** HANDLE PROFILE PICTURE */
 initEffect();
 loadCover();
+$(".progress").hide();
+$(".success-checkmark2").hide();
 var imgurl,coverurl="";
 $('#closeNewPhoto').removeClass("btn-primary")
 $('#saveNewPhoto').removeClass("btn-secondary")
@@ -37,7 +39,7 @@ function errorHandler(evt) {
         alert('An error occurred reading this file.');
     };
   }
-function previewFile() {
+function previewFile(event) {
     $('#closeNewPhoto').removeClass("btn-primary")
     $('#saveNewPhoto').removeClass("btn-secondary")
     $('#saveNewPhoto').addClass("btn-primary")
@@ -45,11 +47,11 @@ function previewFile() {
         $("#saveNewPhoto").removeAttr("disabled");
         $(".success-checkmark").hide();
     var preview = document.querySelector('img'); //selects the query named img
-    var files = evt.target.myfile;//sames as here
+     file = event.target.files[0];//sames as here
     var reader = new FileReader();
 
     reader.onloadend = function () {
-        console.log("getting file."+files);
+      
         document.getElementById("newPhoto").src=reader.result;
 
     }
@@ -61,10 +63,11 @@ function previewFile() {
 
     } 
 }
+var myfile
 $("#coverImgBtn").on("change",function(evt){
    var reader = new FileReader();
     reader.onerror = errorHandler;
-    var myfile=evt.target.files[0];
+     myfile=evt.target.files[0];
     reader.onload = function(e) {
         // Ensure that the progress bar displays 100% at the end.
         console.log("loaded");
@@ -162,7 +165,7 @@ $("#saveNewPhoto").on("click",function () {
                             //Store in DB
                             console.log(imgurl);
                             firebase.database().ref('Users/' + user.uid+"/LoginDetails/profileImg").set(imgurl);
-                        
+                            userInfoThread()
                         });
                     });  /*---------- */  
             }
@@ -170,7 +173,7 @@ $("#saveNewPhoto").on("click",function () {
             // No user is signed in.
         }
     } catch (error) {
-            alert("No Changes Made!");
+            alert("No Changes Made!\n"+error.message);
            $('#closeNewPhoto').removeClass("btn-primary")
            $('#saveNewPhoto').removeClass("btn-secondary")
            $('#saveNewPhoto').addClass("btn-primary")
@@ -181,7 +184,7 @@ $("#saveNewPhoto").on("click",function () {
 });
 })
 $('[data-toggle="tooltip"]').tooltip()
-   userInfoThread()
+userInfoThread();
 $("#changeAvatar").on("click",function () {
     
 $(".progress").hide();
@@ -201,7 +204,7 @@ function userInfoThread(){
             console.log(error);
             
         }
-    }, 1000);
+    }, 500);
 }
 })(jQuery);
 
@@ -211,9 +214,11 @@ var profileCover={};
 
 
 
-var newCoverGeneratedCss;//string
-var generatedColor="#1d1d1d";
-var generatedImg="";
+var newCoverGeneratedCss=localStorage.getItem("CoverUrl");
+var generatedColor=localStorage.getItem("CoverColor");
+var generatedImg=localStorage.getItem("CoverUrl");
+updateCoverCss();
+updateMainCoverCss();
 function  updateCoverCss(){
    
    if(generatedColor.includes("gradient")&&generatedImg=="") 
@@ -234,12 +239,30 @@ function  updateCoverCss(){
     initEffect();
 }
 
-
+function  updateMainCoverCss(){
+   
+    if(generatedColor.includes("gradient")&&generatedImg=="") 
+     {
+         $(".profileheader").css("backgroundColor","");
+         $(".profileheader").css("background",generatedColor);
+         
+     }
+         else 
+     {
+         $(".profileheader").css("background","");
+         $(".profileheader").css("backgroundColor",generatedColor); 
+         $(".profileheader").css("backgroundImage","url("+generatedImg+")");
+     }
+   
+     $(".profileheader").css("backgroundBlendMode",effect);
+   
+     initEffect();
+ }
 
 var colors=document.getElementsByName("colors");
 var imgs=document.getElementsByName("imgs");
 
-var effect="normal";
+var effect=localStorage.getItem("CoverEffect");
 colors.forEach((color)=>{
     color.addEventListener("click",function(){
         var c=getColorCode();
@@ -331,7 +354,7 @@ effects.forEach((fx)=>{
     fx.addEventListener("click",function () {
         $(".coverSample").css("background","");
         console.log("clicked**");
-        var e=getFXCode;
+        var e=getFXCode();
         effect=e;
         updateCoverCss();
     })
@@ -489,18 +512,43 @@ function getimgCode(){
                      return "../../Resources/Backgrounds/stars.jpg";
                 }
                 case 2:{
-                    return  "../../img/bg1.jpg";
+                    return  "../../Resources/Backgrounds/15002.jpg";
                }
                case 3:{
-                    return  "../../img/bg3.jpg";
+                    return  "../../Resources/Backgrounds/Abstract-Multicolor-Patterns.jpg";
                 }
                 case 4:{
-                    return  "../../img/bg4.jpg";
+                    return  "../../Resources/Backgrounds/hex-cover.png";
                }
                case 5:{
+                   return  "../../Resources/Backgrounds/hex-cover.png";
+              }
+              case 6:{
+                  return  "../../Resources/Backgrounds/hex-cover.png";
+             }
+             case 7:{
+                 return  "../../Resources/Backgrounds/hex-cover.png";
+            }
+            case 8:{
+                return  "../../Resources/Backgrounds/hex-cover.png";
+           }
+           case 9:{
+               return  "../../Resources/Backgrounds/hex-cover.png";
+          }
+          case 10:{
+              return  "../../Resources/Backgrounds/hex-cover.png";
+         }
+         case 11:{
+             return  "../../Resources/Backgrounds/hex-cover.png";
+        }
+        case 12:{
+            return  "../../Resources/Backgrounds/hex-cover.png";
+       }
+
+               case 13:{
                     return coverurl;
                 }
-                case 6:{
+                case 14:{
                     return "#ececec";
                }
             }
@@ -519,17 +567,30 @@ function saveCover()
     ReloadCover();
 }
 function ReloadCover(){
-    window.reload();
+    localStorage.setItem("CoverUrl",generatedImg);
+    localStorage.setItem("CoverColor",generatedColor);
+    localStorage.setItem("CoverEffect",effect);
+
+  
+    updateMainCoverCss();
 }
-var savingCover = new Promise(function(resolve, reject) {
+var uid;
+function savingCover(){
+    console.log(uid);
+    
+    //firebase.database().ref('Users/'+uid+"/LoginDetails/Cover").set(profileCover)
+return new Promise(function(resolve, reject) {
     setTimeout(function() {
-        firebase.database().ref('Users/' + user.uid+"/LoginDetails/Cover").set(profileCover);
-      resolve();
-    }, 300);
+         resolve();
+    }, 500);
   });
+}
+
 function SaveToDB(){
-    savingCover.then(()=>{
-       console.log(profileCover);
+     console.log(profileCover);
+    firebase.database().ref('Users/'+uid+"/Cover/").set(profileCover)
+    savingCover().then(()=>{
+     mainThread();
        ReloadCover();
     })
     
@@ -544,24 +605,25 @@ xmlhttp.onreadystatechange = function(){
     return coverimg;
   }
 };
-xmlhttp.open("GET",getimgCode,true);
+xmlhttp.open("GET",generatedImg,true);
 xmlhttp.send();
-
+return null;
 }
     $("#saveCover").on("click",function () {
         var imgfile;
-        if(getimgCode.includes("../../Resources/"))
+        if(generatedImg.includes("../../Resources/"))
         imgfile=saveImg();
-        else imgfile=coverurl;
+        else imgfile=myfile;
         //show progress
         //upload to firebase
         firebase.auth().onAuthStateChanged(function (user) { //or use firebase.auth().currentUser;
             if (user) {
                 // User is signed in.
+                 uid=user.uid;
                 try {
                     
                 
-                if (imgfile) {
+                if (imgfile&&generatedImg!="") {
                     var metadata = {
                         name: coverurl,
                         contentType: 'image/jpeg'
@@ -615,7 +677,7 @@ xmlhttp.send();
                             $('#saveCover').addClass("btn-secondary")
                             $("#saveCover").attr("disabled", true);
                             $(".progress").hide();
-                            $(".success-checkmark").show();
+                            $(".success-checkmark2").show();
                             /*$(".progress").html(
                                 "<div class='success-checkmark'><div class='check-icon'><span class='icon-line line-tip'></span><span class='icon-line line-long'></span><div class='icon-circle'></div><div class='icon-fix'></div></div></div>"
                             );*/
@@ -630,6 +692,7 @@ xmlhttp.send();
                                 coverurl=downloadURL;
                                 
                                 //Store in DB
+                            
                                 profileCover={color:generatedColor,image:coverurl,effect:effect}
                                 SaveToDB();
 
@@ -637,10 +700,14 @@ xmlhttp.send();
                         });  /*---------- */  
                 }
              else {
-                // No user is signed in.
+                                console.log("saving...");
+                                clearInterval(maintimeout)
+                                //Store in DB
+                                profileCover={color:generatedColor,image:coverurl,effect:effect}
+                                SaveToDB();
             }
         } catch (error) {
-                alert("No Changes Made!");
+                alert("No Changes Made!\n"+error.message);
                $('#closeCover').removeClass("btn-primary")
                $('#saveCover').removeClass("btn-secondary")
                $('#saveCover').addClass("btn-primary")

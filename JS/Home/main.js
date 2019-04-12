@@ -10,16 +10,30 @@ var Gallery={}
 var Profile={}
 var email="";
 var currentuser;
-document.getElementById("uname").innerHTML=localStorage.getItem("Username");
-document.getElementById("fitPoints").innerHTML=localStorage.getItem("fitPoints");
-document.getElementById("followingCount").innerHTML=localStorage.getItem("followingCount")+" Followings";
-document.getElementById("followersCount").innerHTML=localStorage.getItem("followersCount")+" Followers";
+document.getElementById("uname").innerHTML="";
+document.getElementById("fitPoints").innerHTML="";
+document.getElementById("followingCount").innerHTML="";
+document.getElementById("followersCount").innerHTML="";
+mainThread();
+var maintimeout;
+function mainThread(){
+  maintimeout= setInterval(() => {
+    grabUserDetailsFromDB();
+    document.getElementById("uname").innerHTML=localStorage.getItem("Username");
+    document.getElementById("fitPoints").innerHTML=localStorage.getItem("fitPoints");
+    document.getElementById("followingCount").innerHTML=localStorage.getItem("followingCount")+" Followings";
+    document.getElementById("followersCount").innerHTML=localStorage.getItem("followersCount")+" Followers";
+    
+    
+  }, 1000);
+}
+function grabUserDetailsFromDB(){
 firebase.auth().onAuthStateChanged(function(user) { //or use firebase.auth().currentUser;
 if (user) {
  // User is signed in.
  firebase.database().ref('Users/' + user.uid).once('value').then(function(snapshot) {
  email=user.email;
-  currentuse=user;
+  currentuser=user;
    LoginDetails=snapshot.val().LoginDetails;
    PhysicalDetails=snapshot.val().PhysicalDetails;
    OverallFocus=snapshot.val().OverallFocus;
@@ -51,6 +65,8 @@ if (user) {
         localStorage.setItem("CoverColor",ProfileCover.color);
         localStorage.setItem("CoverEffect",ProfileCover.effect);
 
+      
+
         if(document.getElementById("fitPoints").value==="")
         document.getElementById("fitPoints").innerHTML=Profile.Profile.FitPoint + "<sub>Fp</sub>";
         if(document.getElementById("followersCount").value==="")
@@ -58,11 +74,7 @@ if (user) {
         if(document.getElementById("followingCount").value==="")
         document.getElementById("followingCount").innerHTML=Profile.Profile.Following.length+" Following";
     });
-    document.getElementById("uname").innerHTML=localStorage.getItem("Username");
-document.getElementById("fitPoints").innerHTML=localStorage.getItem("fitPoints");
-document.getElementById("followingCount").innerHTML=localStorage.getItem("followingCount")+" Followings";
-document.getElementById("followersCount").innerHTML=localStorage.getItem("followersCount")+" Followers";
-
+    
     document.getElementById("signout").addEventListener("click",function () {
       logout();
       
@@ -72,9 +84,13 @@ document.getElementById("followersCount").innerHTML=localStorage.getItem("follow
   
 } else {
 // No user is signed in.
-window.location.replace("../../HTML/login2.html")
+window.location.replace("../../HTML/login2.html");
+clearInterval(maintimeout);
 }
-});jQuery(function ($) {
+
+});
+}
+jQuery(function ($) {
 
   // Dropdown menu
   $(".sidebar-dropdown > a").click(function () {

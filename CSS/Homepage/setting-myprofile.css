@@ -24,6 +24,7 @@
     box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.685);
     background-color: #8a8a8a;
     text-align: center;
+    object-fit: cover;
     
 }
 
@@ -52,7 +53,7 @@
   background-image: url(../../Resources/Backgrounds/stars.jpg);
   background-blend-mode: color-dodge;
   
-  
+  background-size: cover;
   background-color: #1E2328;
   padding: 25px;
   color: whitesmoke;
@@ -357,11 +358,29 @@ width: 50%;
   
   background-image: url(../../Resources/Backgrounds/stars.jpg) }
 .imgsettings .theme.bg2 {
-  background-image: url(../../img/bg1.jpg) }
+  background-image: url(../../Resources/Backgrounds/15002.jpg) }
 .imgsettings .theme.bg3 {
-  background-image: url(../../img/bg3.jpg) }
+  background-image: url(../../Resources/Backgrounds/Abstract-Multicolor-Patterns.jpg) }
   .imgsettings .theme.bg4 {
-    background-image: url(../../img/bg4.jpg) }
+    background-image: url(../../Resources/Backgrounds/hex-cover.png) }
+    .imgsettings .theme.bg4 {
+      background-image: url(../../Resources/Backgrounds/wooman-runner-geting-ready.jpg) }
+      .imgsettings .theme.bg5 {
+        background-image: url(../../Resources/Backgrounds/3-cover-letter-keys.jpg) }
+        .imgsettings .theme.bg6 {
+          background-image: url(../../Resources/Backgrounds/abstract2.jpg) }
+          .imgsettings .theme.bg7 {
+            background-image: url(../../Resources/Backgrounds/abstract-art-blur-1455986.jpg) }
+            .imgsettings .theme.bg8 {
+              background-image: url(../../Resources/Backgrounds/cards-cover.gif.6d2812d119af26877c7e7a26a6cef57f.gif) }
+              .imgsettings .theme.bg9 {
+                background-image: url(../../Resources/Backgrounds/lscape-blur.jpg) }
+                .imgsettings .theme.bg10 {
+                  background-image: url(../../Resources/Backgrounds/nature-design.jpg) }
+                  .imgsettings .theme.bg11 {
+                    background-image: url(../../Resources/Backgrounds/bball.jpeg) }
+                    .imgsettings .theme.bg11 {
+                      background-image: url(../../Resources/Backgrounds/fball.jpg) }
     .imgsettings .theme.bgAdd {
       background-image: url(../../Resources/icons/camera-ic.png);
       background-size: cover;

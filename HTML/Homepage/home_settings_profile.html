@@ -14,8 +14,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
     integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <!-- using online links -->
+   <!-- Compiled and minified CSS -->
+  !-- using online links -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
@@ -660,11 +660,11 @@
                     </label>
                     <label>
                       <input type="radio" name="imgs" />
-                      <span class="theme bg11 box2"></span>
+                      <span class="theme bg12 box2"></span>
                     </label>
                     <label>
                       <input type="radio" name="imgs" />
-                      <span class="theme bg12 box2"></span>
+                      <span class="theme bg11 box2"></span>
                     </label>
                     <label>
                       <input type="radio" name="imgs" />
@@ -775,15 +775,15 @@
 
             </div>
             <div class="form-group col-md-12 center">
-              <span class="settings username"></span> • <img src="../../Resources/logos/fitpoint.png"
+              <span class="settings username"></span> | <span id=fpoints></span><img src="../../Resources/logos/fitpoint.png"
                 style="object-fit: cover;height: 30px;width: 30px" alt="" srcset=""><span class="settings fp"></span>
             </div>
             <div class="form-group col-md-12 center">
               <a id="toggle-sidebar" class="btn btn-dark" href="#">
-                <span>Followers</span>
+                <span id="follows"></span> <span>Followers</span>
               </a>
               <a id="pin-sidebar" class="btn btn-dark" href="#">
-                <span>Followings</span>
+                <span id=follow> </span> <span>Followings</span>
               </a>
 
             </div>
@@ -793,11 +793,39 @@
             </button>
           </div>
         </div>
+        
           <hr>
           <div class="row">
-              <div class="form-group col-md-12">
-                  <h3>Themes</h3>
-                  <p>Here are more themes that you can use</p>
+              <div class="form-group col-md-12 basic-info">
+                  <h3>Basic Information</h3>
+                  <div class="form-group col-md-12">
+                    <div class="form-group col-md-12 p1 " style="">
+                    
+                        <div class="form-group col-md-12 fname-Normal">
+                          <span class="edit e-fname"><i class="fa fa-edit"> First Name: <span class="fname1"></span></i></span>
+                        </div>
+                        <div class="form-group col-md-12 fname-Edit">
+                          <div class="group">
+                              <span id="close-fn"><i class="fas fa-close edit"></i></span>
+                            <input id="new-fn" type="text" placeholder="My First Name is.."/><span class="highlight"></span><span class="bar"></span>
+                              <span id="save-fn"><i class="fas fa-save edit"></i></span>
+                          </div>
+                        </div>
+
+                        <div class="form-group col-md-12 lname-Normal">
+                          <span class="edit e-lname"><i class="fa fa-edit"> Last Name: <span class="lname1"></span></i></span>
+                        </div>
+                        <div class="form-group col-md-12 lname-Edit">
+                          <div class="group">
+                              <span id="close-ln"><i class="fas fa-close edit"></i></span>
+                            <input id="new-ln" type="text" placeholder="My Last Name is.."/><span class="highlight"></span><span class="bar"></span>
+                            <span id="save-ln"><i class="fas fa-save edit"></i></span>
+                          </div>
+                        </div>
+
+                      
+                    </div>
+                  </div>
               </div>
           </div>
   
@@ -894,6 +922,7 @@
   <script src="https://malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
   <script src="../../JS/Home/main.js"></script>
   <script src="../../JS/Home/settings-profile.js"></script>
+   <!-- Compiled and minified JavaScript -->
 
 </body>
 

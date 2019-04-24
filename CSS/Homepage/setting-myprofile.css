@@ -27,6 +27,17 @@
     object-fit: cover;
     
 }
+.basic-info{
+
+}
+.edit{
+  padding: 22px;
+  color: rgb(54, 55, 56)
+}
+.edit:hover{
+  color:rgb(0, 0, 0);
+  cursor: pointer;
+}
 
 .coverSample{
   width: 100%;
@@ -379,7 +390,7 @@ width: 50%;
                   background-image: url(../../Resources/Backgrounds/nature-design.jpg) }
                   .imgsettings .theme.bg11 {
                     background-image: url(../../Resources/Backgrounds/bball.jpeg) }
-                    .imgsettings .theme.bg11 {
+                    .imgsettings .theme.bg12 {
                       background-image: url(../../Resources/Backgrounds/fball.jpg) }
     .imgsettings .theme.bgAdd {
       background-image: url(../../Resources/icons/camera-ic.png);

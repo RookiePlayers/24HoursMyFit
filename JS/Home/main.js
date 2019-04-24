@@ -65,7 +65,11 @@ if (user) {
         localStorage.setItem("CoverColor",ProfileCover.color);
         localStorage.setItem("CoverEffect",ProfileCover.effect);
 
-      
+        localStorage.setItem("fname",UserInformation.UserDetails.firstName);
+        localStorage.setItem("lname",UserInformation.UserDetails.lastName);
+        localStorage.setItem("gender",UserInformation.UserDetails.gender);
+        localStorage.setItem("dob",UserInformation.UserDetails.dob);
+        
 
         if(document.getElementById("fitPoints").value==="")
         document.getElementById("fitPoints").innerHTML=Profile.Profile.FitPoint + "<sub>Fp</sub>";

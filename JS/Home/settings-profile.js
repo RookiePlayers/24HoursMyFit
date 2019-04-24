@@ -2,6 +2,63 @@
 /** HANDLE PROFILE PICTURE */
 initEffect();
 loadCover();
+$(".fname-Edit").hide();
+$(".lname-Edit").hide();
+document.getElementsByClassName("username")[0].innerHTML=(localStorage.getItem("Username"));
+document.getElementById("fpoints").innerHTML=(localStorage.getItem("fitPoints"));
+document.getElementById("follow").innerHTML=(localStorage.getItem("followersCount"));
+document.getElementById("follows").innerHTML=(localStorage.getItem("followingCount"));
+document.getElementsByClassName("fname1")[0].innerHTML=localStorage.getItem("fname");
+document.getElementsByClassName("lname1")[0].innerHTML=localStorage.getItem("lname");
+
+$(".e-fname").on("click",()=>{
+    $(".fname-Normal").hide();
+    $(".fname-Edit").show();
+})
+
+$(".e-lname").on("click",()=>{
+    $(".lname-Normal").hide();
+    $(".lname-Edit").show();
+})
+
+
+$("#close-fn").on("click",()=>{
+    $(".fname-Normal").show();
+    $(".fname-Edit").hide();
+})
+
+$("#close-ln").on("click",()=>{
+    $(".lname-Normal").show();
+    $(".lname-Edit").hide();
+})
+
+$("#save-fn").on("click",()=>{
+    var s=$("#new-fn").val();
+    if(s!=""||s!=null)
+    {
+
+        firebase.database().ref('Users/' + currentuser.uid+"/LoginDetails/firstName").set(s);
+        document.getElementsByClassName("fname")[0].innerHTML=s
+
+    }
+    $(".fname-Normal").show();
+    $(".fname-Edit").hide();
+})
+    
+$("#save-ln").on("click",()=>{
+    var s=$("#new-ln");
+    if(s!="")
+    {
+
+        firebase.database().ref('Users/' + currentuser.uid+"/LoginDetails/lastName").set(s);
+        document.getElementsByClassName("lname")[0].innerHTML=s
+
+    }
+    $(".lname-Normal").show();
+    $(".lname-Edit").hide();
+})
+    
+
 $(".progress").hide();
 $(".success-checkmark2").hide();
 var imgurl,coverurl="";
@@ -509,40 +566,40 @@ function getimgCode(){
                     return ""
                    }
             case 1:{
-                     return "../../Resources/Backgrounds/stars.jpg";
+                     return "https://firebasestorage.googleapis.com/v0/b/hours-db878.appspot.com/o/myFit%2FBackground_Images%2Fstars.jpg?alt=media&token=77233c38-b585-4a61-907f-c7876228eb4e";
                 }
                 case 2:{
-                    return  "../../Resources/Backgrounds/15002.jpg";
+                    return  "https://firebasestorage.googleapis.com/v0/b/hours-db878.appspot.com/o/myFit%2FBackground_Images%2F15002.jpg?alt=media&token=4374eec1-7b38-41c6-9a5a-cfdc9c4fda83";
                }
                case 3:{
-                    return  "../../Resources/Backgrounds/Abstract-Multicolor-Patterns.jpg";
+                    return  "https://firebasestorage.googleapis.com/v0/b/hours-db878.appspot.com/o/myFit%2FBackground_Images%2FAbstract-Multicolor-Patterns.jpg?alt=media&token=444f9246-6a60-4e5a-90f6-2933e71f1e00";
                 }
                 case 4:{
-                    return  "../../Resources/Backgrounds/hex-cover.png";
+                    return  "https://firebasestorage.googleapis.com/v0/b/hours-db878.appspot.com/o/myFit%2FBackground_Images%2Fwooman-runner-geting-ready.jpg?alt=media&token=ef3c6fbb-d2d5-4e87-bef4-d651bbe83ad4";
                }
                case 5:{
-                   return  "../../Resources/Backgrounds/hex-cover.png";
+                   return  "https://firebasestorage.googleapis.com/v0/b/hours-db878.appspot.com/o/myFit%2FBackground_Images%2F3-cover-letter-keys.jpg?alt=media&token=344a1e24-ba8f-41d6-8801-59d086f9260c";
               }
               case 6:{
-                  return  "../../Resources/Backgrounds/hex-cover.png";
+                  return  "https://firebasestorage.googleapis.com/v0/b/hours-db878.appspot.com/o/myFit%2FBackground_Images%2Fabstract2.jpg?alt=media&token=a79f1431-1d28-47bf-8489-8998ec3924b7";
              }
              case 7:{
-                 return  "../../Resources/Backgrounds/hex-cover.png";
+                 return  "https://firebasestorage.googleapis.com/v0/b/hours-db878.appspot.com/o/myFit%2FBackground_Images%2Fabstract-art-blur-1455986.jpg?alt=media&token=ac072d1a-ef5b-4f0d-8bf4-6e2a43b4ac99";
             }
             case 8:{
-                return  "../../Resources/Backgrounds/hex-cover.png";
+                return  "https://firebasestorage.googleapis.com/v0/b/hours-db878.appspot.com/o/myFit%2FBackground_Images%2Fcards-cover.gif.6d2812d119af26877c7e7a26a6cef57f.gif?alt=media&token=ccb60909-c868-4823-b31e-cd22e9b68168";
            }
            case 9:{
-               return  "../../Resources/Backgrounds/hex-cover.png";
+               return  "https://firebasestorage.googleapis.com/v0/b/hours-db878.appspot.com/o/myFit%2FBackground_Images%2Flscape-blur.jpg?alt=media&token=347e2124-a6d2-4318-b77b-e268eb845b25";
           }
           case 10:{
-              return  "../../Resources/Backgrounds/hex-cover.png";
+              return  "https://firebasestorage.googleapis.com/v0/b/hours-db878.appspot.com/o/myFit%2FBackground_Images%2Fcards-cover.gif.6d2812d119af26877c7e7a26a6cef57f.gif?alt=media&token=ccb60909-c868-4823-b31e-cd22e9b68168";
          }
          case 11:{
-             return  "../../Resources/Backgrounds/hex-cover.png";
+             return  "https://firebasestorage.googleapis.com/v0/b/hours-db878.appspot.com/o/myFit%2FBackground_Images%2Ffball.jpg?alt=media&token=30697acb-2ea0-44fa-9b77-9d889139c3c4";
         }
         case 12:{
-            return  "../../Resources/Backgrounds/hex-cover.png";
+            return  "https://firebasestorage.googleapis.com/v0/b/hours-db878.appspot.com/o/myFit%2FBackground_Images%2Fbball.jpeg?alt=media&token=7b332cb4-3793-48b8-aee9-c6ea6966a07e";
        }
 
                case 13:{
@@ -611,10 +668,22 @@ return null;
 }
     $("#saveCover").on("click",function () {
         var imgfile;
-        if(generatedImg.includes("../../Resources/"))
-        imgfile=saveImg();
+        if(generatedImg.includes("https://"))
+       {
+           coverurl=generatedImg;
+        
+           $('#saveCover').removeClass("btn-primary")
+           $('#closeCover').removeClass("btn-secondary")
+           $('#closeCover').addClass("btn-primary")
+           $('#saveCover').addClass("btn-secondary")
+           $("#saveCover").attr("disabled", true);
+     }
         else imgfile=myfile;
+
+        console.log("file: "+imgfile);
+        
         //show progress
+
         //upload to firebase
         firebase.auth().onAuthStateChanged(function (user) { //or use firebase.auth().currentUser;
             if (user) {

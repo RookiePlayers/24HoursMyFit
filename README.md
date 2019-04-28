@@ -7,7 +7,7 @@ If you are looking for a version built with angular, then you should checkout th
 
 ## Demo
 
-[See it live](https://azouaoui-med.github.io/pro-sidebar-template/src)
+[See it live](https://localhost:8080/HTML/Homepage/home.html)
 
 ## Screenshot
 
@@ -21,7 +21,7 @@ npm install
 npm start
 ```
 
- Server runs on http://localhost:3000
+ Server runs on http://localhost:8080
 
 ## Resources
 *   [Bootstrap](https://getbootstrap.com/)

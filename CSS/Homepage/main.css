@@ -612,3 +612,6 @@ body {
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
 }
+.search-menu{
+  color:"#22ff16";
+}

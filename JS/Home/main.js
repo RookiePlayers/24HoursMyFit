@@ -5,7 +5,13 @@ var OverallFocus={};
 var UserDetail={};
 var ProfileCover={};
 var Achievements={}
-
+var UserTheme={
+  //PrimaryColor:
+  //SecondaryColor:
+  //AccentColor:
+  //Font
+  //..
+}
 var Gallery={}
 var Profile={}
 var email="";
@@ -14,6 +20,7 @@ document.getElementById("uname").innerHTML="";
 document.getElementById("fitPoints").innerHTML="";
 document.getElementById("followingCount").innerHTML="";
 document.getElementById("followersCount").innerHTML="";
+$(".user-theme-accent").css("color",localStorage.getItem("Username"));
 mainThread();
 var maintimeout;
 function mainThread(){
@@ -70,6 +77,12 @@ if (user) {
         localStorage.setItem("gender",UserInformation.UserDetails.gender);
         localStorage.setItem("dob",UserInformation.UserDetails.dob);
         
+        UserTheme=Profile.Profile.myTheme;
+        console.log(UserTheme);
+        
+        $(".user-theme-accent").css("color",UserTheme.Accent);
+        localStorage.setItem("theme-accent",UserTheme.Accent);
+      
 
         if(document.getElementById("fitPoints").value==="")
         document.getElementById("fitPoints").innerHTML=Profile.Profile.FitPoint + "<sub>Fp</sub>";
